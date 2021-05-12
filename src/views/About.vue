@@ -1,5 +1,18 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+    about
+  </div>    
+  <bottom msg="Welcome to Your Vue.js App"/>
 </template>
+
+<script>
+// @ is an alias to /src
+import bottom from '@/components/bottom.vue'
+
+export default {
+  name: 'About',
+  components: {
+    bottom
+  }
+}
+</script>
