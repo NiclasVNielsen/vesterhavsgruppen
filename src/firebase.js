@@ -15,43 +15,43 @@ var config = {
 
   const db = firebaseApp.firestore()
   // Lav en af dem her efter vær collection!
-  const projectCollection = db.collection('projects')
+  const usersCollection = db.collection('users')
 
 
 
   // Create
-  export const createProject = project => {
-      return projectCollection.add(project)
+  export const createUser = user => {
+      return usersCollection.add(user)
   }
 
   // select single Read
-  export const getProject = async id => {
-    const project = await projectCollection.doc(id).get()
-    return project.exists ? project.data() : null
+  export const getUser = async id => {
+    const user = await usersCollection.doc(id).get()
+    return user.exists ? user.data() : null
   }
 
   // Update
-  export const updateProject = (id, project) => {
-      return projectCollection.doc(id).update(project)
+  export const updateUser = (id, user) => {
+      return usersCollection.doc(id).update(user)
   }
 
   // Delete
-  export const deleteProject = id => {
-      return projectCollection.doc(id).delete()
+  export const deleteUser = id => {
+      return usersCollection.doc(id).delete()
   }
 
   // mass Read
-  export const useLoadProjects = () => {
-      const projects = ref([])
+  export const useLoadUsers = () => {
+      const Users = ref([])
 
-      const close = projectCollection.onSnapshot(snapshot => {
-          projects.value = snapshot.docs.map(doc => ({
+      const close = usersCollection.onSnapshot(snapshot => {
+        Users.value = snapshot.docs.map(doc => ({
               id: doc.id,
               ...doc.data()
           }))
       })
       onUnmounted(close)
-      return projects
+      return Users
   }
 
 

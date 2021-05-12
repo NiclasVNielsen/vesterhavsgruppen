@@ -1,29 +1,27 @@
-40 lines (38 sloc)  934 Bytes
-  
 <template>
   <div class="card mt-4">
     <table class="table m-0">
       <thead>
         <tr>
           <th scope="col">Name</th>
-          <th scope="col">Task</th>
+          <th scope="col">Email</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="{ id, name, task } in projects" :key="id">
+        <tr v-for="{ id, name, email } in users" :key="id">
           <td>{{ name }}</td>
-          <td>{{ task }}</td>
+          <td>{{ email }}</td>
           <td>
             <!-- manually type action buttons -->
-            <!-- :to will redirect the user to the edit URL with the id set to the project we are iterating -->
+            <!-- :to will redirect the user to the edit URL with the id set to the user we are iterating -->
             <router-link :to="`/edit/${id}`">
               <button class="btn btn-primary btn-sm me-2">
                 Edit
               </button>
             </router-link>
-            <!-- use deleteProject and pass the id -->
-            <button class="btn btn-danger btn-sm" @click="deleteProject(id)">
+            <!-- use deleteUser and pass the id -->
+            <button class="btn btn-danger btn-sm" @click="deleteUser(id)">
               Delete
             </button>
              <!--  -->
@@ -36,13 +34,13 @@
 
 <script>
 // useload hook + delete import 
-import { useLoadProjects, deleteProject  } from '@/firebase.js'
+import { useLoadUsers, deleteUser  } from '@/firebase.js'
 
   export default {
     setup() {
-      const projects = useLoadProjects()
-        console.log("test ", projects)
-      return { projects, deleteProject }
+      const users = useLoadUsers()
+        console.log("test ", users)
+      return { users, deleteUser }
     } 
   }
 </script>
