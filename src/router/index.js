@@ -1,24 +1,27 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-import Edit from '../views/Edit.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import ('../views/Home.vue')
   },
   {
     path: '/about',
     name: 'About',
-    component: About
+    component: () => import ('../views/About.vue')
+  },
+  /* Login Auth */
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import ('../views/Login.vue')
   },
   /* CRUD Functions */
   {
     path: '/edit/:id',
     name: 'Edit',
-    component: Edit
+    component: () => import ('../views/Edit.vue')
   }
 ]
 
