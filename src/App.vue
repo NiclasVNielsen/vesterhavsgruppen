@@ -7,39 +7,25 @@
 </template>
 
 <script>
+import { onBeforeMount } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+import firebase from 'firebase'
+
 export default {
-  /* methods: {
+  setup() {
+    const router = useRouter()
+    const route = useRoute()
 
-  },
-  mounted: () => {
-    const header = document.getElementById('header');
-    const burger = document.getElementById('burgerbar');
-    const sidenav = document.getElementById('sidenav');
-
-    window.addEventListener('scroll', () => {
-      if(window.scrollY <= 0){
-        header.classList.remove('burger');
-        if(sidenav.classList == "on"){
-          sidenav.classList.remove('on')
-          burger.classList.remove('on')
-          burger.classList.add('off')
+    onBeforeMount(() => {
+      firebase.auth().onAuthStateChanged((user) => {
+        if(!user) {
+          router.replace('/login')
+        } else if (route.path == '/login'){
+          router.replace('/')
         }
-      }else{
-        header.classList.add('burger');
-      }
+      })
     })
-
-    let offCheck = 1;
-    burger.addEventListener('click', () => {
-      sidenav.classList.toggle('on')
-      burger.classList.toggle('on')
-      if(offCheck == 1){
-        offCheck = 0;
-      }else{
-        burger.classList.toggle('off')
-      }
-    })
-  }   */
+  }
 }
 </script>
 
