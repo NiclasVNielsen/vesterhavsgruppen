@@ -3,7 +3,7 @@
     <div class="calendar">
         Kalender
     </div>
-    <!-- <calendarCreate/> -->
+    <calendarCreate/>
     <calendarList/>
     <bottom msg="Welcome to Your Vue.js App"/>
 </template>
@@ -12,7 +12,7 @@
 // @ is an alias to /src
 import topping from '@/components/topping.vue'
 import bottom from '@/components/bottom.vue'
-/* import calendarCreate from '@/components/CalendarCreate.vue' */
+import calendarCreate from '@/components/CalendarCreate.vue'
 import calendarList from '@/components/CalendarList.vue'
 
 import firebase from 'firebase'
@@ -35,7 +35,7 @@ export default {
   components: {
     topping,
     bottom,
-    /* calendarCreate, */
+    calendarCreate,
     calendarList
   },
   methods: {

@@ -5,20 +5,44 @@
     </h3>
     <form @submit.prevent="update">
         <div>
-            <label for="name">
-                Name
-            </label>
-            <input v-model="form.name" type="text" required />
-        </div>
-        <div>
-            <label for="email">
-                Email
-            </label>
-            <input v-model="form.email" type="text" required />
-        </div>
-        <button type="submit">
-            Update
-        </button>
+        <label>Titel</label>
+        <input 
+          type="text" 
+          v-model="form.title"
+          required 
+        />
+      </div>
+
+      <div>
+        <label>Beskrivelse</label>
+        <input 
+          type="text"
+          v-model="form.desc"
+          required
+        />
+      </div>
+
+      <div>
+        <label>Fra</label>
+        <input 
+          type="date"
+          v-model="form.start"
+          required
+        />
+      </div>
+
+      <div>
+        <label>Til</label>
+        <input 
+          type="date"
+          v-model="form.end"
+          required
+        />
+      </div>
+
+      <button type="submit">
+        Update
+      </button>
     </form>
   </div>
 </template>
@@ -26,26 +50,30 @@
 <script>
     import { reactive, computed, onMounted } from 'vue'
     import { useRoute, useRouter } from 'vue-router'
-    import { getUser, updateUser } from '../main'
+    import { getCalendar, updateCalendar } from '../main'
 
     export default {
         setup() {
             const router = useRouter()
             const route = useRoute()
-            const userId = computed(() => route.params.id)
+            const calendarId = computed(() => route.params.id)
             onMounted(async () => {
-                const user = await getUser(userId.value)
-                form.name = user.name
-                form.email = user.email
+                const calendar = await getCalendar(calendarId.value)
+                form.title = calendar.title 
+                form.desc = calendar.desc
+                form.start = calendar.start
+                form.end = calendar.end
             })
 
-            const form = reactive({ name: '', email: '' })
+            const form = reactive({ title: '', desc: '', start: '', end: '' })
 
             const update = async () => {
-                await updateUser(userId.value, {...form})
-                router.push('/')
-                form.name = ''
-                form.email = ''
+                await updateCalendar(calendarId.value, {...form})
+                router.push('/calendar')
+                form.title = ''
+                form.desc = ''
+                form.start = ''
+                form.end = ''
             }
 
             return {form, update}
