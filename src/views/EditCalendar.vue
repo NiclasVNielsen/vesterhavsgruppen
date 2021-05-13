@@ -4,39 +4,42 @@
         Edit calendar
     </h3>
     <form @submit.prevent="update">
-        <div>
-        <label>Titel</label>
+      <div>
+        <label for="titel">Titel</label>
         <input 
           type="text" 
           v-model="form.title"
           required 
+          id="titel"
         />
       </div>
 
       <div>
-        <label>Beskrivelse</label>
-        <input 
+        <label for="desc">Beskrivelse</label>
+        <textarea 
           type="text"
           v-model="form.desc"
           required
+          id="desc"
         />
       </div>
 
       <div>
-        <label>Fra</label>
+        <label for="start">Dato</label>
         <input 
           type="date"
           v-model="form.start"
           required
+          id="start"
         />
       </div>
 
       <div>
-        <label>Til</label>
+        <label for="end">Til</label>
         <input 
           type="date"
           v-model="form.end"
-          required
+          id="end"
         />
       </div>
 

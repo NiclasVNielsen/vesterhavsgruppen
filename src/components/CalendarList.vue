@@ -5,7 +5,7 @@
         <tr>
           <th scope="col">Titel</th>
           <th scope="col">Beskrivelse</th>
-          <th scope="col">Fra</th>
+          <th scope="col">Den/Fra</th>
           <th scope="col">Til</th>
           <th scope="col">Action</th>
         </tr>
@@ -15,7 +15,8 @@
           <td>{{ title }}</td>
           <td>{{ desc }}</td>
           <td>{{ start }}</td>
-          <td>{{ end }}</td>
+          <td v-if="start != end">{{ end }}</td>
+          <td v-else></td>
           <td>
             <router-link :to="`/editCalendar/${id}`">
               <button class="btn btn-primary btn-sm me-2">
@@ -39,7 +40,6 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
   export default {
     setup() {
       const calendars = useLoadCalendars()
-      console.log(calendars);
       return { calendars, deleteCalendar }
     } 
   }

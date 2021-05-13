@@ -39,7 +39,6 @@ import { useLoadUsers, deleteUser  } from '@/main.js'
   export default {
     setup() {
       const users = useLoadUsers()
-      console.log(users);
       return { users, deleteUser }
     } 
   }

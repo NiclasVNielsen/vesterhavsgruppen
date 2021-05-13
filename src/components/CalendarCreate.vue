@@ -3,38 +3,41 @@
     <!-- using @submit as a click function - add prevent to stop from refreshing page -->
     <form @submit.prevent="onSubmit">    
       <div>
-        <label>Titel</label>
+        <label for="titel">Titel</label>
         <input 
           type="text" 
           v-model="form.title"
           required 
+          id="titel"
         />
       </div>
 
       <div>
-        <label>Beskrivelse</label>
-        <input 
+        <label for="desc">Beskrivelse</label>
+        <textarea 
           type="text"
           v-model="form.desc"
           required
+          id="desc"
         />
       </div>
 
       <div>
-        <label>Fra</label>
+        <label for="start">Dato</label>
         <input 
           type="date"
           v-model="form.start"
           required
+          id="start"
         />
       </div>
 
       <div>
-        <label>Til</label>
+        <label for="end">Til</label>
         <input 
           type="date"
           v-model="form.end"
-          required
+          id="end"
         />
       </div>
 
@@ -59,9 +62,10 @@ import { createCalendar } from '@/main.js' // maybe this make error
      })
 
      const onSubmit = async () => {
-       // spread operator to add field + invoking our createUser function from firebase.js
+       if(form.end == ''){
+         form.end = form.start
+       }
        await createCalendar({ ...form }) 
-       // after create - empty input field
        form.title = ''
        form.desc = ''
        form.start = ''
