@@ -45,13 +45,6 @@
 
       <hr>
 
-      <!-- <div v-for="index in timeAttachments" :key="index">
-        <label :for="'day' + index + 'start'"></label>
-        <input type="text" :name="'day' + index + 'start'" :id="'day' + index + 'start'" placeholder="9:00">
-        <label :for="'day' + index + 'end'"></label>
-        <input type="text" :name="'day' + index + 'end'" :id="'day' + index + 'end'" placeholder="17:00">
-      </div> -->
-
       <div id="spawnDayAttachments">
 
       </div>
@@ -74,9 +67,9 @@ import { createCalendar } from '@/main.js'
 
       const spawnDayAttachments = () => {
         if(form.start != '' && form.end != ''){
-          console.log(dayCalc().amountOfDays)
           const x = dayCalc().amountOfDays
           const container = document.getElementById('spawnDayAttachments');
+          container.innerHTML=''
 
           /* 
             Ehhhmm jeg var igennem det meste af
@@ -88,7 +81,6 @@ import { createCalendar } from '@/main.js'
             end ikke at have en kalender
           */
           for(let i = 0; i < x; i++){
-            console.log(i)
             const subContainer = document.createElement('div')
             container.appendChild(subContainer)
             const start = document.createElement('input')
@@ -99,6 +91,11 @@ import { createCalendar } from '@/main.js'
             end.setAttribute('placeholder', '17:00')
             subContainer.appendChild(start)
             subContainer.appendChild(end)
+
+            /* Jeg skal kunne pille ved formObj her! */
+            formObj[`day${i+1}start`] = ''
+            formObj[`day${i+1}end`] = ''
+            console.log(form);
           }
           return{
             x
@@ -198,18 +195,21 @@ import { createCalendar } from '@/main.js'
         }
       }
 
-      const form = reactive({
+      const formObj = {
         title: '',
         desc: '',
         start: '',
         end: ''
-      })
+      }
+
+      const form = reactive(formObj)
+      
+      console.log(form);
 
       const onSubmit = async () => {
         if(form.end == ''){
           form.end = form.start
         }
-        console.log(dayCalc().amountOfDays)
         await createCalendar({ ...form }) 
         form.title = ''
         form.desc = ''
