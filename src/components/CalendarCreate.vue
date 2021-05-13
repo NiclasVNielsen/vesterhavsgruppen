@@ -43,6 +43,19 @@
         />
       </div>
 
+      <hr>
+
+      <!-- <div v-for="index in timeAttachments" :key="index">
+        <label :for="'day' + index + 'start'"></label>
+        <input type="text" :name="'day' + index + 'start'" :id="'day' + index + 'start'" placeholder="9:00">
+        <label :for="'day' + index + 'end'"></label>
+        <input type="text" :name="'day' + index + 'end'" :id="'day' + index + 'end'" placeholder="17:00">
+      </div> -->
+
+      <div id="spawnDayAttachments">
+
+      </div>
+
       <button type="submit">
         Create calendar
       </button>
@@ -62,6 +75,34 @@ import { createCalendar } from '@/main.js'
       const spawnDayAttachments = () => {
         if(form.start != '' && form.end != ''){
           console.log(dayCalc().amountOfDays)
+          const x = dayCalc().amountOfDays
+          const container = document.getElementById('spawnDayAttachments');
+
+          /* 
+            Ehhhmm jeg var igennem det meste af
+            internettet og ja det her var den
+            eneste måde jeg kom frem til...
+
+            Jeg ved godt det ikke er super
+            optimalt men hey det er bedre
+            end ikke at have en kalender
+          */
+          for(let i = 0; i < x; i++){
+            console.log(i)
+            const subContainer = document.createElement('div')
+            container.appendChild(subContainer)
+            const start = document.createElement('input')
+            const end = document.createElement('input')
+            start.setAttribute('name', `day${i+1}start`)
+            start.setAttribute('placeholder', '9:00')
+            end.setAttribute('name', `day${i+1}end`)
+            end.setAttribute('placeholder', '17:00')
+            subContainer.appendChild(start)
+            subContainer.appendChild(end)
+          }
+          return{
+            x
+          }
         }
       }
 
