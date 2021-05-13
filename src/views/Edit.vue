@@ -26,7 +26,7 @@
 <script>
     import { reactive, computed, onMounted } from 'vue'
     import { useRoute, useRouter } from 'vue-router'
-    import { getUser, updateUser } from '../firebase'
+    import { getUser, updateUser } from '../main'
 
     export default {
         setup() {
