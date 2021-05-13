@@ -3,9 +3,6 @@
     <div class="calendar">
         Kalender
     </div>
-    <br>
-    <button class="logout" @click="Logout">Logout</button>
-    <br>
     <!-- <userCreate/>
     <userList/> -->
     <bottom msg="Welcome to Your Vue.js App"/>
