@@ -21,6 +21,7 @@ var config = {
   const db = firebaseApp.firestore()
   // Lav en af dem her efter vær collection!
   const usersCollection = db.collection('users')
+  const calendarCollection = db.collection('calendar')
 
 
 
@@ -28,21 +29,32 @@ var config = {
   export const createUser = user => {
       return usersCollection.add(user)
   }
-
+  export const createCalendar = calendar => {
+      return calendarCollection.add(calendar)
+  }
   // select single Read
   export const getUser = async id => {
     const user = await usersCollection.doc(id).get()
     return user.exists ? user.data() : null
   }
-
+  export const getCalendar = async id => {
+    const calendar = await calendarCollection.doc(id).get()
+    return calendar.exists ? calendar.data() : null
+  }
   // Update
   export const updateUser = (id, user) => {
       return usersCollection.doc(id).update(user)
+  }
+  export const updateCalendar = (id, calendar) => {
+      return calendarCollection.doc(id).update(calendar)
   }
 
   // Delete
   export const deleteUser = id => {
       return usersCollection.doc(id).delete()
+  }
+  export const deleteCalendar = id => {
+      return calendarCollection.doc(id).delete()
   }
 
   // mass Read
@@ -57,6 +69,18 @@ var config = {
       })
       onUnmounted(close)
       return Users
+  }
+  export const useLoadCalendars = () => {
+      const Calendars = ref([])
+
+      const close = calendarCollection.onSnapshot(snapshot => {
+        Calendars.value = snapshot.docs.map(doc => ({
+              id: doc.id,
+              ...doc.data()
+          }))
+      })
+      onUnmounted(close)
+      return Calendars
   }
 
 
