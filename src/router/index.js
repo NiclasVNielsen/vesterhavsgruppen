@@ -11,6 +11,11 @@ const routes = [
     name: 'About',
     component: () => import ('../views/About.vue')
   },
+  {
+    path: '/calendar',
+    name: 'Calendar',
+    component: () => import ('../views/Calendar.vue')
+  },
   /* Login Auth */
   {
     path: '/login',
@@ -22,6 +27,11 @@ const routes = [
     path: '/edit/:id',
     name: 'Edit',
     component: () => import ('../views/Edit.vue')
+  },
+  {
+    path: '/editCalendar/:id',
+    name: 'EditCalendar',
+    component: () => import ('../views/EditCalendar.vue')
   }
 ]
 
