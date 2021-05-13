@@ -34,12 +34,11 @@
 
 <script>
 // useload hook + delete import 
-import { useLoadUsers, deleteUser  } from '@/firebase.js'
+import { useLoadUsers, deleteUser  } from '@/main.js'
 
   export default {
     setup() {
       const users = useLoadUsers()
-        console.log("test ", users)
       return { users, deleteUser }
     } 
   }

@@ -1,8 +1,4 @@
 <template>
-  <nav>
-    <router-link class="subtleLink" to="/">Forside</router-link>
-    <router-link class="subtleLink" to="/about">About</router-link>
-  </nav>
   <router-view/>
 </template>
 
@@ -17,7 +13,9 @@ export default {
     const route = useRoute()
 
     onBeforeMount(() => {
-      firebase.auth().onAuthStateChanged((user) => {
+      console.log('Auth is running Maybe even working')
+      firebase.auth()
+       firebase.auth().onAuthStateChanged((user) => {
         if(!user) {
           router.replace('/login')
         } else if (route.path == '/login'){

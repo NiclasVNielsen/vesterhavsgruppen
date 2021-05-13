@@ -29,7 +29,7 @@
 
 <script>
 import { reactive } from 'vue'
-import { createUser } from '@/firebase.js' // maybe this make error
+import { createUser } from '@/main.js' // maybe this make error
 
   export default {
    setup() {
