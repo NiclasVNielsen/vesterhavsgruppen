@@ -13,7 +13,6 @@ export default {
     const route = useRoute()
 
     onBeforeMount(() => {
-      console.log('Auth is running Maybe even working')
       firebase.auth()
        firebase.auth().onAuthStateChanged((user) => {
         if(!user) {

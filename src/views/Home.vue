@@ -21,11 +21,9 @@ import firebase from 'firebase'
 export default {
   setup() {
     const Logout = () => {
-      console.log('log out function')
       firebase
         .auth()
         .signOut()
-        .then(() => console.log('Signed out'))
         .catch(err => alert(err.message))
     }
 
