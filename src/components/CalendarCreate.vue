@@ -46,7 +46,7 @@
       <hr>
 
       <div id="spawnDayAttachments">
-
+        
       </div>
 
       <button type="submit">
@@ -77,7 +77,10 @@ import { createCalendar } from '@/main.js'
         inputsStart = []
         inputsEnd = []
 
-        if(form.start != '' && form.end != ''){
+        if(form.start != ''){
+          if(form.end == ''){
+            form.end = form.start
+          }
           /* 
             jeg kalder en der beregner
             hvor mange inputs der skal
@@ -122,12 +125,12 @@ import { createCalendar } from '@/main.js'
             start.setAttribute('name', `day${i+1}start`)
             start.setAttribute('placeholder', '9:00')
             start.setAttribute('type', 'time')
-            //start.setAttribute('value', '9:00')
+            start.setAttribute('value', '09:00')
             start.setAttribute('required', '')
             end.setAttribute('name', `day${i+1}end`)
             end.setAttribute('placeholder', '17:00')
             end.setAttribute('type', 'time')
-            //end.setAttribute('value', '17:00')
+            end.setAttribute('value', '17:00')
             end.setAttribute('required', '')
             subContainer.appendChild(start)
             subContainer.appendChild(end)
