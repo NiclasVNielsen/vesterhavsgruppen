@@ -62,7 +62,6 @@ import { createCalendar } from '@/main.js'
 
   export default {
     setup() {
-
       const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30];
       const monthLengthsLeap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30];
 
@@ -70,11 +69,31 @@ import { createCalendar } from '@/main.js'
       let inputsEnd = []
 
       const spawnDayAttachments = () => {
+        /* 
+          reseter de 2 arrays så de er tomme
+          selv i tilfælde af at functionen
+          har været kørt før
+        */
         inputsStart = []
         inputsEnd = []
 
         if(form.start != '' && form.end != ''){
+          /* 
+            jeg kalder en der beregner
+            hvor mange inputs der skal
+            skabes
+
+            baseret på mængden af dage
+            eventet forløber sig over
+          */
           const x = dayCalc().amountOfDays
+          
+          /* 
+            reseter containeren der indeholder
+            de dynamiske inputs så den er tom
+            selv i tilfælde af at functionen
+            har været kørt før
+          */
           const container = document.getElementById('spawnDayAttachments')
           container.innerHTML=''
 
@@ -89,23 +108,38 @@ import { createCalendar } from '@/main.js'
           */
 
           for(let i = 0; i < x; i++){
+            /* 
+              jeg opretter 2 input felter
+              1 til start tidspunkt og
+              1 til slut tidspunkt
+              for vær dag der i mellem
+              de 2 valgte datoer (+1)
+            */
             const subContainer = document.createElement('div')
             container.appendChild(subContainer)
             const start = document.createElement('input')
             const end = document.createElement('input')
             start.setAttribute('name', `day${i+1}start`)
             start.setAttribute('placeholder', '9:00')
+            //start.setAttribute('value', '9:00')
+            start.setAttribute('required', '')
             end.setAttribute('name', `day${i+1}end`)
             end.setAttribute('placeholder', '17:00')
+            //end.setAttribute('value', '17:00')
+            end.setAttribute('required', '')
             subContainer.appendChild(start)
             subContainer.appendChild(end)
 
+            /* 
+              jeg pusher de 2 inputs
+              ind i vær deres array
+              for at jeg nemt kan
+              få fat på dem senere
+              når jeg skal have fat
+              i deres value
+            */
             inputsStart.push(start)
             inputsEnd.push(end)
-
-            form[`day${i+1}start`] = ''
-            form[`day${i+1}end`] = ''
-            console.log(form)
           }
           return{
             x
@@ -114,14 +148,19 @@ import { createCalendar } from '@/main.js'
       }
 
       const getDynamicInputValues = () => {
+        /* 
+          jeg sætter value'en
+          fra mine dynamiske felter
+          over i form objectet
+        */
         for(let i = 0; i < inputsStart.length; i++){
           form[`day${i+1}start`] = inputsStart[i].value
           form[`day${i+1}end`] = inputsEnd[i].value
-        }
-        console.log(form)
+        } 
       }
 
       const clearForm = () => {
+        /* Reset hele formen */
         const container = document.getElementById('spawnDayAttachments')
         container.innerHTML=''
         const inputs = [
@@ -217,10 +256,30 @@ import { createCalendar } from '@/main.js'
 
         let start = form.start.split('-')
         let end = form.end.split('-')
-
+        /* 
+          Jeg kører start og slut
+          datoerne igennem yearCalc
+          som konvertere år og måneder
+          og dage sammen til at være
+          mængden af dage siden den
+          1. jan 2020
+        */
         start = yearCalc(start).amountOfDays;
         end = yearCalc(end).amountOfDays;
 
+        /* 
+          Jeg trækker startstidspunktet
+          fra sluttidspunktet for at
+          finde ud af hvor mange dage
+          eventet er over
+
+          jeg pluser med 1 da det ellers
+          ville give at et event fra den
+          1/1/20 til 1/1/20 vil vare 0
+          dage og på samme måde ville
+          alle andre tidsrum også have
+          1 dag for lidt
+        */
         const amountOfDays = end - start + 1;
         return {
           amountOfDays
@@ -236,16 +295,64 @@ import { createCalendar } from '@/main.js'
       
 
       const onSubmit = async () => {
+        /* 
+          vis man kun har udfyldt
+          start tidspunkt skal
+          den antage at eventet
+          kun varer en dag
+
+          så derfor sætter
+          jeg sluttidspunktet
+          til samme dag som
+          startstidspunktet
+        */
         if(form.end == ''){
           form.end = form.start
         }
+
+        //const removeTheseKeys = []
+
+        /* for(let i = 0; i < (Object.keys(form).length - 4); i++){
+          console.log('Ø')
+        } */
+        /* console.log(Object.keys(form))
+        console.log(removeTheseKeys) */
+
+
+        /* 
+          Jeg smider de dynamiske
+          inputfelter ind i form
+          objected og sender det
+          til firebase
+        */
         getDynamicInputValues()
         await createCalendar({ ...form }) 
+        /* 
+          Jeg reseter det
+          predefinerede form
+          felter
+
+          To be honest jeg
+          tror ikke de virker
+          da jeg lavede dem
+          hvar objectet reactive
+          vilke jeg var nød til
+          at ændre da jeg ikke
+          kunne finde ud af at
+          pushe dynamiske
+          inputs ind i den
+        */
         form.title = ''
         form.desc = ''
         form.start = ''
         form.end = ''
 
+        /* 
+          Jeg clear hele
+          formen så den er
+          klar til brug
+          igen
+        */
         clearForm()
       }
 
