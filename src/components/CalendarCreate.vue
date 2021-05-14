@@ -3,12 +3,12 @@
     <!-- using @submit as a click function - add prevent to stop from refreshing page -->
     <form @submit.prevent="onSubmit">    
       <div>
-        <label for="titel">Titel</label>
+        <label for="title">Titel</label>
         <input 
           type="text" 
           v-model="form.title"
           required 
-          id="titel"
+          id="title"
         />
       </div>
 
@@ -62,6 +62,7 @@ import { createCalendar } from '@/main.js'
 
   export default {
     setup() {
+
       const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30];
       const monthLengthsLeap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30];
 
@@ -80,7 +81,7 @@ import { createCalendar } from '@/main.js'
 
         if(form.start != '' && form.end != ''){
           const x = dayCalc().amountOfDays
-          const container = document.getElementById('spawnDayAttachments');
+          const container = document.getElementById('spawnDayAttachments')
           container.innerHTML=''
 
           /* 
@@ -126,6 +127,20 @@ import { createCalendar } from '@/main.js'
           form[`day${i+1}end`] = inputsEnd[i].value
         }
         console.log(form)
+      }
+
+      const clearForm = () => {
+        const container = document.getElementById('spawnDayAttachments')
+        container.innerHTML=''
+        const inputs = [
+          document.getElementById('title'), 
+          document.getElementById('desc'), 
+          document.getElementById('start'), 
+          document.getElementById('end')
+        ]
+        inputs.forEach(input => {
+          input.value = ''
+        });
       }
 
       const yearCalc = (time) => {
@@ -241,6 +256,8 @@ import { createCalendar } from '@/main.js'
         form.desc = ''
         form.start = ''
         form.end = ''
+
+        clearForm()
       }
 
       return { form, onSubmit, spawnDayAttachments }
