@@ -114,8 +114,6 @@ import { createCalendar } from '@/main.js'
             console.log(form)
             /* Jeg skal have value ud af inputsne og ind i 'form' */
           }
-          console.log(inputsStart)
-          console.log(inputsEnd)
           return{
             x
           }
@@ -123,11 +121,9 @@ import { createCalendar } from '@/main.js'
       }
 
       const getDynamicInputValues = () => {
-        for(let i = 0; i < inputsStart.length + 1; i++){
-          console.log(i)
-          console.log(inputsStart)
-          //form[`day${i+1}start`] = inputsStart[i].value
-          //form[`day${i+1}end`] = inputsEnd[i].value
+        for(let i = 0; i < inputsStart.length; i++){
+          form[`day${i+1}start`] = inputsStart[i].value
+          form[`day${i+1}end`] = inputsEnd[i].value
         }
         console.log(form)
       }
