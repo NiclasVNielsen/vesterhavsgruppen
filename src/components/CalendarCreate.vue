@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
+//import { reactive } from 'vue'
 import { createCalendar } from '@/main.js'
 
   export default {
@@ -65,7 +65,19 @@ import { createCalendar } from '@/main.js'
       const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30];
       const monthLengthsLeap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30];
 
+      let inputsStart = []
+      let inputsEnd = []
+
       const spawnDayAttachments = () => {
+        /* form = {
+          title: form.title,
+          desc: form.desc,
+          start: form.start,
+          end: form.end
+        } */
+        inputsStart = []
+        inputsEnd = []
+
         if(form.start != '' && form.end != ''){
           const x = dayCalc().amountOfDays
           const container = document.getElementById('spawnDayAttachments');
@@ -80,6 +92,7 @@ import { createCalendar } from '@/main.js'
             optimalt men hey det er bedre
             end ikke at have en kalender
           */
+
           for(let i = 0; i < x; i++){
             const subContainer = document.createElement('div')
             container.appendChild(subContainer)
@@ -92,15 +105,31 @@ import { createCalendar } from '@/main.js'
             subContainer.appendChild(start)
             subContainer.appendChild(end)
 
+            inputsStart.push(start)
+            inputsEnd.push(end)
+
             /* Jeg skal kunne pille ved formObj her! */
-            formObj[`day${i+1}start`] = ''
-            formObj[`day${i+1}end`] = ''
-            console.log(form);
+            form[`day${i+1}start`] = ''
+            form[`day${i+1}end`] = ''
+            console.log(form)
+            /* Jeg skal have value ud af inputsne og ind i 'form' */
           }
+          console.log(inputsStart)
+          console.log(inputsEnd)
           return{
             x
           }
         }
+      }
+
+      const getDynamicInputValues = () => {
+        for(let i = 0; i < inputsStart.length + 1; i++){
+          console.log(i)
+          console.log(inputsStart)
+          //form[`day${i+1}start`] = inputsStart[i].value
+          //form[`day${i+1}end`] = inputsEnd[i].value
+        }
+        console.log(form)
       }
 
       const yearCalc = (time) => {
@@ -195,21 +224,22 @@ import { createCalendar } from '@/main.js'
         }
       }
 
-      const formObj = {
+      let form = {
         title: '',
         desc: '',
         start: '',
         end: ''
       }
-
-      const form = reactive(formObj)
+      /* Ehm does form update when formObj update? */
+      //const form = reactive()
       
-      console.log(form);
 
       const onSubmit = async () => {
         if(form.end == ''){
           form.end = form.start
         }
+        /* Update dynamic inputs here */
+        getDynamicInputValues()
         await createCalendar({ ...form }) 
         form.title = ''
         form.desc = ''
