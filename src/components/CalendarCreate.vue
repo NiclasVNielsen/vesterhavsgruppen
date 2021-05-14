@@ -314,16 +314,7 @@ import { createCalendar } from '@/main.js'
         if(form.end == ''){
           form.end = form.start
         }
-
-        //const removeTheseKeys = []
-
-        /* for(let i = 0; i < (Object.keys(form).length - 4); i++){
-          console.log('Ø')
-        } */
-        /* console.log(Object.keys(form))
-        console.log(removeTheseKeys) */
-
-
+        
         /* 
           Jeg smider de dynamiske
           inputfelter ind i form
