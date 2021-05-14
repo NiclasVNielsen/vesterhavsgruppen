@@ -70,12 +70,6 @@ import { createCalendar } from '@/main.js'
       let inputsEnd = []
 
       const spawnDayAttachments = () => {
-        /* form = {
-          title: form.title,
-          desc: form.desc,
-          start: form.start,
-          end: form.end
-        } */
         inputsStart = []
         inputsEnd = []
 
@@ -109,11 +103,9 @@ import { createCalendar } from '@/main.js'
             inputsStart.push(start)
             inputsEnd.push(end)
 
-            /* Jeg skal kunne pille ved formObj her! */
             form[`day${i+1}start`] = ''
             form[`day${i+1}end`] = ''
             console.log(form)
-            /* Jeg skal have value ud af inputsne og ind i 'form' */
           }
           return{
             x
@@ -241,15 +233,12 @@ import { createCalendar } from '@/main.js'
         start: '',
         end: ''
       }
-      /* Ehm does form update when formObj update? */
-      //const form = reactive()
       
 
       const onSubmit = async () => {
         if(form.end == ''){
           form.end = form.start
         }
-        /* Update dynamic inputs here */
         getDynamicInputValues()
         await createCalendar({ ...form }) 
         form.title = ''
