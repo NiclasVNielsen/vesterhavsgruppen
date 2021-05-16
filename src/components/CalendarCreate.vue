@@ -3,12 +3,38 @@
     <!-- using @submit as a click function - add prevent to stop from refreshing page -->
     <form @submit.prevent="onSubmit">    
       <div>
+        <label for="group">Hold</label>
+        <select 
+          v-model="form.group"
+          required 
+          id="group"
+        >
+          <!-- Ehhhm de er vinged men jeg kan altid ændrer dem senere -->
+          <option value="1">Mini</option>
+          <option value="2">Jn</option>
+          <option value="3">Trop</option>
+          <option value="4">Klan</option>
+          <option value="5">Admin</option>
+        </select>
+      </div>
+
+      <div>
         <label for="title">Titel</label>
         <input 
           type="text" 
           v-model="form.title"
           required 
           id="title"
+        />
+      </div>
+
+      <div>
+        <label for="location">Lokation</label>
+        <input 
+          type="text"
+          v-model="form.location"
+          required
+          id="location"
         />
       </div>
 
@@ -172,7 +198,8 @@ import { createCalendar } from '@/main.js'
           document.getElementById('title'), 
           document.getElementById('desc'), 
           document.getElementById('start'), 
-          document.getElementById('end')
+          document.getElementById('end'),
+          document.getElementById('location')
         ]
         inputs.forEach(input => {
           input.value = ''
@@ -295,7 +322,9 @@ import { createCalendar } from '@/main.js'
         title: '',
         desc: '',
         start: '',
-        end: ''
+        end: '',
+        location: '',
+        group: ''
       }
       
 
@@ -342,6 +371,7 @@ import { createCalendar } from '@/main.js'
         form.desc = ''
         form.start = ''
         form.end = ''
+        form.location = ''
 
         /* 
           Jeg clear hele
