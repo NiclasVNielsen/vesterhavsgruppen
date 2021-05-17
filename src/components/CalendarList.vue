@@ -89,14 +89,6 @@ import { reactive } from 'vue'
 
       console.log(calendarItems)
 
-      let currentDisplayOfDates = []
-
-      window.addEventListener("load", function() {
-        //document.querySelector('.calendarTime')
-        
-        //console.log(document.querySelector('.calendarTime'))
-      });
-
       const theDays = ['man','tir','ons','tor','fre','lor','son']
       const theMonths = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec']
       const time = reactive({
@@ -135,6 +127,7 @@ import { reactive } from 'vue'
         updateCalendar()
       }
 
+      let currentDisplayOfDates = []
 
       const updateCalendar = () => {
         currentDisplayOfDates = []
@@ -190,6 +183,12 @@ import { reactive } from 'vue'
       }
 
       updateCalendar()
+
+      window.addEventListener("load", function() {
+        const slots = document.querySelectorAll('.calendarTime');
+        console.log(slots)
+
+      });
 
       return { calendars, calendarItems, deleteCalendar, time, month, year, weekBackward, weekForward }
     } 

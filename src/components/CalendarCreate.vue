@@ -197,7 +197,8 @@ import { createCalendar } from '@/main.js'
           let start = form.start.split('-')
           start = yearCalc(start).amountOfDays;
 
-          form[`day${i+1}date`] = dateCalc(start + i)
+          //form[`day${i+1}date`] = dateCalc(start + i)
+          form.dates.push(dateCalc(start + i))
         } 
       }
 
@@ -404,7 +405,8 @@ import { createCalendar } from '@/main.js'
         end: '',
         location: '',
         group: '',
-        days: ''
+        days: '',
+        dates: []
       }
       
 
@@ -452,6 +454,8 @@ import { createCalendar } from '@/main.js'
         form.start = ''
         form.end = ''
         form.location = ''
+        form.days = ''
+        form.dates = []
 
         /* 
           Jeg clear hele
