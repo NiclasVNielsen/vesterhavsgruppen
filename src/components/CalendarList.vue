@@ -86,6 +86,10 @@ import { reactive } from 'vue'
     setup() {
       const calendars = useLoadCalendars()
 
+      window.addEventListener("load", function() {
+        console.log(document.querySelector('.calendarTime'))
+      });
+
       const theDays = ['man','tir','ons','tor','fre','lor','son']
       const theMonths = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec']
       const time = reactive({
