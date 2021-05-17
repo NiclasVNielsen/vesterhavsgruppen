@@ -78,8 +78,6 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
         console.log(calendar)
       });
 
-      console.log(calendars._rawValue)
-      console.log(calendars._value)
       console.log(calendars)
 
       return { calendars, deleteCalendar }

@@ -193,7 +193,9 @@ import { createCalendar } from '@/main.js'
           form[`day${i+1}end`] = inputsEnd[i].value
           const x = inputsEnd[i].value.split(':')[0] - inputsStart[i].value.split(':')[0]
           form[`day${i+1}duration`] = x
-          console.log(x);
+          /* insert date here */
+          dateCalc(503)
+          //console.log(x);
         } 
       }
 
@@ -285,9 +287,69 @@ import { createCalendar } from '@/main.js'
         let x = ((year - 2020) * 365) + leapStuff;
 
         const amountOfDays = x + (month) + (time[2] - 0)
+        console.log(amountOfDays)
 
         return {
           amountOfDays
+        }
+      }
+
+      const dateCalc = (days) => {       
+
+        let years = 0
+        let leapyearstuff = 4
+        let remainingDays = days
+        let continueYearCalc = 1;
+
+        while(continueYearCalc == 1){
+          if(leapyearstuff == 4){
+            leapyearstuff = 0
+            if(remainingDays > 366){
+              years = years + 1
+              remainingDays = remainingDays - 366
+            }else{
+              continueYearCalc = 0
+            }
+          }else{
+            if(remainingDays > 365){
+              years = years + 1
+              remainingDays = remainingDays - 365
+            }else{
+              continueYearCalc = 0
+            }
+          }
+          leapyearstuff = leapyearstuff + 1
+          console.log(leapyearstuff)
+        }
+
+
+        let currentMonth = 1
+
+        if(years % 4 == 0){
+          for(let i = 0; i < monthLengthsLeap.length; i++){
+            if(remainingDays > monthLengthsLeap[i]){
+              remainingDays = remainingDays - monthLengthsLeap[i]
+              currentMonth = currentMonth + 1
+            }
+          }
+        }else{
+          for(let i = 0; i < monthLengths.length; i++){
+            if(remainingDays > monthLengths[i]){
+              remainingDays = remainingDays - monthLengths[i]
+              currentMonth = currentMonth + 1
+            }
+          }
+        }
+
+        console.log('years', years)
+        console.log('currentMonth', currentMonth)
+        console.log('remainingDays', remainingDays)
+
+
+        const date = 'date'
+
+        return {
+          date
         }
       }
 

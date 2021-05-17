@@ -62,7 +62,7 @@ export const useLoadUsers = () => {
     const Users = ref([])
 
     const close = usersCollection.onSnapshot(snapshot => {
-    Users.value = snapshot.docs.map(doc => ({
+        Users.value = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }))
@@ -74,7 +74,7 @@ export const useLoadCalendars = () => {
     const Calendars = ref([])
 
     const close = calendarCollection.onSnapshot(snapshot => {
-    Calendars.value = snapshot.docs.map(doc => ({
+        Calendars.value = snapshot.docs.map(doc => ({
             id: doc.id,
             ...doc.data()
         }))
