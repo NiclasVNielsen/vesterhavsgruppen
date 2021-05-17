@@ -38,9 +38,17 @@
         <option value="4">Klan</option>
         <option value="5">Admin</option>
       </select>
-      <span>
-        {{year.year}}
-      </span>
+      <div class="controls">
+        <span @click="weekBackward">
+          &lt;
+        </span>
+        <span @click="weekForward">
+          &gt;
+        </span>
+        <span>
+          {{year.year}}
+        </span>
+      </div>
       <table>
         <thead>
           <tr>
@@ -72,25 +80,15 @@
 <script>
 // useload hook + delete import 
 import { useLoadCalendars, deleteCalendar  } from '@/main.js'
+import { reactive } from 'vue'
 
   export default {
     setup() {
       const calendars = useLoadCalendars()
 
-      let currentDate = new Date()
-      /* 
-        .getDay() er baseret på den americanske
-        kalender hvor den første dag i ugen
-        er søndag så jeg skal konvertere den
-      */
-      let currentDay = currentDate.getDay() - 1
-      if(currentDay == -1){
-        currentDay = 6
-      }
-
       const theDays = ['man','tir','ons','tor','fre','lor','son']
       const theMonths = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec']
-      const time = {
+      const time = reactive({
         man: 'man',
         tir: 'tir',
         ons: 'ons',
@@ -98,8 +96,8 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
         fre: 'fre',
         lor: 'lor',
         son: 'son'
-      }
-      const month = {
+      })
+      const month = reactive({
         man: 'jan',
         tir: 'jan',
         ons: 'jan',
@@ -107,32 +105,59 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
         fre: 'jan',
         lor: 'jan',
         son: 'jan'
-      }
-      const year = {
+      })
+      const year = reactive({
         year: '2020'
-      }
-      
-      let forwards = 6 - currentDay
-      let tempDate = currentDate;
+      })
 
-      time[`${theDays[currentDay]}`] = currentDate.getDate()
-      month[`${theDays[currentDay]}`] = theMonths[currentDate.getMonth()]
-      year['year'] = currentDate.getFullYear()
+      let currentDate = new Date()
 
-      for(let i = 0; i < currentDay; i++){
-        tempDate.setDate(tempDate.getDate() - 1)
-        time[`${theDays[currentDay - (i + 1)]}`] = tempDate.getDate()
-        month[`${theDays[currentDay - (i + 1)]}`] = theMonths[tempDate.getMonth()]
-      }
-      tempDate.setDate(tempDate.getDate() + currentDay)
-
-      for(let i = 0; i < forwards; i++){
-        tempDate.setDate(tempDate.getDate() + 1)
-        time[`${theDays[currentDay + (i + 1)]}`] = tempDate.getDate()
-        month[`${theDays[currentDay + (i + 1)]}`] = theMonths[tempDate.getMonth()]
+      const weekBackward = () => {
+        currentDate = currentDate.setDate(currentDate.getDate() - 7)
+        currentDate = new Date(currentDate)
+        updateCalendar()
       }
 
-      return { calendars, deleteCalendar, time, month, year }
+      const weekForward = () => {
+        currentDate = currentDate.setDate(currentDate.getDate() + 7)
+        currentDate = new Date(currentDate)
+        updateCalendar()
+      }
+
+      const updateCalendar = () => {
+        /* 
+          .getDay() er baseret på den americanske
+          kalender hvor den første dag i ugen
+          er søndag så jeg skal konvertere den
+        */
+        let currentDay = currentDate.getDay() - 1
+        if(currentDay == -1){
+          currentDay = 6
+        }
+        
+        let forwards = 6 - currentDay
+        let tempDate = currentDate;
+  
+        time[`${theDays[currentDay]}`] = currentDate.getDate()
+        month[`${theDays[currentDay]}`] = theMonths[currentDate.getMonth()]
+        year['year'] = currentDate.getFullYear()
+  
+        for(let i = 0; i < currentDay; i++){
+          tempDate.setDate(tempDate.getDate() - 1)
+          time[`${theDays[currentDay - (i + 1)]}`] = tempDate.getDate()
+          month[`${theDays[currentDay - (i + 1)]}`] = theMonths[tempDate.getMonth()]
+        }
+        tempDate.setDate(tempDate.getDate() + currentDay)
+  
+        for(let i = 0; i < forwards; i++){
+          tempDate.setDate(tempDate.getDate() + 1)
+          time[`${theDays[currentDay + (i + 1)]}`] = tempDate.getDate()
+          month[`${theDays[currentDay + (i + 1)]}`] = theMonths[tempDate.getMonth()]
+        }
+      }
+      updateCalendar()
+
+      return { calendars, deleteCalendar, time, month, year, weekBackward, weekForward }
     } 
   }
 </script>
@@ -149,6 +174,18 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
     > select{
       height: 1.2em;
       width: 5em;
+      margin: .4em;
+    }
+    .controls{
+      float: right;
+      margin: .4em;
+      display: inline-flex;
+      span{
+        margin-left: .4em;
+        &:last-of-type{
+          margin-left: 1.4em;
+        }
+      }
     }
     table{
       width: 100%;
