@@ -346,7 +346,16 @@ import { createCalendar } from '@/main.js'
           }
         }
 
-        const date = `${remainingDays}:${currentMonth}:${years}`
+        const createDate = (number) => {
+          let x = `${number}`;
+          
+          if(x.length < 2){
+            x = `0${x}`
+          }
+          return x
+        }
+
+        const date = `${years + 2020}/${createDate(currentMonth)}/${createDate(remainingDays)}`
 
         return {
           date

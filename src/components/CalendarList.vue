@@ -63,13 +63,6 @@
         </thead>
         <tbody>
           <tr>
-            <div v-for="{ id, title, desc, start, end } in calendars" :key="id" class="calendarItem">
-              {{ id }}
-              {{ title }}
-              {{ desc }}
-              {{ start }}
-              {{ end }}
-            </div>
             <td class="calendarTime"></td>
             <td class="calendarTime"></td>
             <td class="calendarTime"></td>
@@ -86,14 +79,17 @@
 
 <script>
 // useload hook + delete import 
-import { useLoadCalendars, deleteCalendar  } from '@/main.js'
+import { useLoadCalendars, getCalendarItems, deleteCalendar  } from '@/main.js'
 import { reactive } from 'vue'
 
   export default {
     setup() {
       const calendars = useLoadCalendars()
+      const calendarItems = getCalendarItems()
 
-      console.log(calendars)
+      console.log(calendarItems)
+
+      let currentDisplayOfDates = []
 
       window.addEventListener("load", function() {
         //document.querySelector('.calendarTime')
@@ -139,7 +135,9 @@ import { reactive } from 'vue'
         updateCalendar()
       }
 
+
       const updateCalendar = () => {
+        currentDisplayOfDates = []
         /* 
           .getDay() er baseret på den americanske
           kalender hvor den første dag i ugen
@@ -156,11 +154,27 @@ import { reactive } from 'vue'
         time[`${theDays[currentDay]}`] = currentDate.getDate()
         month[`${theDays[currentDay]}`] = theMonths[currentDate.getMonth()]
         year['year'] = currentDate.getFullYear()
+
+        const createDate = (date) => {
+          let x = `${date.getDate()}`;
+          let y = `${date.getMonth() + 1}`;
+          let z = `${date.getFullYear()}`;
+          
+          if(x.length < 2){
+            x = `0${x}`
+          }if(y.length < 2){
+            y = `0${y}`
+          }
+          return `${z}/${y}/${x}`
+        }
+
+        currentDisplayOfDates.push(createDate(currentDate))
   
         for(let i = 0; i < currentDay; i++){
           tempDate.setDate(tempDate.getDate() - 1)
           time[`${theDays[currentDay - (i + 1)]}`] = tempDate.getDate()
           month[`${theDays[currentDay - (i + 1)]}`] = theMonths[tempDate.getMonth()]
+          currentDisplayOfDates.push(createDate(tempDate))
         }
         tempDate.setDate(tempDate.getDate() + currentDay)
   
@@ -168,11 +182,16 @@ import { reactive } from 'vue'
           tempDate.setDate(tempDate.getDate() + 1)
           time[`${theDays[currentDay + (i + 1)]}`] = tempDate.getDate()
           month[`${theDays[currentDay + (i + 1)]}`] = theMonths[tempDate.getMonth()]
+          currentDisplayOfDates.push(createDate(tempDate))
         }
+
+        currentDisplayOfDates.sort()
+        console.log(currentDisplayOfDates)
       }
+
       updateCalendar()
 
-      return { calendars, deleteCalendar, time, month, year, weekBackward, weekForward }
+      return { calendars, calendarItems, deleteCalendar, time, month, year, weekBackward, weekForward }
     } 
   }
 </script>
