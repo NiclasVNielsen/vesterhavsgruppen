@@ -74,11 +74,15 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
     setup() {
       const calendars = useLoadCalendars()
 
-      calendars._rawValue.forEach(calendar => {
+      const currentDate = new Date()
+      console.log(`${currentDate.getDate()}/${currentDate.getMonth()}/${currentDate.getFullYear()}`)
+      console.log(currentDate.getDay())
+
+      /* calendars._rawValue.forEach(calendar => {
         console.log(calendar)
       });
 
-      console.log(calendars)
+      console.log(calendars) */
 
       return { calendars, deleteCalendar }
     } 
