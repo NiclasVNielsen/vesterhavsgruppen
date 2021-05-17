@@ -38,6 +38,9 @@
         <option value="4">Klan</option>
         <option value="5">Admin</option>
       </select>
+      <span>
+        {{year.year}}
+      </span>
       <table>
         <thead>
           <tr>
@@ -84,11 +87,10 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
       if(currentDay == -1){
         currentDay = 6
       }
-      //console.log(`${currentDate.getDate()}/${currentDate.getMonth()}/${currentDate.getFullYear()}`)
 
       const theDays = ['man','tir','ons','tor','fre','lor','son']
       const theMonths = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec']
-      let time = {
+      const time = {
         man: 'man',
         tir: 'tir',
         ons: 'ons',
@@ -97,7 +99,7 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
         lor: 'lor',
         son: 'son'
       }
-      let month = {
+      const month = {
         man: 'jan',
         tir: 'jan',
         ons: 'jan',
@@ -106,12 +108,16 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
         lor: 'jan',
         son: 'jan'
       }
+      const year = {
+        year: '2020'
+      }
       
       let forwards = 6 - currentDay
       let tempDate = currentDate;
 
       time[`${theDays[currentDay]}`] = currentDate.getDate()
       month[`${theDays[currentDay]}`] = theMonths[currentDate.getMonth()]
+      year['year'] = currentDate.getFullYear()
 
       for(let i = 0; i < currentDay; i++){
         tempDate.setDate(tempDate.getDate() - 1)
@@ -126,7 +132,7 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
         month[`${theDays[currentDay + (i + 1)]}`] = theMonths[tempDate.getMonth()]
       }
 
-      return { calendars, deleteCalendar, time, month }
+      return { calendars, deleteCalendar, time, month, year }
     } 
   }
 </script>
