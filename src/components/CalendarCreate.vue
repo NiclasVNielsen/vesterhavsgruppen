@@ -191,6 +191,9 @@ import { createCalendar } from '@/main.js'
         for(let i = 0; i < inputsStart.length; i++){
           form[`day${i+1}start`] = inputsStart[i].value
           form[`day${i+1}end`] = inputsEnd[i].value
+          const x = inputsEnd[i].value.split(':')[0] - inputsStart[i].value.split(':')[0]
+          form[`day${i+1}duration`] = x
+          console.log(x);
         } 
       }
 
@@ -317,6 +320,7 @@ import { createCalendar } from '@/main.js'
           1 dag for lidt
         */
         const amountOfDays = end - start + 1;
+        form.days = amountOfDays
         return {
           amountOfDays
         }
@@ -328,7 +332,8 @@ import { createCalendar } from '@/main.js'
         start: '',
         end: '',
         location: '',
-        group: ''
+        group: '',
+        days: ''
       }
       
 
