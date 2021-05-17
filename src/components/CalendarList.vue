@@ -181,7 +181,10 @@ import { reactive } from 'vue'
       margin: .4em;
       display: inline-flex;
       span{
-        margin-left: .4em;
+        &:first-of-type, &:nth-last-of-type(2){
+          margin-left: .4em;
+          cursor: pointer;
+        }
         &:last-of-type{
           margin-left: 1.4em;
         }
