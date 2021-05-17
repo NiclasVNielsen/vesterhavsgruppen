@@ -289,7 +289,6 @@ import { createCalendar } from '@/main.js'
         let x = ((year - 2020) * 365) + leapStuff;
 
         const amountOfDays = x + (month) + (time[2] - 0)
-        console.log(amountOfDays)
 
         return {
           amountOfDays
@@ -321,7 +320,6 @@ import { createCalendar } from '@/main.js'
             }
           }
           leapyearstuff = leapyearstuff + 1
-          console.log(leapyearstuff)
         }
 
 
@@ -339,7 +337,6 @@ import { createCalendar } from '@/main.js'
           }
         }else{
           for(let i = 0; i < stopIt; i++){
-            console.log(remainingDays, '>', monthLengths[i])
             if(remainingDays > monthLengths[i]){
               remainingDays = remainingDays - monthLengths[i]
               currentMonth = currentMonth + 1
@@ -350,7 +347,6 @@ import { createCalendar } from '@/main.js'
         }
 
         const date = `${remainingDays}:${currentMonth}:${years}`
-        console.log(date)
 
         return {
           date
