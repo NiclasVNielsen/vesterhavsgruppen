@@ -41,13 +41,13 @@
       <table>
         <thead>
           <tr>
-            <th class="calendarDate">Man <span></span></th>
-            <th class="calendarDate">Tir <span></span></th>
-            <th class="calendarDate">Ons <span></span></th>
-            <th class="calendarDate">Tor <span></span></th>
-            <th class="calendarDate">Fre <span></span></th>
-            <th class="calendarDate">Lør <span></span></th>
-            <th class="calendarDate">Søn <span></span></th>
+            <th class="calendarDate">Man <span>{{ time.man }}. {{ month.man }}</span></th>
+            <th class="calendarDate">Tir <span>{{ time.tir }}. {{ month.tir }}</span></th>
+            <th class="calendarDate">Ons <span>{{ time.ons }}. {{ month.ons }}</span></th>
+            <th class="calendarDate">Tor <span>{{ time.tor }}. {{ month.tor }}</span></th>
+            <th class="calendarDate">Fre <span>{{ time.fre }}. {{ month.fre }}</span></th>
+            <th class="calendarDate">Lør <span>{{ time.lor }}. {{ month.lor }}</span></th>
+            <th class="calendarDate">Søn <span>{{ time.son }}. {{ month.son }}</span></th>
           </tr>
         </thead>
         <tbody>
@@ -74,17 +74,59 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
     setup() {
       const calendars = useLoadCalendars()
 
-      const currentDate = new Date()
-      console.log(`${currentDate.getDate()}/${currentDate.getMonth()}/${currentDate.getFullYear()}`)
-      console.log(currentDate.getDay())
+      let currentDate = new Date()
+      /* 
+        .getDay() er baseret på den americanske
+        kalender hvor den første dag i ugen
+        er søndag så jeg skal konvertere den
+      */
+      let currentDay = currentDate.getDay() - 1
+      if(currentDay == -1){
+        currentDay = 6
+      }
+      //console.log(`${currentDate.getDate()}/${currentDate.getMonth()}/${currentDate.getFullYear()}`)
 
-      /* calendars._rawValue.forEach(calendar => {
-        console.log(calendar)
-      });
+      const theDays = ['man','tir','ons','tor','fre','lor','son']
+      const theMonths = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec']
+      let time = {
+        man: 'man',
+        tir: 'tir',
+        ons: 'ons',
+        tor: 'tor',
+        fre: 'fre',
+        lor: 'lor',
+        son: 'son'
+      }
+      let month = {
+        man: 'jan',
+        tir: 'jan',
+        ons: 'jan',
+        tor: 'jan',
+        fre: 'jan',
+        lor: 'jan',
+        son: 'jan'
+      }
+      
+      let forwards = 6 - currentDay
+      let tempDate = currentDate;
 
-      console.log(calendars) */
+      time[`${theDays[currentDay]}`] = currentDate.getDate()
+      month[`${theDays[currentDay]}`] = theMonths[currentDate.getMonth()]
 
-      return { calendars, deleteCalendar }
+      for(let i = 0; i < currentDay; i++){
+        tempDate.setDate(tempDate.getDate() - 1)
+        time[`${theDays[currentDay - (i + 1)]}`] = tempDate.getDate()
+        month[`${theDays[currentDay - (i + 1)]}`] = theMonths[tempDate.getMonth()]
+      }
+      tempDate.setDate(tempDate.getDate() + currentDay)
+
+      for(let i = 0; i < forwards; i++){
+        tempDate.setDate(tempDate.getDate() + 1)
+        time[`${theDays[currentDay + (i + 1)]}`] = tempDate.getDate()
+        month[`${theDays[currentDay + (i + 1)]}`] = theMonths[tempDate.getMonth()]
+      }
+
+      return { calendars, deleteCalendar, time, month }
     } 
   }
 </script>
@@ -96,7 +138,7 @@ import { useLoadCalendars, deleteCalendar  } from '@/main.js'
     box-sizing: border-box;
   }
   #calendar{
-    width: 70vh;
+    width: 90vh;
     border: solid 1px #000;
     > select{
       height: 1.2em;
