@@ -193,9 +193,11 @@ import { createCalendar } from '@/main.js'
           form[`day${i+1}end`] = inputsEnd[i].value
           const x = inputsEnd[i].value.split(':')[0] - inputsStart[i].value.split(':')[0]
           form[`day${i+1}duration`] = x
-          /* insert date here */
-          dateCalc(503)
-          //console.log(x);
+
+          let start = form.start.split('-')
+          start = yearCalc(start).amountOfDays;
+
+          form[`day${i+1}date`] = dateCalc(start + i)
         } 
       }
 
@@ -324,29 +326,31 @@ import { createCalendar } from '@/main.js'
 
 
         let currentMonth = 1
+        let stopIt = 12
 
         if(years % 4 == 0){
-          for(let i = 0; i < monthLengthsLeap.length; i++){
+          for(let i = 0; i < stopIt; i++){
             if(remainingDays > monthLengthsLeap[i]){
               remainingDays = remainingDays - monthLengthsLeap[i]
               currentMonth = currentMonth + 1
+            }else{
+              stopIt = 0
             }
           }
         }else{
-          for(let i = 0; i < monthLengths.length; i++){
+          for(let i = 0; i < stopIt; i++){
+            console.log(remainingDays, '>', monthLengths[i])
             if(remainingDays > monthLengths[i]){
               remainingDays = remainingDays - monthLengths[i]
               currentMonth = currentMonth + 1
+            }else{
+              stopIt = 0
             }
           }
         }
 
-        console.log('years', years)
-        console.log('currentMonth', currentMonth)
-        console.log('remainingDays', remainingDays)
-
-
-        const date = 'date'
+        const date = `${remainingDays}:${currentMonth}:${years}`
+        console.log(date)
 
         return {
           date
