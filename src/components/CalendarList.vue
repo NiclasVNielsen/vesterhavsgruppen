@@ -86,8 +86,10 @@ import { reactive } from 'vue'
     setup() {
       const calendars = useLoadCalendars()
       const calendarItems = getCalendarItems()
+      calendarItems.push('test')
 
       console.log(calendarItems)
+
 
       const theDays = ['man','tir','ons','tor','fre','lor','son']
       const theMonths = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec']
@@ -186,7 +188,29 @@ import { reactive } from 'vue'
 
       window.addEventListener("load", function() {
         const slots = document.querySelectorAll('.calendarTime');
-        console.log(slots)
+        //console.log(slots)
+
+        //console.log(calendarItems)
+
+        /* const createItem = (data) => {
+          console.log(data);
+        } */
+
+        console.log('-----------------')
+        slots.forEach(slot => { /* slots.forEach((slot, index) => { */
+          console.log(slot)
+          console.log(calendarItems)
+          console.log(calendarItems[0])
+          console.log(calendarItems.length)
+          calendarItems.forEach(item => {
+            console.log('calendarItems')
+            console.log(item)/* .dates.forEach(date => {
+              console.log(slot)
+              console.log(date)
+            }); */
+          });
+        });
+        console.log('-----------------') 
 
       });
 
