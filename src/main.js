@@ -75,7 +75,10 @@ export const useLoadCalendars = () => {
     calendarCollection.get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
             //console.log(doc.id, " => ", doc.data())
-            items.push(doc.data())
+            //doc.data()['id']=`${doc.id}`
+            const x = doc.data()
+            x['id'] = doc.id
+            items.push(x)
         })
     })
     return items
