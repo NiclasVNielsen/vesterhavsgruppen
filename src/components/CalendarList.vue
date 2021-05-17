@@ -63,6 +63,13 @@
         </thead>
         <tbody>
           <tr>
+            <div v-for="{ id, title, desc, start, end } in calendars" :key="id" class="calendarItem">
+              {{ id }}
+              {{ title }}
+              {{ desc }}
+              {{ start }}
+              {{ end }}
+            </div>
             <td class="calendarTime"></td>
             <td class="calendarTime"></td>
             <td class="calendarTime"></td>
@@ -86,8 +93,12 @@ import { reactive } from 'vue'
     setup() {
       const calendars = useLoadCalendars()
 
+      console.log(calendars)
+
       window.addEventListener("load", function() {
-        console.log(document.querySelector('.calendarTime'))
+        //document.querySelector('.calendarTime')
+        
+        //console.log(document.querySelector('.calendarTime'))
       });
 
       const theDays = ['man','tir','ons','tor','fre','lor','son']

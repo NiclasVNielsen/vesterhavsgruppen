@@ -71,7 +71,15 @@ export const useLoadUsers = () => {
     return Users
 }
 export const useLoadCalendars = () => {
-    const Calendars = ref([])
+    const items = []
+    calendarCollection.get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            //console.log(doc.id, " => ", doc.data())
+            items.push(doc.data())
+        })
+    })
+    return items
+    /* const Calendars = ref([])
 
     const close = calendarCollection.onSnapshot(snapshot => {
         Calendars.value = snapshot.docs.map(doc => ({
@@ -80,7 +88,7 @@ export const useLoadCalendars = () => {
         }))
     })
     onUnmounted(close)
-    return Calendars
+    return Calendars */
 }
 
 
