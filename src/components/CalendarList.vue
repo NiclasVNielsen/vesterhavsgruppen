@@ -63,13 +63,76 @@
         </thead>
         <tbody>
           <tr>
-            <td class="calendarTime"></td>
-            <td class="calendarTime"></td>
-            <td class="calendarTime"></td>
-            <td class="calendarTime"></td>
-            <td class="calendarTime"></td>
-            <td class="calendarTime"></td>
-            <td class="calendarTime"></td>
+            <td class="calendarTime">
+              <div v-for="{ id, title, dates } in calendars" :key="id">
+                <div v-for="{ date } in dates" :key="date">
+                  <div v-if="date == dayDate.man">
+                    {{ title }}
+                    Shrimpy
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="calendarTime">
+              <div v-for="{ id, title, dates } in calendars" :key="id">
+                <div v-for="{ date } in dates" :key="date">
+                  <div v-if="date == dayDate.tir">
+                    {{ title }}
+                    Shrimpy
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="calendarTime">
+              <div v-for="{ id, title, dates } in calendars" :key="id">
+                <div v-for="{ date } in dates" :key="date">
+                  <div v-if="date == dayDate.ons">
+                    {{ title }}
+                    Shrimpy
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="calendarTime">
+              <div v-for="{ id, title, dates } in calendars" :key="id">
+                <div v-for="{ date } in dates" :key="date">
+                  <div v-if="date == dayDate.tor">
+                    {{ title }}
+                    Shrimpy
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="calendarTime">
+              <div v-for="{ id, title, dates } in calendars" :key="id">
+                <div v-for="{ date } in dates" :key="date">
+                  <div v-if="date == dayDate.fre">
+                    {{ title }}
+                    Shrimpy
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="calendarTime">
+              <div v-for="{ id, title, dates } in calendars" :key="id">
+                <div v-for="{ date } in dates" :key="date">
+                  <div v-if="date == dayDate.lor">
+                    {{ title }}
+                    Shrimpy
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td class="calendarTime">
+              <div v-for="{ id, title, dates } in calendars" :key="id">
+                <div v-for="{ date } in dates" :key="date">
+                  <div v-if="date == dayDate.son">
+                    {{ title }}
+                    Shrimpy
+                  </div>
+                </div>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -86,13 +149,19 @@ import { reactive } from 'vue'
     setup() {
       const calendars = useLoadCalendars()
       const calendarItems = getCalendarItems()
-      calendarItems.push('test')
-
-      console.log(calendarItems)
 
 
       const theDays = ['man','tir','ons','tor','fre','lor','son']
       const theMonths = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec']
+      const dayDate = reactive({
+        man: `2020/01/01`,
+        tir: `2020/01/02`,
+        ons: `2020/01/03`,
+        tor: `2020/01/04`,
+        fre: `2020/01/05`,
+        lor: `2020/01/06`,
+        son: `2020/01/07`
+      })
       const time = reactive({
         man: 'man',
         tir: 'tir',
@@ -182,12 +251,16 @@ import { reactive } from 'vue'
 
         currentDisplayOfDates.sort()
         console.log(currentDisplayOfDates)
+        for(let i = 0; i < currentDisplayOfDates.length; i++){
+          dayDate[theDays[i]] = currentDisplayOfDates[i]
+        }
+        console.log('Shrimpys', dayDate);
       }
 
       updateCalendar()
 
-      window.addEventListener("load", function() {
-        const slots = document.querySelectorAll('.calendarTime');
+      /* window.addEventListener("load", function() {
+        //const slots = document.querySelectorAll('.calendarTime');
         //console.log(slots)
 
         //console.log(calendarItems)
@@ -196,8 +269,12 @@ import { reactive } from 'vue'
           console.log(data);
         } */
 
-        console.log('-----------------')
-        slots.forEach(slot => { /* slots.forEach((slot, index) => { */
+        /* for(let i = 0; i < calendarItems.length; i++){
+          console.log('Meep', calendarItems[i])
+        } */
+
+        /* console.log('-----------------')
+        slots.forEach(slot => { /* slots.forEach((slot, index) => { 
           console.log(slot)
           console.log(calendarItems)
           console.log(calendarItems[0])
@@ -207,14 +284,14 @@ import { reactive } from 'vue'
             console.log(item)/* .dates.forEach(date => {
               console.log(slot)
               console.log(date)
-            }); */
+            }); 
           });
         });
-        console.log('-----------------') 
+        console.log('-----------------')  
 
-      });
+      }); */
 
-      return { calendars, calendarItems, deleteCalendar, time, month, year, weekBackward, weekForward }
+      return { calendars, calendarItems, deleteCalendar, time, month, year, weekBackward, weekForward, dayDate }
     } 
   }
 </script>
@@ -226,7 +303,8 @@ import { reactive } from 'vue'
     box-sizing: border-box;
   }
   #calendar{
-    width: 90vh;
+    width: 800px;
+    max-width: 100%;
     border: solid 1px #000;
     > select{
       height: 1.2em;
