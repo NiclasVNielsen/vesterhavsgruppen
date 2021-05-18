@@ -64,13 +64,18 @@
         <tbody>
           <tr>
             <td class="calendarTime">
-              <div v-for="{ id, title, dates } in calendars" :key="id">
-                <div v-for="{ date } in dates" :key="date">
+              <!-- 
+                template elementer bliver ikke renderet på siden så når
+                jeg sætter en v-for på dem vil de ikke danne et parent
+                element til det jeg iterrere hend over
+               -->
+              <template v-for="{ id, title, dates } in calendars" :key="id">
+                <template v-for="{ date } in dates" :key="date">
                   <div v-if="date == dayDate.man">
                     {{ title }}
                   </div>
-                </div>
-              </div>
+                </template>
+              </template>
             </td>
             <td class="calendarTime">
               <div v-for="{ id, title, dates } in calendars" :key="id">
