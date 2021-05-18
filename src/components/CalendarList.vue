@@ -68,7 +68,6 @@
                 <div v-for="{ date } in dates" :key="date">
                   <div v-if="date == dayDate.man">
                     {{ title }}
-                    Shrimpy
                   </div>
                 </div>
               </div>
@@ -78,7 +77,6 @@
                 <div v-for="{ date } in dates" :key="date">
                   <div v-if="date == dayDate.tir">
                     {{ title }}
-                    Shrimpy
                   </div>
                 </div>
               </div>
@@ -88,7 +86,6 @@
                 <div v-for="{ date } in dates" :key="date">
                   <div v-if="date == dayDate.ons">
                     {{ title }}
-                    Shrimpy
                   </div>
                 </div>
               </div>
@@ -98,7 +95,6 @@
                 <div v-for="{ date } in dates" :key="date">
                   <div v-if="date == dayDate.tor">
                     {{ title }}
-                    Shrimpy
                   </div>
                 </div>
               </div>
@@ -108,27 +104,24 @@
                 <div v-for="{ date } in dates" :key="date">
                   <div v-if="date == dayDate.fre">
                     {{ title }}
-                    Shrimpy
                   </div>
                 </div>
               </div>
             </td>
             <td class="calendarTime">
-              <div v-for="{ id, title, dates } in calendars" :key="id">
-                <div v-for="{ date } in dates" :key="date">
+              <template v-for="{ id, title, dates } in calendars" :key="id">
+                <template v-for="{ date } in dates" :key="date">
                   <div v-if="date == dayDate.lor">
                     {{ title }}
-                    Shrimpy
                   </div>
-                </div>
-              </div>
+                </template>
+              </template>
             </td>
             <td class="calendarTime">
               <div v-for="{ id, title, dates } in calendars" :key="id">
                 <div v-for="{ date } in dates" :key="date">
                   <div v-if="date == dayDate.son">
                     {{ title }}
-                    Shrimpy
                   </div>
                 </div>
               </div>
@@ -250,46 +243,12 @@ import { reactive } from 'vue'
         }
 
         currentDisplayOfDates.sort()
-        console.log(currentDisplayOfDates)
         for(let i = 0; i < currentDisplayOfDates.length; i++){
           dayDate[theDays[i]] = currentDisplayOfDates[i]
         }
-        console.log('Shrimpys', dayDate);
       }
 
       updateCalendar()
-
-      /* window.addEventListener("load", function() {
-        //const slots = document.querySelectorAll('.calendarTime');
-        //console.log(slots)
-
-        //console.log(calendarItems)
-
-        /* const createItem = (data) => {
-          console.log(data);
-        } */
-
-        /* for(let i = 0; i < calendarItems.length; i++){
-          console.log('Meep', calendarItems[i])
-        } */
-
-        /* console.log('-----------------')
-        slots.forEach(slot => { /* slots.forEach((slot, index) => { 
-          console.log(slot)
-          console.log(calendarItems)
-          console.log(calendarItems[0])
-          console.log(calendarItems.length)
-          calendarItems.forEach(item => {
-            console.log('calendarItems')
-            console.log(item)/* .dates.forEach(date => {
-              console.log(slot)
-              console.log(date)
-            }); 
-          });
-        });
-        console.log('-----------------')  
-
-      }); */
 
       return { calendars, calendarItems, deleteCalendar, time, month, year, weekBackward, weekForward, dayDate }
     } 
