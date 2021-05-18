@@ -92,7 +92,6 @@ export const getCalendarItems = () => {
             items.push(x)
         })
     })
-    console.log('x', items)
     return items
     /* const Calendars = ref([])
 

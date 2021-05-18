@@ -192,7 +192,7 @@ import { createCalendar } from '@/main.js'
           form[`day${i+1}start`] = inputsStart[i].value
           form[`day${i+1}end`] = inputsEnd[i].value
           const x = inputsEnd[i].value.split(':')[0] - inputsStart[i].value.split(':')[0]
-          form[`day${i+1}duration`] = x
+          form.durations.push(x)
 
           let start = form.start.split('-')
           start = yearCalc(start).amountOfDays;
@@ -406,7 +406,8 @@ import { createCalendar } from '@/main.js'
         location: '',
         group: '',
         days: '',
-        dates: []
+        dates: [],
+        durations: []
       }
       
 
@@ -456,6 +457,7 @@ import { createCalendar } from '@/main.js'
         form.location = ''
         form.days = ''
         form.dates = []
+        form.durations = []
 
         /* 
           Jeg clear hele

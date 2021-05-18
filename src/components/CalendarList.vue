@@ -78,58 +78,87 @@
               </template>
             </td>
             <td class="calendarTime">
-              <div v-for="{ id, title, dates } in calendars" :key="id">
-                <div v-for="{ date } in dates" :key="date">
-                  <div v-if="date == dayDate.tir">
-                    {{ title }}
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td class="calendarTime">
-              <div v-for="{ id, title, dates } in calendars" :key="id">
-                <div v-for="{ date } in dates" :key="date">
-                  <div v-if="date == dayDate.ons">
-                    {{ title }}
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td class="calendarTime">
-              <div v-for="{ id, title, dates } in calendars" :key="id">
-                <div v-for="{ date } in dates" :key="date">
-                  <div v-if="date == dayDate.tor">
-                    {{ title }}
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td class="calendarTime">
-              <div v-for="{ id, title, dates } in calendars" :key="id">
-                <div v-for="{ date } in dates" :key="date">
-                  <div v-if="date == dayDate.fre">
-                    {{ title }}
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td class="calendarTime">
               <template v-for="{ id, title, dates } in calendars" :key="id">
                 <template v-for="{ date } in dates" :key="date">
-                  <div v-if="date == dayDate.lor">
+                  <div v-if="date == dayDate.tir">
                     {{ title }}
                   </div>
                 </template>
               </template>
             </td>
             <td class="calendarTime">
-              <div v-for="{ id, title, dates } in calendars" :key="id">
-                <div v-for="{ date } in dates" :key="date">
+              <template v-for="{ id, title, dates } in calendars" :key="id">
+                <template v-for="{ date } in dates" :key="date">
+                  <div v-if="date == dayDate.ons">
+                    {{ title }}
+                  </div>
+                </template>
+              </template>
+            </td>
+            <td class="calendarTime">
+              <template v-for="{ id, title, dates } in calendars" :key="id">
+                <template v-for="{ date } in dates" :key="date">
+                  <div v-if="date == dayDate.tor">
+                    {{ title }}
+                  </div>
+                </template>
+              </template>
+            </td>
+            <td class="calendarTime">
+              <template v-for="{ id, title, dates } in calendars" :key="id">
+                <template v-for="{ date } in dates" :key="date">
+                  <div v-if="date == dayDate.fre">
+                    {{ title }}
+                  </div>
+                </template>
+              </template>
+            </td>
+            <td class="calendarTime">
+              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+                <template v-for="{ date } in dates" :key="date">
+                  <!-- amountOfHours1: durations[dates.indexOf(date )] = 1 -->
+                  <div v-if="date == dayDate.lor" :class="
+                    { 
+                      amountOfHours1: durations[0] == 1,
+                      amountOfHours2: durations[0] == 2,
+                      amountOfHours3: durations[0] == 3,
+                      amountOfHours4: durations[0] == 4,
+                      amountOfHours5: durations[0] == 5,
+                      amountOfHours6: durations[0] == 6,
+                      amountOfHours7: durations[0] == 7,
+                      amountOfHours8: durations[0] == 8,
+                      amountOfHours9: durations[0] == 9,
+                      amountOfHours10: durations[0] == 10,
+                      amountOfHours11: durations[0] == 11,
+                      amountOfHours12: durations[0] == 12,
+                      amountOfHours13: durations[0] == 13,
+                      amountOfHours14: durations[0] == 14,
+                      amountOfHours15: durations[0] == 15,
+                      amountOfHours16: durations[0] == 16,
+                      amountOfHours17: durations[0] == 17,
+                      amountOfHours18: durations[0] == 18,
+                      amountOfHours19: durations[0] == 19,
+                      amountOfHours20: durations[0] == 20,
+                      amountOfHours21: durations[0] == 21,
+                      amountOfHours22: durations[0] == 22,
+                      amountOfHours23: durations[0] == 23,
+                      amountOfHours24: durations[0] == 24,
+                    }
+                  ">
+                    {{ title }}
+                    {{ durations }}
+                  </div>
+                </template>
+              </template>
+            </td>
+            <td class="calendarTime">
+              <template v-for="{ id, title, dates } in calendars" :key="id">
+                <template v-for="{ date } in dates" :key="date">
                   <div v-if="date == dayDate.son">
                     {{ title }}
                   </div>
-                </div>
-              </div>
+                </template>
+              </template>
             </td>
           </tr>
         </tbody>
@@ -147,6 +176,14 @@ import { reactive } from 'vue'
     setup() {
       const calendars = useLoadCalendars()
       const calendarItems = getCalendarItems()
+
+
+      /* const heightCalc = (duration) => {
+        const height = 100 / 24
+        const x = `${height * duration}%`
+        console.log('meme here', x)
+        return x
+      } */
 
 
       const theDays = ['man','tir','ons','tor','fre','lor','son']
@@ -300,9 +337,17 @@ import { reactive } from 'vue'
       >tbody{
         width: 100%;
         .calendarTime{
+          position: relative;
           width: 14.2857%;
-          height: 30vh;
+          height: 70vh;
           border: 1px solid #000;
+          div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #EEE;
+            width: 100%;
+          }
         }
         .skipHours1{
           margin-top: 4.1666%;
