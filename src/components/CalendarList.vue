@@ -69,93 +69,267 @@
                 jeg sætter en v-for på dem vil de ikke danne et parent
                 element til det jeg iterrere hend over
                -->
-              <template v-for="{ id, title, dates } in calendars" :key="id">
-                <template v-for="{ date } in dates" :key="date">
-                  <div v-if="date == dayDate.man">
+              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+                <template v-for="({ date }, index) in dates" :key="date">
+                  <div v-if="date == dayDate.man" :class="
+                    { 
+                      amountOfHours1: durations[index] == 1,
+                      amountOfHours2: durations[index] == 2,
+                      amountOfHours3: durations[index] == 3,
+                      amountOfHours4: durations[index] == 4,
+                      amountOfHours5: durations[index] == 5,
+                      amountOfHours6: durations[index] == 6,
+                      amountOfHours7: durations[index] == 7,
+                      amountOfHours8: durations[index] == 8,
+                      amountOfHours9: durations[index] == 9,
+                      amountOfHours10: durations[index] == 10,
+                      amountOfHours11: durations[index] == 11,
+                      amountOfHours12: durations[index] == 12,
+                      amountOfHours13: durations[index] == 13,
+                      amountOfHours14: durations[index] == 14,
+                      amountOfHours15: durations[index] == 15,
+                      amountOfHours16: durations[index] == 16,
+                      amountOfHours17: durations[index] == 17,
+                      amountOfHours18: durations[index] == 18,
+                      amountOfHours19: durations[index] == 19,
+                      amountOfHours20: durations[index] == 20,
+                      amountOfHours21: durations[index] == 21,
+                      amountOfHours22: durations[index] == 22,
+                      amountOfHours23: durations[index] == 23,
+                      amountOfHours24: durations[index] == 24,
+                    }
+                  ">
                     {{ title }}
-                  </div>
-                </template>
-              </template>
-            </td>
-            <td class="calendarTime">
-              <template v-for="{ id, title, dates } in calendars" :key="id">
-                <template v-for="{ date } in dates" :key="date">
-                  <div v-if="date == dayDate.tir">
-                    {{ title }}
-                  </div>
-                </template>
-              </template>
-            </td>
-            <td class="calendarTime">
-              <template v-for="{ id, title, dates } in calendars" :key="id">
-                <template v-for="{ date } in dates" :key="date">
-                  <div v-if="date == dayDate.ons">
-                    {{ title }}
-                  </div>
-                </template>
-              </template>
-            </td>
-            <td class="calendarTime">
-              <template v-for="{ id, title, dates } in calendars" :key="id">
-                <template v-for="{ date } in dates" :key="date">
-                  <div v-if="date == dayDate.tor">
-                    {{ title }}
-                  </div>
-                </template>
-              </template>
-            </td>
-            <td class="calendarTime">
-              <template v-for="{ id, title, dates } in calendars" :key="id">
-                <template v-for="{ date } in dates" :key="date">
-                  <div v-if="date == dayDate.fre">
-                    {{ title }}
+                    {{ index }}
+                    {{ durations[index] }}
                   </div>
                 </template>
               </template>
             </td>
             <td class="calendarTime">
               <template v-for="{ id, title, dates, durations } in calendars" :key="id">
-                <template v-for="{ date } in dates" :key="date">
-                  <!-- amountOfHours1: durations[dates.indexOf(date )] = 1 -->
-                  <div v-if="date == dayDate.lor" :class="
+                <template v-for="({ date }, index) in dates" :key="date">
+                  <div v-if="date == dayDate.tir" :class="
                     { 
-                      amountOfHours1: durations[0] == 1,
-                      amountOfHours2: durations[0] == 2,
-                      amountOfHours3: durations[0] == 3,
-                      amountOfHours4: durations[0] == 4,
-                      amountOfHours5: durations[0] == 5,
-                      amountOfHours6: durations[0] == 6,
-                      amountOfHours7: durations[0] == 7,
-                      amountOfHours8: durations[0] == 8,
-                      amountOfHours9: durations[0] == 9,
-                      amountOfHours10: durations[0] == 10,
-                      amountOfHours11: durations[0] == 11,
-                      amountOfHours12: durations[0] == 12,
-                      amountOfHours13: durations[0] == 13,
-                      amountOfHours14: durations[0] == 14,
-                      amountOfHours15: durations[0] == 15,
-                      amountOfHours16: durations[0] == 16,
-                      amountOfHours17: durations[0] == 17,
-                      amountOfHours18: durations[0] == 18,
-                      amountOfHours19: durations[0] == 19,
-                      amountOfHours20: durations[0] == 20,
-                      amountOfHours21: durations[0] == 21,
-                      amountOfHours22: durations[0] == 22,
-                      amountOfHours23: durations[0] == 23,
-                      amountOfHours24: durations[0] == 24,
+                      amountOfHours1: durations[index] == 1,
+                      amountOfHours2: durations[index] == 2,
+                      amountOfHours3: durations[index] == 3,
+                      amountOfHours4: durations[index] == 4,
+                      amountOfHours5: durations[index] == 5,
+                      amountOfHours6: durations[index] == 6,
+                      amountOfHours7: durations[index] == 7,
+                      amountOfHours8: durations[index] == 8,
+                      amountOfHours9: durations[index] == 9,
+                      amountOfHours10: durations[index] == 10,
+                      amountOfHours11: durations[index] == 11,
+                      amountOfHours12: durations[index] == 12,
+                      amountOfHours13: durations[index] == 13,
+                      amountOfHours14: durations[index] == 14,
+                      amountOfHours15: durations[index] == 15,
+                      amountOfHours16: durations[index] == 16,
+                      amountOfHours17: durations[index] == 17,
+                      amountOfHours18: durations[index] == 18,
+                      amountOfHours19: durations[index] == 19,
+                      amountOfHours20: durations[index] == 20,
+                      amountOfHours21: durations[index] == 21,
+                      amountOfHours22: durations[index] == 22,
+                      amountOfHours23: durations[index] == 23,
+                      amountOfHours24: durations[index] == 24,
                     }
                   ">
                     {{ title }}
-                    {{ durations }}
+                    {{ index }}
+                    {{ durations[index] }}
                   </div>
                 </template>
               </template>
             </td>
             <td class="calendarTime">
-              <template v-for="{ id, title, dates } in calendars" :key="id">
-                <template v-for="{ date } in dates" :key="date">
-                  <div v-if="date == dayDate.son">
+              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+                <template v-for="({ date }, index) in dates" :key="date">
+                  <div v-if="date == dayDate.ons" :class="
+                    { 
+                      amountOfHours1: durations[index] == 1,
+                      amountOfHours2: durations[index] == 2,
+                      amountOfHours3: durations[index] == 3,
+                      amountOfHours4: durations[index] == 4,
+                      amountOfHours5: durations[index] == 5,
+                      amountOfHours6: durations[index] == 6,
+                      amountOfHours7: durations[index] == 7,
+                      amountOfHours8: durations[index] == 8,
+                      amountOfHours9: durations[index] == 9,
+                      amountOfHours10: durations[index] == 10,
+                      amountOfHours11: durations[index] == 11,
+                      amountOfHours12: durations[index] == 12,
+                      amountOfHours13: durations[index] == 13,
+                      amountOfHours14: durations[index] == 14,
+                      amountOfHours15: durations[index] == 15,
+                      amountOfHours16: durations[index] == 16,
+                      amountOfHours17: durations[index] == 17,
+                      amountOfHours18: durations[index] == 18,
+                      amountOfHours19: durations[index] == 19,
+                      amountOfHours20: durations[index] == 20,
+                      amountOfHours21: durations[index] == 21,
+                      amountOfHours22: durations[index] == 22,
+                      amountOfHours23: durations[index] == 23,
+                      amountOfHours24: durations[index] == 24,
+                    }
+                  ">
                     {{ title }}
+                    {{ index }}
+                    {{ durations[index] }}
+                  </div>
+                </template>
+              </template>
+            </td>
+            <td class="calendarTime">
+              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+                <template v-for="({ date }, index) in dates" :key="date">
+                  <div v-if="date == dayDate.tor" :class="
+                    { 
+                      amountOfHours1: durations[index] == 1,
+                      amountOfHours2: durations[index] == 2,
+                      amountOfHours3: durations[index] == 3,
+                      amountOfHours4: durations[index] == 4,
+                      amountOfHours5: durations[index] == 5,
+                      amountOfHours6: durations[index] == 6,
+                      amountOfHours7: durations[index] == 7,
+                      amountOfHours8: durations[index] == 8,
+                      amountOfHours9: durations[index] == 9,
+                      amountOfHours10: durations[index] == 10,
+                      amountOfHours11: durations[index] == 11,
+                      amountOfHours12: durations[index] == 12,
+                      amountOfHours13: durations[index] == 13,
+                      amountOfHours14: durations[index] == 14,
+                      amountOfHours15: durations[index] == 15,
+                      amountOfHours16: durations[index] == 16,
+                      amountOfHours17: durations[index] == 17,
+                      amountOfHours18: durations[index] == 18,
+                      amountOfHours19: durations[index] == 19,
+                      amountOfHours20: durations[index] == 20,
+                      amountOfHours21: durations[index] == 21,
+                      amountOfHours22: durations[index] == 22,
+                      amountOfHours23: durations[index] == 23,
+                      amountOfHours24: durations[index] == 24,
+                    }
+                  ">
+                    {{ title }}
+                    {{ index }}
+                    {{ durations[index] }}
+                  </div>
+                </template>
+              </template>
+            </td>
+            <td class="calendarTime">
+              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+                <template v-for="({ date }, index) in dates" :key="date">
+                  <div v-if="date == dayDate.fre" :class="
+                    { 
+                      amountOfHours1: durations[index] == 1,
+                      amountOfHours2: durations[index] == 2,
+                      amountOfHours3: durations[index] == 3,
+                      amountOfHours4: durations[index] == 4,
+                      amountOfHours5: durations[index] == 5,
+                      amountOfHours6: durations[index] == 6,
+                      amountOfHours7: durations[index] == 7,
+                      amountOfHours8: durations[index] == 8,
+                      amountOfHours9: durations[index] == 9,
+                      amountOfHours10: durations[index] == 10,
+                      amountOfHours11: durations[index] == 11,
+                      amountOfHours12: durations[index] == 12,
+                      amountOfHours13: durations[index] == 13,
+                      amountOfHours14: durations[index] == 14,
+                      amountOfHours15: durations[index] == 15,
+                      amountOfHours16: durations[index] == 16,
+                      amountOfHours17: durations[index] == 17,
+                      amountOfHours18: durations[index] == 18,
+                      amountOfHours19: durations[index] == 19,
+                      amountOfHours20: durations[index] == 20,
+                      amountOfHours21: durations[index] == 21,
+                      amountOfHours22: durations[index] == 22,
+                      amountOfHours23: durations[index] == 23,
+                      amountOfHours24: durations[index] == 24,
+                    }
+                  ">
+                    {{ title }}
+                    {{ index }}
+                    {{ durations[index] }}
+                  </div>
+                </template>
+              </template>
+            </td>
+            <td class="calendarTime">
+              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+                <template v-for="({ date }, index) in dates" :key="date">
+                  <!-- amountOfHours1: durations[dates.indexOf(date )] = 1 -->
+                  <div v-if="date == dayDate.lor" :class="
+                    { 
+                      amountOfHours1: durations[index] == 1,
+                      amountOfHours2: durations[index] == 2,
+                      amountOfHours3: durations[index] == 3,
+                      amountOfHours4: durations[index] == 4,
+                      amountOfHours5: durations[index] == 5,
+                      amountOfHours6: durations[index] == 6,
+                      amountOfHours7: durations[index] == 7,
+                      amountOfHours8: durations[index] == 8,
+                      amountOfHours9: durations[index] == 9,
+                      amountOfHours10: durations[index] == 10,
+                      amountOfHours11: durations[index] == 11,
+                      amountOfHours12: durations[index] == 12,
+                      amountOfHours13: durations[index] == 13,
+                      amountOfHours14: durations[index] == 14,
+                      amountOfHours15: durations[index] == 15,
+                      amountOfHours16: durations[index] == 16,
+                      amountOfHours17: durations[index] == 17,
+                      amountOfHours18: durations[index] == 18,
+                      amountOfHours19: durations[index] == 19,
+                      amountOfHours20: durations[index] == 20,
+                      amountOfHours21: durations[index] == 21,
+                      amountOfHours22: durations[index] == 22,
+                      amountOfHours23: durations[index] == 23,
+                      amountOfHours24: durations[index] == 24,
+                    }
+                  ">
+                    {{ title }}
+                    {{ index }}
+                  </div>
+                </template>
+              </template>
+            </td>
+            <td class="calendarTime">
+              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+                <template v-for="({ date }, index) in dates" :key="date">
+                  <div v-if="date == dayDate.son" :class="
+                    { 
+                      amountOfHours1: durations[index] == 1,
+                      amountOfHours2: durations[index] == 2,
+                      amountOfHours3: durations[index] == 3,
+                      amountOfHours4: durations[index] == 4,
+                      amountOfHours5: durations[index] == 5,
+                      amountOfHours6: durations[index] == 6,
+                      amountOfHours7: durations[index] == 7,
+                      amountOfHours8: durations[index] == 8,
+                      amountOfHours9: durations[index] == 9,
+                      amountOfHours10: durations[index] == 10,
+                      amountOfHours11: durations[index] == 11,
+                      amountOfHours12: durations[index] == 12,
+                      amountOfHours13: durations[index] == 13,
+                      amountOfHours14: durations[index] == 14,
+                      amountOfHours15: durations[index] == 15,
+                      amountOfHours16: durations[index] == 16,
+                      amountOfHours17: durations[index] == 17,
+                      amountOfHours18: durations[index] == 18,
+                      amountOfHours19: durations[index] == 19,
+                      amountOfHours20: durations[index] == 20,
+                      amountOfHours21: durations[index] == 21,
+                      amountOfHours22: durations[index] == 22,
+                      amountOfHours23: durations[index] == 23,
+                      amountOfHours24: durations[index] == 24,
+                    }
+                  ">
+                    {{ title }}
+                    {{ index }}
+                    {{ durations[index] }}
                   </div>
                 </template>
               </template>
