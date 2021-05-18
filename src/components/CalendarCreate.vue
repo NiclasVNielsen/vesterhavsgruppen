@@ -187,17 +187,18 @@ import { createCalendar } from '@/main.js'
           jeg sætter value'en
           fra mine dynamiske felter
           over i form objectet
+
+          ehmm probs outdated
         */
         for(let i = 0; i < inputsStart.length; i++){
-          form[`day${i+1}start`] = inputsStart[i].value
-          form[`day${i+1}end`] = inputsEnd[i].value
+          form.dayStart.push(inputsStart[i].value)
+          form.dayEnd.push(inputsEnd[i].value)
           const x = inputsEnd[i].value.split(':')[0] - inputsStart[i].value.split(':')[0]
           form.durations.push(x)
 
           let start = form.start.split('-')
           start = yearCalc(start).amountOfDays;
 
-          //form[`day${i+1}date`] = dateCalc(start + i)
           form.dates.push(dateCalc(start + i))
         } 
       }
@@ -407,7 +408,9 @@ import { createCalendar } from '@/main.js'
         group: '',
         days: '',
         dates: [],
-        durations: []
+        durations: [],
+        dayStart: [],
+        dayEnd: []
       }
       
 
@@ -458,6 +461,8 @@ import { createCalendar } from '@/main.js'
         form.days = ''
         form.dates = []
         form.durations = []
+        form.dayStart = []
+        form.dayEnd = []
 
         /* 
           Jeg clear hele

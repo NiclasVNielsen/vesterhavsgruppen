@@ -69,7 +69,7 @@
                 jeg sætter en v-for på dem vil de ikke danne et parent
                 element til det jeg iterrere hend over
                -->
-              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+              <template v-for="{ id, title, dates, durations, dayStart } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <div v-if="date == dayDate.man" :class="
                     { 
@@ -97,17 +97,40 @@
                       amountOfHours22: durations[index] == 22,
                       amountOfHours23: durations[index] == 23,
                       amountOfHours24: durations[index] == 24,
+
+                      skipHours1: dayStart[index] == '01:00',
+                      skipHours2: dayStart[index] == '02:00',
+                      skipHours3: dayStart[index] == '03:00',
+                      skipHours4: dayStart[index] == '04:00',
+                      skipHours5: dayStart[index] == '05:00',
+                      skipHours6: dayStart[index] == '06:00',
+                      skipHours7: dayStart[index] == '07:00',
+                      skipHours8: dayStart[index] == '08:00',
+                      skipHours9: dayStart[index] == '09:00',
+                      skipHours10: dayStart[index] == '10:00',
+                      skipHours11: dayStart[index] == '11:00',
+                      skipHours12: dayStart[index] == '12:00',
+                      skipHours13: dayStart[index] == '13:00',
+                      skipHours14: dayStart[index] == '14:00',
+                      skipHours15: dayStart[index] == '15:00',
+                      skipHours16: dayStart[index] == '16:00',
+                      skipHours17: dayStart[index] == '17:00',
+                      skipHours18: dayStart[index] == '18:00',
+                      skipHours19: dayStart[index] == '19:00',
+                      skipHours20: dayStart[index] == '20:00',
+                      skipHours21: dayStart[index] == '21:00',
+                      skipHours22: dayStart[index] == '22:00',
+                      skipHours23: dayStart[index] == '23:00',
+                      skipHours24: dayStart[index] == '24:00',
                     }
                   ">
                     {{ title }}
-                    {{ index }}
-                    {{ durations[index] }}
                   </div>
                 </template>
               </template>
             </td>
             <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+              <template v-for="{ id, title, dates, durations, dayStart } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <div v-if="date == dayDate.tir" :class="
                     { 
@@ -135,17 +158,40 @@
                       amountOfHours22: durations[index] == 22,
                       amountOfHours23: durations[index] == 23,
                       amountOfHours24: durations[index] == 24,
+
+                      skipHours1: dayStart[index] == '01:00',
+                      skipHours2: dayStart[index] == '02:00',
+                      skipHours3: dayStart[index] == '03:00',
+                      skipHours4: dayStart[index] == '04:00',
+                      skipHours5: dayStart[index] == '05:00',
+                      skipHours6: dayStart[index] == '06:00',
+                      skipHours7: dayStart[index] == '07:00',
+                      skipHours8: dayStart[index] == '08:00',
+                      skipHours9: dayStart[index] == '09:00',
+                      skipHours10: dayStart[index] == '10:00',
+                      skipHours11: dayStart[index] == '11:00',
+                      skipHours12: dayStart[index] == '12:00',
+                      skipHours13: dayStart[index] == '13:00',
+                      skipHours14: dayStart[index] == '14:00',
+                      skipHours15: dayStart[index] == '15:00',
+                      skipHours16: dayStart[index] == '16:00',
+                      skipHours17: dayStart[index] == '17:00',
+                      skipHours18: dayStart[index] == '18:00',
+                      skipHours19: dayStart[index] == '19:00',
+                      skipHours20: dayStart[index] == '20:00',
+                      skipHours21: dayStart[index] == '21:00',
+                      skipHours22: dayStart[index] == '22:00',
+                      skipHours23: dayStart[index] == '23:00',
+                      skipHours24: dayStart[index] == '24:00',
                     }
                   ">
                     {{ title }}
-                    {{ index }}
-                    {{ durations[index] }}
                   </div>
                 </template>
               </template>
             </td>
             <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+              <template v-for="{ id, title, dates, durations, dayStart } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <div v-if="date == dayDate.ons" :class="
                     { 
@@ -173,17 +219,40 @@
                       amountOfHours22: durations[index] == 22,
                       amountOfHours23: durations[index] == 23,
                       amountOfHours24: durations[index] == 24,
+
+                      skipHours1: dayStart[index] == '01:00',
+                      skipHours2: dayStart[index] == '02:00',
+                      skipHours3: dayStart[index] == '03:00',
+                      skipHours4: dayStart[index] == '04:00',
+                      skipHours5: dayStart[index] == '05:00',
+                      skipHours6: dayStart[index] == '06:00',
+                      skipHours7: dayStart[index] == '07:00',
+                      skipHours8: dayStart[index] == '08:00',
+                      skipHours9: dayStart[index] == '09:00',
+                      skipHours10: dayStart[index] == '10:00',
+                      skipHours11: dayStart[index] == '11:00',
+                      skipHours12: dayStart[index] == '12:00',
+                      skipHours13: dayStart[index] == '13:00',
+                      skipHours14: dayStart[index] == '14:00',
+                      skipHours15: dayStart[index] == '15:00',
+                      skipHours16: dayStart[index] == '16:00',
+                      skipHours17: dayStart[index] == '17:00',
+                      skipHours18: dayStart[index] == '18:00',
+                      skipHours19: dayStart[index] == '19:00',
+                      skipHours20: dayStart[index] == '20:00',
+                      skipHours21: dayStart[index] == '21:00',
+                      skipHours22: dayStart[index] == '22:00',
+                      skipHours23: dayStart[index] == '23:00',
+                      skipHours24: dayStart[index] == '24:00',
                     }
                   ">
                     {{ title }}
-                    {{ index }}
-                    {{ durations[index] }}
                   </div>
                 </template>
               </template>
             </td>
             <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+              <template v-for="{ id, title, dates, durations, dayStart } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <div v-if="date == dayDate.tor" :class="
                     { 
@@ -211,17 +280,40 @@
                       amountOfHours22: durations[index] == 22,
                       amountOfHours23: durations[index] == 23,
                       amountOfHours24: durations[index] == 24,
+
+                      skipHours1: dayStart[index] == '01:00',
+                      skipHours2: dayStart[index] == '02:00',
+                      skipHours3: dayStart[index] == '03:00',
+                      skipHours4: dayStart[index] == '04:00',
+                      skipHours5: dayStart[index] == '05:00',
+                      skipHours6: dayStart[index] == '06:00',
+                      skipHours7: dayStart[index] == '07:00',
+                      skipHours8: dayStart[index] == '08:00',
+                      skipHours9: dayStart[index] == '09:00',
+                      skipHours10: dayStart[index] == '10:00',
+                      skipHours11: dayStart[index] == '11:00',
+                      skipHours12: dayStart[index] == '12:00',
+                      skipHours13: dayStart[index] == '13:00',
+                      skipHours14: dayStart[index] == '14:00',
+                      skipHours15: dayStart[index] == '15:00',
+                      skipHours16: dayStart[index] == '16:00',
+                      skipHours17: dayStart[index] == '17:00',
+                      skipHours18: dayStart[index] == '18:00',
+                      skipHours19: dayStart[index] == '19:00',
+                      skipHours20: dayStart[index] == '20:00',
+                      skipHours21: dayStart[index] == '21:00',
+                      skipHours22: dayStart[index] == '22:00',
+                      skipHours23: dayStart[index] == '23:00',
+                      skipHours24: dayStart[index] == '24:00',
                     }
                   ">
                     {{ title }}
-                    {{ index }}
-                    {{ durations[index] }}
                   </div>
                 </template>
               </template>
             </td>
             <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+              <template v-for="{ id, title, dates, durations, dayStart } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <div v-if="date == dayDate.fre" :class="
                     { 
@@ -249,19 +341,41 @@
                       amountOfHours22: durations[index] == 22,
                       amountOfHours23: durations[index] == 23,
                       amountOfHours24: durations[index] == 24,
+
+                      skipHours1: dayStart[index] == '01:00',
+                      skipHours2: dayStart[index] == '02:00',
+                      skipHours3: dayStart[index] == '03:00',
+                      skipHours4: dayStart[index] == '04:00',
+                      skipHours5: dayStart[index] == '05:00',
+                      skipHours6: dayStart[index] == '06:00',
+                      skipHours7: dayStart[index] == '07:00',
+                      skipHours8: dayStart[index] == '08:00',
+                      skipHours9: dayStart[index] == '09:00',
+                      skipHours10: dayStart[index] == '10:00',
+                      skipHours11: dayStart[index] == '11:00',
+                      skipHours12: dayStart[index] == '12:00',
+                      skipHours13: dayStart[index] == '13:00',
+                      skipHours14: dayStart[index] == '14:00',
+                      skipHours15: dayStart[index] == '15:00',
+                      skipHours16: dayStart[index] == '16:00',
+                      skipHours17: dayStart[index] == '17:00',
+                      skipHours18: dayStart[index] == '18:00',
+                      skipHours19: dayStart[index] == '19:00',
+                      skipHours20: dayStart[index] == '20:00',
+                      skipHours21: dayStart[index] == '21:00',
+                      skipHours22: dayStart[index] == '22:00',
+                      skipHours23: dayStart[index] == '23:00',
+                      skipHours24: dayStart[index] == '24:00',
                     }
                   ">
                     {{ title }}
-                    {{ index }}
-                    {{ durations[index] }}
                   </div>
                 </template>
               </template>
             </td>
             <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+              <template v-for="{ id, title, dates, durations, dayStart } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
-                  <!-- amountOfHours1: durations[dates.indexOf(date )] = 1 -->
                   <div v-if="date == dayDate.lor" :class="
                     { 
                       amountOfHours1: durations[index] == 1,
@@ -288,16 +402,40 @@
                       amountOfHours22: durations[index] == 22,
                       amountOfHours23: durations[index] == 23,
                       amountOfHours24: durations[index] == 24,
+
+                      skipHours1: dayStart[index] == '01:00',
+                      skipHours2: dayStart[index] == '02:00',
+                      skipHours3: dayStart[index] == '03:00',
+                      skipHours4: dayStart[index] == '04:00',
+                      skipHours5: dayStart[index] == '05:00',
+                      skipHours6: dayStart[index] == '06:00',
+                      skipHours7: dayStart[index] == '07:00',
+                      skipHours8: dayStart[index] == '08:00',
+                      skipHours9: dayStart[index] == '09:00',
+                      skipHours10: dayStart[index] == '10:00',
+                      skipHours11: dayStart[index] == '11:00',
+                      skipHours12: dayStart[index] == '12:00',
+                      skipHours13: dayStart[index] == '13:00',
+                      skipHours14: dayStart[index] == '14:00',
+                      skipHours15: dayStart[index] == '15:00',
+                      skipHours16: dayStart[index] == '16:00',
+                      skipHours17: dayStart[index] == '17:00',
+                      skipHours18: dayStart[index] == '18:00',
+                      skipHours19: dayStart[index] == '19:00',
+                      skipHours20: dayStart[index] == '20:00',
+                      skipHours21: dayStart[index] == '21:00',
+                      skipHours22: dayStart[index] == '22:00',
+                      skipHours23: dayStart[index] == '23:00',
+                      skipHours24: dayStart[index] == '24:00',
                     }
                   ">
                     {{ title }}
-                    {{ index }}
                   </div>
                 </template>
               </template>
             </td>
             <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations } in calendars" :key="id">
+              <template v-for="{ id, title, dates, durations, dayStart } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <div v-if="date == dayDate.son" :class="
                     { 
@@ -325,11 +463,34 @@
                       amountOfHours22: durations[index] == 22,
                       amountOfHours23: durations[index] == 23,
                       amountOfHours24: durations[index] == 24,
+
+                      skipHours1: dayStart[index] == '01:00',
+                      skipHours2: dayStart[index] == '02:00',
+                      skipHours3: dayStart[index] == '03:00',
+                      skipHours4: dayStart[index] == '04:00',
+                      skipHours5: dayStart[index] == '05:00',
+                      skipHours6: dayStart[index] == '06:00',
+                      skipHours7: dayStart[index] == '07:00',
+                      skipHours8: dayStart[index] == '08:00',
+                      skipHours9: dayStart[index] == '09:00',
+                      skipHours10: dayStart[index] == '10:00',
+                      skipHours11: dayStart[index] == '11:00',
+                      skipHours12: dayStart[index] == '12:00',
+                      skipHours13: dayStart[index] == '13:00',
+                      skipHours14: dayStart[index] == '14:00',
+                      skipHours15: dayStart[index] == '15:00',
+                      skipHours16: dayStart[index] == '16:00',
+                      skipHours17: dayStart[index] == '17:00',
+                      skipHours18: dayStart[index] == '18:00',
+                      skipHours19: dayStart[index] == '19:00',
+                      skipHours20: dayStart[index] == '20:00',
+                      skipHours21: dayStart[index] == '21:00',
+                      skipHours22: dayStart[index] == '22:00',
+                      skipHours23: dayStart[index] == '23:00',
+                      skipHours24: dayStart[index] == '24:00',
                     }
                   ">
                     {{ title }}
-                    {{ index }}
-                    {{ durations[index] }}
                   </div>
                 </template>
               </template>
