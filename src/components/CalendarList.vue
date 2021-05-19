@@ -354,19 +354,16 @@ import { reactive } from 'vue'
           width: 14.2857%;
           height: 70vh;
           border: 1px solid #000;
-          >div:first-of-type{
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: #EEE;
-            width: 100%;
-          }
         }
         .calendarItem{
-          position: relative;
+          position: absolute;
+          top: 0;
+          left: 0;
           min-height: 4.1666%;
           z-index: 124;
           border: solid 1px #000;
+          background: #EEE;
+          width: 100%;
           &:hover{
             >.missingInfo{
               display: block;
