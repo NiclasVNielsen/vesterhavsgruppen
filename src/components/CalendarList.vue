@@ -248,7 +248,6 @@
                     }
                   ">
                     {{ title }}
-                    {{ dayStart[index] }}
                   </div>
                 </template>
               </template>
@@ -506,13 +505,12 @@
 
 <script>
 // useload hook + delete import 
-import { useLoadCalendars, getCalendarItems, deleteCalendar  } from '@/main.js'
+import { useLoadCalendars, deleteCalendar  } from '@/main.js'
 import { reactive } from 'vue'
 
   export default {
     setup() {
       const calendars = useLoadCalendars()
-      const calendarItems = getCalendarItems()
 
 
       /* const heightCalc = (duration) => {
@@ -629,7 +627,7 @@ import { reactive } from 'vue'
 
       updateCalendar()
 
-      return { calendars, calendarItems, deleteCalendar, time, month, year, weekBackward, weekForward, dayDate }
+      return { calendars, deleteCalendar, time, month, year, weekBackward, weekForward, dayDate }
     } 
   }
 </script>
