@@ -74,75 +74,82 @@
               <template v-for="{ id, title, dates, durations, dayStart, dayEnd, group } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <template v-if="group == selection.group">
-                    <div v-if="date == dayDate[i]" class="calendarItem" :class="
-                      { 
-                        amountOfHours1: durations[index] == 1,
-                        amountOfHours2: durations[index] == 2,
-                        amountOfHours3: durations[index] == 3,
-                        amountOfHours4: durations[index] == 4,
-                        amountOfHours5: durations[index] == 5,
-                        amountOfHours6: durations[index] == 6,
-                        amountOfHours7: durations[index] == 7,
-                        amountOfHours8: durations[index] == 8,
-                        amountOfHours9: durations[index] == 9,
-                        amountOfHours10: durations[index] == 10,
-                        amountOfHours11: durations[index] == 11,
-                        amountOfHours12: durations[index] == 12,
-                        amountOfHours13: durations[index] == 13,
-                        amountOfHours14: durations[index] == 14,
-                        amountOfHours15: durations[index] == 15,
-                        amountOfHours16: durations[index] == 16,
-                        amountOfHours17: durations[index] == 17,
-                        amountOfHours18: durations[index] == 18,
-                        amountOfHours19: durations[index] == 19,
-                        amountOfHours20: durations[index] == 20,
-                        amountOfHours21: durations[index] == 21,
-                        amountOfHours22: durations[index] == 22,
-                        amountOfHours23: durations[index] == 23,
-                        amountOfHours24: dayStart[index] == '00:00' && dayEnd[index] == '23:59',
+                    <template v-if="date == dayDate[i]">
+                      <div class="calendarItem" @click="popupToggle($event)" :class="
+                        { 
+                          amountOfHours1: durations[index] == 1,
+                          amountOfHours2: durations[index] == 2,
+                          amountOfHours3: durations[index] == 3,
+                          amountOfHours4: durations[index] == 4,
+                          amountOfHours5: durations[index] == 5,
+                          amountOfHours6: durations[index] == 6,
+                          amountOfHours7: durations[index] == 7,
+                          amountOfHours8: durations[index] == 8,
+                          amountOfHours9: durations[index] == 9,
+                          amountOfHours10: durations[index] == 10,
+                          amountOfHours11: durations[index] == 11,
+                          amountOfHours12: durations[index] == 12,
+                          amountOfHours13: durations[index] == 13,
+                          amountOfHours14: durations[index] == 14,
+                          amountOfHours15: durations[index] == 15,
+                          amountOfHours16: durations[index] == 16,
+                          amountOfHours17: durations[index] == 17,
+                          amountOfHours18: durations[index] == 18,
+                          amountOfHours19: durations[index] == 19,
+                          amountOfHours20: durations[index] == 20,
+                          amountOfHours21: durations[index] == 21,
+                          amountOfHours22: durations[index] == 22,
+                          amountOfHours23: durations[index] == 23,
+                          amountOfHours24: dayStart[index] == '00:00' && dayEnd[index] == '23:59',
 
-                        skipHours1: dayStart[index].match(/01:[0-5][0-9]/gm),
-                        skipHours2: dayStart[index].match(/02:[0-5][0-9]/gm),
-                        skipHours3: dayStart[index].match(/03:[0-5][0-9]/gm),
-                        skipHours4: dayStart[index].match(/04:[0-5][0-9]/gm),
-                        skipHours5: dayStart[index].match(/05:[0-5][0-9]/gm),
-                        skipHours6: dayStart[index].match(/06:[0-5][0-9]/gm),
-                        skipHours7: dayStart[index].match(/07:[0-5][0-9]/gm),
-                        skipHours8: dayStart[index].match(/08:[0-5][0-9]/gm),
-                        skipHours9: dayStart[index].match(/09:[0-5][0-9]/gm),
-                        skipHours10: dayStart[index].match(/10:[0-5][0-9]/gm),
-                        skipHours11: dayStart[index].match(/11:[0-5][0-9]/gm),
-                        skipHours12: dayStart[index].match(/12:[0-5][0-9]/gm),
-                        skipHours13: dayStart[index].match(/13:[0-5][0-9]/gm),
-                        skipHours14: dayStart[index].match(/14:[0-5][0-9]/gm),
-                        skipHours15: dayStart[index].match(/15:[0-5][0-9]/gm),
-                        skipHours16: dayStart[index].match(/16:[0-5][0-9]/gm),
-                        skipHours17: dayStart[index].match(/17:[0-5][0-9]/gm),
-                        skipHours18: dayStart[index].match(/18:[0-5][0-9]/gm),
-                        skipHours19: dayStart[index].match(/19:[0-5][0-9]/gm),
-                        skipHours20: dayStart[index].match(/20:[0-5][0-9]/gm),
-                        skipHours21: dayStart[index].match(/21:[0-5][0-9]/gm),
-                        skipHours22: dayStart[index].match(/22:[0-5][0-9]/gm),
-                        skipHours23: dayStart[index].match(/23:[0-5][0-9]/gm),
-                      }
-                    ">
-                      <span class="startDate" v-if="dayStart[index] != '00:00'">{{ dayStart[index] }} <br></span>
-                      <template v-if="durations[index] > 1">
-                        {{ title }} <br>
-                        <template v-if="durations[index] > 2">
-                          <span class="endDate" v-if="dayEnd[index] != '23:59'">{{ dayEnd[index] }}</span>
+                          skipHours1: dayStart[index].match(/01:[0-5][0-9]/gm),
+                          skipHours2: dayStart[index].match(/02:[0-5][0-9]/gm),
+                          skipHours3: dayStart[index].match(/03:[0-5][0-9]/gm),
+                          skipHours4: dayStart[index].match(/04:[0-5][0-9]/gm),
+                          skipHours5: dayStart[index].match(/05:[0-5][0-9]/gm),
+                          skipHours6: dayStart[index].match(/06:[0-5][0-9]/gm),
+                          skipHours7: dayStart[index].match(/07:[0-5][0-9]/gm),
+                          skipHours8: dayStart[index].match(/08:[0-5][0-9]/gm),
+                          skipHours9: dayStart[index].match(/09:[0-5][0-9]/gm),
+                          skipHours10: dayStart[index].match(/10:[0-5][0-9]/gm),
+                          skipHours11: dayStart[index].match(/11:[0-5][0-9]/gm),
+                          skipHours12: dayStart[index].match(/12:[0-5][0-9]/gm),
+                          skipHours13: dayStart[index].match(/13:[0-5][0-9]/gm),
+                          skipHours14: dayStart[index].match(/14:[0-5][0-9]/gm),
+                          skipHours15: dayStart[index].match(/15:[0-5][0-9]/gm),
+                          skipHours16: dayStart[index].match(/16:[0-5][0-9]/gm),
+                          skipHours17: dayStart[index].match(/17:[0-5][0-9]/gm),
+                          skipHours18: dayStart[index].match(/18:[0-5][0-9]/gm),
+                          skipHours19: dayStart[index].match(/19:[0-5][0-9]/gm),
+                          skipHours20: dayStart[index].match(/20:[0-5][0-9]/gm),
+                          skipHours21: dayStart[index].match(/21:[0-5][0-9]/gm),
+                          skipHours22: dayStart[index].match(/22:[0-5][0-9]/gm),
+                          skipHours23: dayStart[index].match(/23:[0-5][0-9]/gm),
+                        }
+                      ">
+                        <span class="startDate" v-if="dayStart[index] != '00:00'">{{ dayStart[index] }} <br></span>
+                        <template v-if="durations[index] > 1">
+                          {{ title }} <br>
+                          <template v-if="durations[index] > 2">
+                            <span class="endDate" v-if="dayEnd[index] != '23:59'">{{ dayEnd[index] }}</span>
+                          </template>
                         </template>
-                      </template>
-                      <div class="missingInfo" v-if="durations[index] < 3" :class="{
-                        overflowFix: dayEnd[index].match(/23:[0-5][0-9]/gm)
-                      }">
-                        <span v-if="dayEnd[index].match(/23:[0-5][0-9]/gm)">{{ dayStart[index] }}</span>
-                        <template v-if="durations[index] < 2">
-                          <p>{{ title }}</p>
-                        </template>
-                        <span v-if="dayEnd[index] != '23:59'">{{ dayEnd[index] }}</span>
+                        <div class="missingInfo" v-if="durations[index] < 3" :class="{
+                          overflowFix: dayEnd[index].match(/23:[0-5][0-9]/gm)
+                        }">
+                          <span v-if="dayEnd[index].match(/23:[0-5][0-9]/gm)">{{ dayStart[index] }}</span>
+                          <template v-if="durations[index] < 2">
+                            <p>{{ title }}</p>
+                          </template>
+                          <span v-if="dayEnd[index] != '23:59'">{{ dayEnd[index] }}</span>
+                        </div>
                       </div>
-                    </div>
+                      <div class="popup" @click.self="popupToggle()">
+                        <div>
+                          {{ title }}
+                        </div>
+                      </div>
+                    </template>
                   </template>
                 </template>
               </template>
@@ -167,6 +174,21 @@ import { reactive } from 'vue'
         group: '1'
       })
 
+      /* 
+        addeventlistener til calendarItem[i]
+        toggle popup[i]
+      */
+
+      let popupTracker = '';
+      const popupToggle = (e) => {
+        if(popupTracker == ''){
+          e.target.classList.toggle('on')
+          popupTracker = e.target
+        }else{
+          popupTracker.classList.toggle('on')
+          popupTracker = ''
+        }
+      }
 
       const theDays = ['man','tir','ons','tor','fre','lor','son']
       const theMonths = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec']
@@ -283,7 +305,7 @@ import { reactive } from 'vue'
 
       updateCalendar()
 
-      return { calendars, deleteCalendar, time, month, year, weekBackward, weekForward, dayDate, selection, theWeekDays }
+      return { calendars, deleteCalendar, time, month, year, weekBackward, weekForward, dayDate, selection, theWeekDays, popupToggle }
     } 
   }
 </script>
@@ -332,7 +354,7 @@ import { reactive } from 'vue'
           width: 14.2857%;
           height: 70vh;
           border: 1px solid #000;
-          >div{
+          >div:first-of-type{
             position: absolute;
             top: 0;
             left: 0;
@@ -349,6 +371,9 @@ import { reactive } from 'vue'
             >.missingInfo{
               display: block;
             }
+          }
+          p, span{
+            pointer-events: none;
           }
           span{
             font-size: .9em;
@@ -372,6 +397,25 @@ import { reactive } from 'vue'
             transform: translateY(-100%);
             border: solid 1px #000;
           }
+        }
+        .popup{
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: #00000044;
+          z-index: 9000;
+          display: none;
+          > div{
+            background: #FFF;
+            margin: 15vh auto;
+            height: 70vh;
+            max-width: 1000px;
+          }
+        }
+        .on + .popup{
+          display: block;
         }
         .skipHours1{
           top: 4.1666% !important;
