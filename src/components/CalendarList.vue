@@ -74,7 +74,7 @@
               <template v-for="{ id, title, dates, durations, dayStart, dayEnd, group } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <template v-if="group == selection.group">
-                    <div v-if="date == dayDate[i]" :class="
+                    <div v-if="date == dayDate[i]" class="calendarItem" :class="
                       { 
                         amountOfHours1: durations[index] == 1,
                         amountOfHours2: durations[index] == 2,
@@ -127,13 +127,19 @@
                         skipHours24: dayStart[index] == '24:00',
                       }
                     ">
-                      {{ dayStart[index] }} <br>
+                      <span>{{ dayStart[index] }}</span> <br>
                       <template v-if="durations[index] > 1">
                         {{ title }} <br>
                         <template v-if="durations[index] > 2">
                           <span>{{ dayEnd[index] }}</span>
                         </template>
                       </template>
+                      <div v-if="durations[index] < 3">
+                        {{ dayStart[index] }} - {{ dayEnd[index] }}
+                        <template v-if="durations[index] < 2">
+                          <span>{{ title }}</span>
+                        </template>
+                      </div>
                     </div>
                   </template>
                 </template>
@@ -324,12 +330,35 @@ import { reactive } from 'vue'
           width: 14.2857%;
           height: 70vh;
           border: 1px solid #000;
-          div{
+          >div{
             position: absolute;
             top: 0;
             left: 0;
             background: #EEE;
             width: 100%;
+          }
+        }
+        .calendarItem{
+          position: relative;
+          min-height: 4.1666%;
+          z-index: 124;
+          &:hover{
+            >div{
+              display: block;
+            }
+          }
+          span{
+            &:nth-of-type(2){
+              position: absolute;
+              bottom: 0;
+            }
+          }
+          >div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(-120%);
+            display: none;
           }
         }
         .skipHours1{
