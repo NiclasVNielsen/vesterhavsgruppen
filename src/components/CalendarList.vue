@@ -77,7 +77,7 @@
                 dagen
               -->
             <td class="calendarTime" v-for="(day, i) in theWeekDays" :key="day">
-              <template v-for="{ id, title, dates, durations, dayStart, dayEnd, group } in calendars" :key="id">
+              <template v-for="{ id, title, dates, durations, dayStart, dayEnd, group, location } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <template v-if="group == selection.group">
                     <template v-if="date == dayDate[i]">
@@ -154,7 +154,21 @@
                       </div>
                       <div class="popup" @click.self="popupToggle()">
                         <div>
-                          {{ title }}
+                          <p>
+                            {{ title }}
+                          </p>
+                          <p>
+                            {{ location }}
+                          </p>
+                          <p>
+                            <template v-if="dayStart[1] == '00:00' && dayEnd[1] == '23:59'">
+                              Fra den {{dates[0].date.split('/')[2]}}/{{dates[0].date.split('/')[1]}}/{{dates[0].date.split('/')[0]}} kl {{ dayStart[0] }}
+                              <br> Til den {{dates[dates.length - 1].date.split('/')[2]}}/{{dates[dates.length - 1].date.split('/')[1]}}/{{dates[dates.length - 1].date.split('/')[0]}} kl {{ dayEnd[dayEnd.length - 1] }}
+                            </template>
+                            <template v-else v-for="(newDate, x) in dates" :key="newDate">
+                              Den {{ newDate.date.split('/')[2]}}/{{dates[0].date.split('/')[1]}}/{{dates[0].date.split('/')[0] }} fra kl {{dayStart[x]}} til {{dayEnd[x]}}<br>
+                            </template>
+                          </p>
                         </div>
                       </div>
                     </template>
@@ -410,6 +424,9 @@ import { reactive } from 'vue'
             margin: 15vh auto;
             height: 70vh;
             max-width: 1000px;
+            border: solid 1px #000;
+            border-radius: 5px;
+            padding: 5vh;
           }
         }
         .on + .popup{
