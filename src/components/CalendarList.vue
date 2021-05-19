@@ -65,16 +65,16 @@
         </thead>
         <tbody>
           <tr>
-            <td class="calendarTime">
+            <td class="calendarTime" v-for="(day, i) in theWeekDays" :key="day">
               <!-- 
                 template elementer bliver ikke renderet på siden så når
                 jeg sætter en v-for på dem vil de ikke danne et parent
                 element til det jeg iterrere hend over
                -->
-              <template v-for="{ id, title, dates, durations, dayStart, group } in calendars" :key="id">
+              <template v-for="{ id, title, dates, durations, dayStart, dayEnd, group } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <template v-if="group == selection.group">
-                    <div v-if="date == dayDate.man" :class="
+                    <div v-if="date == dayDate[i]" :class="
                       { 
                         amountOfHours1: durations[index] == 1,
                         amountOfHours2: durations[index] == 2,
@@ -127,385 +127,13 @@
                         skipHours24: dayStart[index] == '24:00',
                       }
                     ">
-                      {{ title }}
-                    </div>
-                  </template>
-                </template>
-              </template>
-            </td>
-            <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations, dayStart, group } in calendars" :key="id">
-                <template v-for="({ date }, index) in dates" :key="date">
-                  <template v-if="group == selection.group">
-                    <div v-if="date == dayDate.tir" :class="
-                      { 
-                        amountOfHours1: durations[index] == 1,
-                        amountOfHours2: durations[index] == 2,
-                        amountOfHours3: durations[index] == 3,
-                        amountOfHours4: durations[index] == 4,
-                        amountOfHours5: durations[index] == 5,
-                        amountOfHours6: durations[index] == 6,
-                        amountOfHours7: durations[index] == 7,
-                        amountOfHours8: durations[index] == 8,
-                        amountOfHours9: durations[index] == 9,
-                        amountOfHours10: durations[index] == 10,
-                        amountOfHours11: durations[index] == 11,
-                        amountOfHours12: durations[index] == 12,
-                        amountOfHours13: durations[index] == 13,
-                        amountOfHours14: durations[index] == 14,
-                        amountOfHours15: durations[index] == 15,
-                        amountOfHours16: durations[index] == 16,
-                        amountOfHours17: durations[index] == 17,
-                        amountOfHours18: durations[index] == 18,
-                        amountOfHours19: durations[index] == 19,
-                        amountOfHours20: durations[index] == 20,
-                        amountOfHours21: durations[index] == 21,
-                        amountOfHours22: durations[index] == 22,
-                        amountOfHours23: durations[index] == 23,
-                        amountOfHours24: durations[index] == 24,
-
-                        skipHours1: dayStart[index] == '01:00',
-                        skipHours2: dayStart[index] == '02:00',
-                        skipHours3: dayStart[index] == '03:00',
-                        skipHours4: dayStart[index] == '04:00',
-                        skipHours5: dayStart[index] == '05:00',
-                        skipHours6: dayStart[index] == '06:00',
-                        skipHours7: dayStart[index] == '07:00',
-                        skipHours8: dayStart[index] == '08:00',
-                        skipHours9: dayStart[index] == '09:00',
-                        skipHours10: dayStart[index] == '10:00',
-                        skipHours11: dayStart[index] == '11:00',
-                        skipHours12: dayStart[index] == '12:00',
-                        skipHours13: dayStart[index] == '13:00',
-                        skipHours14: dayStart[index] == '14:00',
-                        skipHours15: dayStart[index] == '15:00',
-                        skipHours16: dayStart[index] == '16:00',
-                        skipHours17: dayStart[index] == '17:00',
-                        skipHours18: dayStart[index] == '18:00',
-                        skipHours19: dayStart[index] == '19:00',
-                        skipHours20: dayStart[index] == '20:00',
-                        skipHours21: dayStart[index] == '21:00',
-                        skipHours22: dayStart[index] == '22:00',
-                        skipHours23: dayStart[index] == '23:00',
-                        skipHours24: dayStart[index] == '24:00',
-                      }
-                    ">
-                      {{ title }}
-                    </div>
-                  </template>
-                </template>
-              </template>
-            </td>
-            <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations, dayStart, group } in calendars" :key="id">
-                <template v-for="({ date }, index) in dates" :key="date">
-                  <template v-if="group == selection.group">
-                    <div v-if="date == dayDate.ons" :class="
-                      { 
-                        amountOfHours1: durations[index] == 1,
-                        amountOfHours2: durations[index] == 2,
-                        amountOfHours3: durations[index] == 3,
-                        amountOfHours4: durations[index] == 4,
-                        amountOfHours5: durations[index] == 5,
-                        amountOfHours6: durations[index] == 6,
-                        amountOfHours7: durations[index] == 7,
-                        amountOfHours8: durations[index] == 8,
-                        amountOfHours9: durations[index] == 9,
-                        amountOfHours10: durations[index] == 10,
-                        amountOfHours11: durations[index] == 11,
-                        amountOfHours12: durations[index] == 12,
-                        amountOfHours13: durations[index] == 13,
-                        amountOfHours14: durations[index] == 14,
-                        amountOfHours15: durations[index] == 15,
-                        amountOfHours16: durations[index] == 16,
-                        amountOfHours17: durations[index] == 17,
-                        amountOfHours18: durations[index] == 18,
-                        amountOfHours19: durations[index] == 19,
-                        amountOfHours20: durations[index] == 20,
-                        amountOfHours21: durations[index] == 21,
-                        amountOfHours22: durations[index] == 22,
-                        amountOfHours23: durations[index] == 23,
-                        amountOfHours24: durations[index] == 24,
-
-                        skipHours1: dayStart[index] == '01:00',
-                        skipHours2: dayStart[index] == '02:00',
-                        skipHours3: dayStart[index] == '03:00',
-                        skipHours4: dayStart[index] == '04:00',
-                        skipHours5: dayStart[index] == '05:00',
-                        skipHours6: dayStart[index] == '06:00',
-                        skipHours7: dayStart[index] == '07:00',
-                        skipHours8: dayStart[index] == '08:00',
-                        skipHours9: dayStart[index] == '09:00',
-                        skipHours10: dayStart[index] == '10:00',
-                        skipHours11: dayStart[index] == '11:00',
-                        skipHours12: dayStart[index] == '12:00',
-                        skipHours13: dayStart[index] == '13:00',
-                        skipHours14: dayStart[index] == '14:00',
-                        skipHours15: dayStart[index] == '15:00',
-                        skipHours16: dayStart[index] == '16:00',
-                        skipHours17: dayStart[index] == '17:00',
-                        skipHours18: dayStart[index] == '18:00',
-                        skipHours19: dayStart[index] == '19:00',
-                        skipHours20: dayStart[index] == '20:00',
-                        skipHours21: dayStart[index] == '21:00',
-                        skipHours22: dayStart[index] == '22:00',
-                        skipHours23: dayStart[index] == '23:00',
-                        skipHours24: dayStart[index] == '24:00',
-                      }
-                    ">
-                      {{ title }}
-                    </div>
-                  </template>
-                </template>
-              </template>
-            </td>
-            <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations, dayStart, group } in calendars" :key="id">
-                <template v-for="({ date }, index) in dates" :key="date">
-                  <template v-if="group == selection.group">
-                    <div v-if="date == dayDate.tor" :class="
-                      { 
-                        amountOfHours1: durations[index] == 1,
-                        amountOfHours2: durations[index] == 2,
-                        amountOfHours3: durations[index] == 3,
-                        amountOfHours4: durations[index] == 4,
-                        amountOfHours5: durations[index] == 5,
-                        amountOfHours6: durations[index] == 6,
-                        amountOfHours7: durations[index] == 7,
-                        amountOfHours8: durations[index] == 8,
-                        amountOfHours9: durations[index] == 9,
-                        amountOfHours10: durations[index] == 10,
-                        amountOfHours11: durations[index] == 11,
-                        amountOfHours12: durations[index] == 12,
-                        amountOfHours13: durations[index] == 13,
-                        amountOfHours14: durations[index] == 14,
-                        amountOfHours15: durations[index] == 15,
-                        amountOfHours16: durations[index] == 16,
-                        amountOfHours17: durations[index] == 17,
-                        amountOfHours18: durations[index] == 18,
-                        amountOfHours19: durations[index] == 19,
-                        amountOfHours20: durations[index] == 20,
-                        amountOfHours21: durations[index] == 21,
-                        amountOfHours22: durations[index] == 22,
-                        amountOfHours23: durations[index] == 23,
-                        amountOfHours24: durations[index] == 24,
-
-                        skipHours1: dayStart[index] == '01:00',
-                        skipHours2: dayStart[index] == '02:00',
-                        skipHours3: dayStart[index] == '03:00',
-                        skipHours4: dayStart[index] == '04:00',
-                        skipHours5: dayStart[index] == '05:00',
-                        skipHours6: dayStart[index] == '06:00',
-                        skipHours7: dayStart[index] == '07:00',
-                        skipHours8: dayStart[index] == '08:00',
-                        skipHours9: dayStart[index] == '09:00',
-                        skipHours10: dayStart[index] == '10:00',
-                        skipHours11: dayStart[index] == '11:00',
-                        skipHours12: dayStart[index] == '12:00',
-                        skipHours13: dayStart[index] == '13:00',
-                        skipHours14: dayStart[index] == '14:00',
-                        skipHours15: dayStart[index] == '15:00',
-                        skipHours16: dayStart[index] == '16:00',
-                        skipHours17: dayStart[index] == '17:00',
-                        skipHours18: dayStart[index] == '18:00',
-                        skipHours19: dayStart[index] == '19:00',
-                        skipHours20: dayStart[index] == '20:00',
-                        skipHours21: dayStart[index] == '21:00',
-                        skipHours22: dayStart[index] == '22:00',
-                        skipHours23: dayStart[index] == '23:00',
-                        skipHours24: dayStart[index] == '24:00',
-                      }
-                    ">
-                      {{ title }}
-                    </div>
-                  </template>
-                </template>
-              </template>
-            </td>
-            <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations, dayStart, group } in calendars" :key="id">
-                <template v-for="({ date }, index) in dates" :key="date">
-                  <template v-if="group == selection.group">
-                    <div v-if="date == dayDate.fre" :class="
-                      { 
-                        amountOfHours1: durations[index] == 1,
-                        amountOfHours2: durations[index] == 2,
-                        amountOfHours3: durations[index] == 3,
-                        amountOfHours4: durations[index] == 4,
-                        amountOfHours5: durations[index] == 5,
-                        amountOfHours6: durations[index] == 6,
-                        amountOfHours7: durations[index] == 7,
-                        amountOfHours8: durations[index] == 8,
-                        amountOfHours9: durations[index] == 9,
-                        amountOfHours10: durations[index] == 10,
-                        amountOfHours11: durations[index] == 11,
-                        amountOfHours12: durations[index] == 12,
-                        amountOfHours13: durations[index] == 13,
-                        amountOfHours14: durations[index] == 14,
-                        amountOfHours15: durations[index] == 15,
-                        amountOfHours16: durations[index] == 16,
-                        amountOfHours17: durations[index] == 17,
-                        amountOfHours18: durations[index] == 18,
-                        amountOfHours19: durations[index] == 19,
-                        amountOfHours20: durations[index] == 20,
-                        amountOfHours21: durations[index] == 21,
-                        amountOfHours22: durations[index] == 22,
-                        amountOfHours23: durations[index] == 23,
-                        amountOfHours24: durations[index] == 24,
-
-                        skipHours1: dayStart[index] == '01:00',
-                        skipHours2: dayStart[index] == '02:00',
-                        skipHours3: dayStart[index] == '03:00',
-                        skipHours4: dayStart[index] == '04:00',
-                        skipHours5: dayStart[index] == '05:00',
-                        skipHours6: dayStart[index] == '06:00',
-                        skipHours7: dayStart[index] == '07:00',
-                        skipHours8: dayStart[index] == '08:00',
-                        skipHours9: dayStart[index] == '09:00',
-                        skipHours10: dayStart[index] == '10:00',
-                        skipHours11: dayStart[index] == '11:00',
-                        skipHours12: dayStart[index] == '12:00',
-                        skipHours13: dayStart[index] == '13:00',
-                        skipHours14: dayStart[index] == '14:00',
-                        skipHours15: dayStart[index] == '15:00',
-                        skipHours16: dayStart[index] == '16:00',
-                        skipHours17: dayStart[index] == '17:00',
-                        skipHours18: dayStart[index] == '18:00',
-                        skipHours19: dayStart[index] == '19:00',
-                        skipHours20: dayStart[index] == '20:00',
-                        skipHours21: dayStart[index] == '21:00',
-                        skipHours22: dayStart[index] == '22:00',
-                        skipHours23: dayStart[index] == '23:00',
-                        skipHours24: dayStart[index] == '24:00',
-                      }
-                    ">
-                      {{ title }}
-                    </div>
-                  </template>
-                </template>
-              </template>
-            </td>
-            <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations, dayStart, group } in calendars" :key="id">
-                <template v-for="({ date }, index) in dates" :key="date">
-                  <template v-if="group == selection.group">
-                    <div v-if="date == dayDate.lor" :class="
-                      { 
-                        amountOfHours1: durations[index] == 1,
-                        amountOfHours2: durations[index] == 2,
-                        amountOfHours3: durations[index] == 3,
-                        amountOfHours4: durations[index] == 4,
-                        amountOfHours5: durations[index] == 5,
-                        amountOfHours6: durations[index] == 6,
-                        amountOfHours7: durations[index] == 7,
-                        amountOfHours8: durations[index] == 8,
-                        amountOfHours9: durations[index] == 9,
-                        amountOfHours10: durations[index] == 10,
-                        amountOfHours11: durations[index] == 11,
-                        amountOfHours12: durations[index] == 12,
-                        amountOfHours13: durations[index] == 13,
-                        amountOfHours14: durations[index] == 14,
-                        amountOfHours15: durations[index] == 15,
-                        amountOfHours16: durations[index] == 16,
-                        amountOfHours17: durations[index] == 17,
-                        amountOfHours18: durations[index] == 18,
-                        amountOfHours19: durations[index] == 19,
-                        amountOfHours20: durations[index] == 20,
-                        amountOfHours21: durations[index] == 21,
-                        amountOfHours22: durations[index] == 22,
-                        amountOfHours23: durations[index] == 23,
-                        amountOfHours24: durations[index] == 24,
-
-                        skipHours1: dayStart[index] == '01:00',
-                        skipHours2: dayStart[index] == '02:00',
-                        skipHours3: dayStart[index] == '03:00',
-                        skipHours4: dayStart[index] == '04:00',
-                        skipHours5: dayStart[index] == '05:00',
-                        skipHours6: dayStart[index] == '06:00',
-                        skipHours7: dayStart[index] == '07:00',
-                        skipHours8: dayStart[index] == '08:00',
-                        skipHours9: dayStart[index] == '09:00',
-                        skipHours10: dayStart[index] == '10:00',
-                        skipHours11: dayStart[index] == '11:00',
-                        skipHours12: dayStart[index] == '12:00',
-                        skipHours13: dayStart[index] == '13:00',
-                        skipHours14: dayStart[index] == '14:00',
-                        skipHours15: dayStart[index] == '15:00',
-                        skipHours16: dayStart[index] == '16:00',
-                        skipHours17: dayStart[index] == '17:00',
-                        skipHours18: dayStart[index] == '18:00',
-                        skipHours19: dayStart[index] == '19:00',
-                        skipHours20: dayStart[index] == '20:00',
-                        skipHours21: dayStart[index] == '21:00',
-                        skipHours22: dayStart[index] == '22:00',
-                        skipHours23: dayStart[index] == '23:00',
-                        skipHours24: dayStart[index] == '24:00',
-                      }
-                    ">
-                      {{ title }}
-                    </div>
-                  </template>
-                </template>
-              </template>
-            </td>
-            <td class="calendarTime">
-              <template v-for="{ id, title, dates, durations, dayStart, group } in calendars" :key="id">
-                <template v-for="({ date }, index) in dates" :key="date">
-                  <template v-if="group == selection.group">
-                    <div v-if="date == dayDate.son" :class="
-                      { 
-                        amountOfHours1: durations[index] == 1,
-                        amountOfHours2: durations[index] == 2,
-                        amountOfHours3: durations[index] == 3,
-                        amountOfHours4: durations[index] == 4,
-                        amountOfHours5: durations[index] == 5,
-                        amountOfHours6: durations[index] == 6,
-                        amountOfHours7: durations[index] == 7,
-                        amountOfHours8: durations[index] == 8,
-                        amountOfHours9: durations[index] == 9,
-                        amountOfHours10: durations[index] == 10,
-                        amountOfHours11: durations[index] == 11,
-                        amountOfHours12: durations[index] == 12,
-                        amountOfHours13: durations[index] == 13,
-                        amountOfHours14: durations[index] == 14,
-                        amountOfHours15: durations[index] == 15,
-                        amountOfHours16: durations[index] == 16,
-                        amountOfHours17: durations[index] == 17,
-                        amountOfHours18: durations[index] == 18,
-                        amountOfHours19: durations[index] == 19,
-                        amountOfHours20: durations[index] == 20,
-                        amountOfHours21: durations[index] == 21,
-                        amountOfHours22: durations[index] == 22,
-                        amountOfHours23: durations[index] == 23,
-                        amountOfHours24: durations[index] == 24,
-
-                        skipHours1: dayStart[index] == '01:00',
-                        skipHours2: dayStart[index] == '02:00',
-                        skipHours3: dayStart[index] == '03:00',
-                        skipHours4: dayStart[index] == '04:00',
-                        skipHours5: dayStart[index] == '05:00',
-                        skipHours6: dayStart[index] == '06:00',
-                        skipHours7: dayStart[index] == '07:00',
-                        skipHours8: dayStart[index] == '08:00',
-                        skipHours9: dayStart[index] == '09:00',
-                        skipHours10: dayStart[index] == '10:00',
-                        skipHours11: dayStart[index] == '11:00',
-                        skipHours12: dayStart[index] == '12:00',
-                        skipHours13: dayStart[index] == '13:00',
-                        skipHours14: dayStart[index] == '14:00',
-                        skipHours15: dayStart[index] == '15:00',
-                        skipHours16: dayStart[index] == '16:00',
-                        skipHours17: dayStart[index] == '17:00',
-                        skipHours18: dayStart[index] == '18:00',
-                        skipHours19: dayStart[index] == '19:00',
-                        skipHours20: dayStart[index] == '20:00',
-                        skipHours21: dayStart[index] == '21:00',
-                        skipHours22: dayStart[index] == '22:00',
-                        skipHours23: dayStart[index] == '23:00',
-                        skipHours24: dayStart[index] == '24:00',
-                      }
-                    ">
-                      {{ title }}
+                      {{ dayStart[index] }} <br>
+                      <template v-if="durations[index] > 1">
+                        {{ title }} <br>
+                        <template v-if="durations[index] > 2">
+                          <span>{{ dayEnd[index] }}</span>
+                        </template>
+                      </template>
                     </div>
                   </template>
                 </template>
@@ -534,15 +162,15 @@ import { reactive } from 'vue'
 
       const theDays = ['man','tir','ons','tor','fre','lor','son']
       const theMonths = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec']
-      const dayDate = reactive({
-        man: `2020/01/01`,
-        tir: `2020/01/02`,
-        ons: `2020/01/03`,
-        tor: `2020/01/04`,
-        fre: `2020/01/05`,
-        lor: `2020/01/06`,
-        son: `2020/01/07`
-      })
+      const dayDate = reactive([
+        `2020/01/01`,
+        `2020/01/02`,
+        `2020/01/03`,
+        `2020/01/04`,
+        `2020/01/05`,
+        `2020/01/06`,
+        `2020/01/07`
+      ])
       const time = reactive({
         man: 'man',
         tir: 'tir',
@@ -552,6 +180,15 @@ import { reactive } from 'vue'
         lor: 'lor',
         son: 'son'
       })
+      const theWeekDays = [
+        'man',
+        'tir',
+        'ons',
+        'tor',
+        'fre',
+        'lor',
+        'son'
+      ]
       const month = reactive({
         man: 'jan',
         tir: 'jan',
@@ -632,13 +269,13 @@ import { reactive } from 'vue'
 
         currentDisplayOfDates.sort()
         for(let i = 0; i < currentDisplayOfDates.length; i++){
-          dayDate[theDays[i]] = currentDisplayOfDates[i]
+          dayDate[i] = currentDisplayOfDates[i]
         }
       }
 
       updateCalendar()
 
-      return { calendars, deleteCalendar, time, month, year, weekBackward, weekForward, dayDate, selection }
+      return { calendars, deleteCalendar, time, month, year, weekBackward, weekForward, dayDate, selection, theWeekDays }
     } 
   }
 </script>
