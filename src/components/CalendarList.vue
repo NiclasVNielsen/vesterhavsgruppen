@@ -135,10 +135,10 @@
                         </template>
                       </template>
                       <div v-if="durations[index] < 3">
-                        {{ dayStart[index] }} - {{ dayEnd[index] }}
                         <template v-if="durations[index] < 2">
-                          <span>{{ title }}</span>
+                          <p>{{ title }}</p>
                         </template>
+                        <span>{{ dayEnd[index] }}</span>
                       </div>
                     </div>
                   </template>
@@ -348,17 +348,20 @@ import { reactive } from 'vue'
             }
           }
           span{
+            font-size: .9em;
+            opacity: .8;
             &:nth-of-type(2){
               position: absolute;
               bottom: 0;
             }
           }
           >div{
+            width: 100%;
             position: absolute;
-            top: 0;
+            top: 100%;
             left: 0;
-            transform: translateY(-120%);
             display: none;
+            background: #EEE;
           }
         }
         .skipHours1{
