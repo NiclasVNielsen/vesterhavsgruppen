@@ -172,7 +172,7 @@
                           <p>
                             {{ desc }}
                           </p>
-                          <button @click="deleteCalendar(id)">
+                          <button @click="popupToggle(); deleteCalendar(id)">
                             Slet
                           </button>
                         </div>
@@ -201,11 +201,6 @@ import { reactive } from 'vue'
       let selection = reactive ({
         group: '1'
       })
-
-      /* 
-        addeventlistener til calendarItem[i]
-        toggle popup[i]
-      */
 
       let popupTracker = '';
       const popupToggle = (e) => {
