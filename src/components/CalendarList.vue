@@ -248,6 +248,7 @@
                     }
                   ">
                     {{ title }}
+                    {{ dayStart[index] }}
                   </div>
                 </template>
               </template>
@@ -686,76 +687,76 @@ import { reactive } from 'vue'
           }
         }
         .skipHours1{
-          margin-top: 4.1666%;
+          top: 4.1666% !important;
         }
         .skipHours2{
-          margin-top: 8.3333%;
+          top: 8.3333% !important;
         }
         .skipHours3{
-          margin-top: 12.5%;
+          top: 12.5% !important;
         }
         .skipHours4{
-          margin-top: 16.666%;
+          top: 16.666% !important;
         }
         .skipHours5{
-          margin-top: 20.8333%;
+          top: 20.8333% !important;
         }
         .skipHours6{
-          margin-top: 25%;
+          top: 25% !important;
         }
         .skipHours7{
-          margin-top: 29.1666%;
+          top: 29.1666% !important;
         }
         .skipHours8{
-          margin-top: 33.3333%;
+          top: 33.3333% !important;
         }
         .skipHours9{
-          margin-top: 37.5%;
+          top: 37.5% !important;
         }
         .skipHours10{
-          margin-top: 41.6666%;
+          top: 41.6666% !important;
         }
         .skipHours11{
-          margin-top: 45.8333%;
+          top: 45.8333% !important;
         }
         .skipHours12{
-          margin-top: 50%;
+          top: 50% !important;
         }
         .skipHours13{
-          margin-top: 54.1666%;
+          top: 54.1666% !important;
         }
         .skipHours14{
-          margin-top: 58.3333%;
+          top: 58.3333% !important;
         }
         .skipHours15{
-          margin-top: 62.5%;
+          top: 62.5% !important;
         }
         .skipHours16{
-          margin-top: 66.666%;
+          top: 66.666% !important;
         }
         .skipHours17{
-          margin-top: 70.8333%;
+          top: 70.8333% !important;
         }
         .skipHours18{
-          margin-top: 75%;
+          top: 75% !important;
         }
         .skipHours19{
-          margin-top: 79.1666%;
+          top: 79.1666% !important;
         }
         .skipHours20{
-          margin-top: 83.3333%;
+          top: 83.3333% !important;
         }
         .skipHours21{
-          margin-top: 87.5%;
+          top: 87.5% !important;
         }
         .skipHours22{
-          margin-top: 91.6666%;
+          top: 91.6666% !important;
         }
         .skipHours23{
-          margin-top: 95.8333%;
+          top: 95.8333% !important;
         }
         .skipHours24{
-          margin-top: 100%;
+          top: 100% !important;
         }
 
 
