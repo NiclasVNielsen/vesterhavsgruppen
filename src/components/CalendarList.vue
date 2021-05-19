@@ -394,6 +394,7 @@ import { reactive } from 'vue'
           border: solid 1px #000;
           background: #EEE;
           width: 100%;
+          cursor: pointer;
           p, span{
             pointer-events: none;
           }
