@@ -65,12 +65,18 @@
         </thead>
         <tbody>
           <tr>
-            <td class="calendarTime" v-for="(day, i) in theWeekDays" :key="day">
+            <!-- 
+              template elementer bliver ikke renderet på siden så når
+              jeg sætter en v-for på dem vil de ikke danne et parent
+              element til det jeg iterrere hend over
+              -->
               <!-- 
-                template elementer bliver ikke renderet på siden så når
-                jeg sætter en v-for på dem vil de ikke danne et parent
-                element til det jeg iterrere hend over
-               -->
+                durations[index] == 1 && dayEnd[index] == '23:59' 
+                er for at snappe til 23:59 ellers ville den sidste
+                time altid være tom med mindre eventet fylder hele
+                dagen
+              -->
+            <td class="calendarTime" v-for="(day, i) in theWeekDays" :key="day">
               <template v-for="{ id, title, dates, durations, dayStart, dayEnd, group } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <template v-if="group == selection.group">
@@ -127,8 +133,9 @@
                           skipHours23: dayStart[index].match(/23:[0-5][0-9]/gm),
 
                           infoOverflow: durations[index] < 3,
-                          overflowFix: dayStart[index].match(/2[1-4]:[0-5][0-9]/gm) && dayEnd[index].match(/23:[0-5][0-9]/gm)
-                        }
+                          overflowFix: dayStart[index].match(/2[1-4]:[0-5][0-9]/gm) && dayEnd[index].match(/23:59/gm),
+                          overflowFix2: dayStart[index].match(/2[1-4]:[0-5][0-9]/gm) && dayEnd[index].match(/23:[0-5][0-9]/gm) && !dayEnd[index].match(/23:59/gm)
+                         }
                       ">
                         <span class="startDate" v-if="dayStart[index] != '00:00'">{{ dayStart[index] }} <br></span>
                         <template v-if="durations[index] > 1">
@@ -138,7 +145,7 @@
                           </template>
                         </template>
                         <div class="missingInfo" v-if="durations[index] < 3">
-                          <span v-if="dayEnd[index].match(/23:[0-5][0-9]/gm)">{{ dayStart[index] }}</span>
+                          <!-- <span v-if="dayEnd[index].match(/23:[0-5][0-9]/gm)">{{ dayStart[index] }}</span> -->
                           <template v-if="durations[index] < 2">
                             <p>{{ title }}</p>
                           </template>
@@ -410,7 +417,15 @@ import { reactive } from 'vue'
         }
         .overflowFix{
           &:hover{
-            background: #000;
+            height: 8.3333%;
+            top: 91.6666% !important;
+          }
+          border: solid 1px #000;
+        }
+        .overflowFix2{
+          &:hover{
+            height: 12.5%;
+            top: 87.5% !important;
           }
           border: solid 1px #000;
         }
