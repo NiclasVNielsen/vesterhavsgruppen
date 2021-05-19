@@ -78,28 +78,28 @@
                       <div class="calendarItem" @click="popupToggle($event)" :class="
                         { 
                           amountOfHours1: durations[index] == 1,
-                          amountOfHours2: durations[index] == 2,
-                          amountOfHours3: durations[index] == 3,
-                          amountOfHours4: durations[index] == 4,
-                          amountOfHours5: durations[index] == 5,
-                          amountOfHours6: durations[index] == 6,
-                          amountOfHours7: durations[index] == 7,
-                          amountOfHours8: durations[index] == 8,
-                          amountOfHours9: durations[index] == 9,
-                          amountOfHours10: durations[index] == 10,
-                          amountOfHours11: durations[index] == 11,
-                          amountOfHours12: durations[index] == 12,
-                          amountOfHours13: durations[index] == 13,
-                          amountOfHours14: durations[index] == 14,
-                          amountOfHours15: durations[index] == 15,
-                          amountOfHours16: durations[index] == 16,
-                          amountOfHours17: durations[index] == 17,
-                          amountOfHours18: durations[index] == 18,
-                          amountOfHours19: durations[index] == 19,
-                          amountOfHours20: durations[index] == 20,
-                          amountOfHours21: durations[index] == 21,
-                          amountOfHours22: durations[index] == 22,
-                          amountOfHours23: durations[index] == 23,
+                          amountOfHours2: durations[index] == 2 || durations[index] == 1 && dayEnd[index] == '23:59',
+                          amountOfHours3: durations[index] == 3 || durations[index] == 2 && dayEnd[index] == '23:59',
+                          amountOfHours4: durations[index] == 4 || durations[index] == 3 && dayEnd[index] == '23:59',
+                          amountOfHours5: durations[index] == 5 || durations[index] == 4 && dayEnd[index] == '23:59',
+                          amountOfHours6: durations[index] == 6 || durations[index] == 5 && dayEnd[index] == '23:59',
+                          amountOfHours7: durations[index] == 7 || durations[index] == 6 && dayEnd[index] == '23:59',
+                          amountOfHours8: durations[index] == 8 || durations[index] == 7 && dayEnd[index] == '23:59',
+                          amountOfHours9: durations[index] == 9 || durations[index] == 8 && dayEnd[index] == '23:59',
+                          amountOfHours10: durations[index] == 10 || durations[index] == 9 && dayEnd[index] == '23:59',
+                          amountOfHours11: durations[index] == 11 || durations[index] == 10 && dayEnd[index] == '23:59',
+                          amountOfHours12: durations[index] == 12 || durations[index] == 11 && dayEnd[index] == '23:59',
+                          amountOfHours13: durations[index] == 13 || durations[index] == 12 && dayEnd[index] == '23:59',
+                          amountOfHours14: durations[index] == 14 || durations[index] == 13 && dayEnd[index] == '23:59',
+                          amountOfHours15: durations[index] == 15 || durations[index] == 14 && dayEnd[index] == '23:59',
+                          amountOfHours16: durations[index] == 16 || durations[index] == 15 && dayEnd[index] == '23:59',
+                          amountOfHours17: durations[index] == 17 || durations[index] == 16 && dayEnd[index] == '23:59',
+                          amountOfHours18: durations[index] == 18 || durations[index] == 17 && dayEnd[index] == '23:59',
+                          amountOfHours19: durations[index] == 19 || durations[index] == 18 && dayEnd[index] == '23:59',
+                          amountOfHours20: durations[index] == 20 || durations[index] == 19 && dayEnd[index] == '23:59',
+                          amountOfHours21: durations[index] == 21 || durations[index] == 20 && dayEnd[index] == '23:59',
+                          amountOfHours22: durations[index] == 22 || durations[index] == 21 && dayEnd[index] == '23:59',
+                          amountOfHours23: durations[index] == 23 || durations[index] == 22 && dayEnd[index] == '23:59',
                           amountOfHours24: dayStart[index] == '00:00' && dayEnd[index] == '23:59',
 
                           skipHours1: dayStart[index].match(/01:[0-5][0-9]/gm),
@@ -125,6 +125,9 @@
                           skipHours21: dayStart[index].match(/21:[0-5][0-9]/gm),
                           skipHours22: dayStart[index].match(/22:[0-5][0-9]/gm),
                           skipHours23: dayStart[index].match(/23:[0-5][0-9]/gm),
+
+                          infoOverflow: durations[index] < 3,
+                          overflowFix: dayStart[index].match(/2[1-4]:[0-5][0-9]/gm) && dayEnd[index].match(/23:[0-5][0-9]/gm)
                         }
                       ">
                         <span class="startDate" v-if="dayStart[index] != '00:00'">{{ dayStart[index] }} <br></span>
@@ -134,9 +137,7 @@
                             <span class="endDate" v-if="dayEnd[index] != '23:59'">{{ dayEnd[index] }}</span>
                           </template>
                         </template>
-                        <div class="missingInfo" v-if="durations[index] < 3" :class="{
-                          overflowFix: dayEnd[index].match(/23:[0-5][0-9]/gm)
-                        }">
+                        <div class="missingInfo" v-if="durations[index] < 3">
                           <span v-if="dayEnd[index].match(/23:[0-5][0-9]/gm)">{{ dayStart[index] }}</span>
                           <template v-if="durations[index] < 2">
                             <p>{{ title }}</p>
@@ -355,6 +356,14 @@ import { reactive } from 'vue'
           height: 70vh;
           border: 1px solid #000;
         }
+        .infoOverflow{
+          &:hover{
+            height: auto;
+            >.missingInfo{
+              display: block;
+            }
+          }
+        }
         .calendarItem{
           position: absolute;
           top: 0;
@@ -364,11 +373,6 @@ import { reactive } from 'vue'
           border: solid 1px #000;
           background: #EEE;
           width: 100%;
-          &:hover{
-            >.missingInfo{
-              display: block;
-            }
-          }
           p, span{
             pointer-events: none;
           }
@@ -381,18 +385,8 @@ import { reactive } from 'vue'
               bottom: 0;
             }
           >.missingInfo{
-            width: calc(100% + 2px);
-            position: absolute;
-            top: 100%;
-            left: -1px;
+            pointer-events: none;
             display: none;
-            background: #EEE;
-            border: solid 1px #000;
-            border-top: none;
-          }
-          >.overflowFix{
-            transform: translateY(-100%);
-            border: solid 1px #000;
           }
         }
         .popup{
@@ -413,6 +407,12 @@ import { reactive } from 'vue'
         }
         .on + .popup{
           display: block;
+        }
+        .overflowFix{
+          &:hover{
+            background: #000;
+          }
+          border: solid 1px #000;
         }
         .skipHours1{
           top: 4.1666% !important;
