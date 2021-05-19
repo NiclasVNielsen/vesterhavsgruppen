@@ -99,46 +99,48 @@
                         amountOfHours21: durations[index] == 21,
                         amountOfHours22: durations[index] == 22,
                         amountOfHours23: durations[index] == 23,
-                        amountOfHours24: durations[index] == 24,
+                        amountOfHours24: dayStart[index] == '00:00' && dayEnd[index] == '23:59',
 
-                        skipHours1: dayStart[index] == '01:00',
-                        skipHours2: dayStart[index] == '02:00',
-                        skipHours3: dayStart[index] == '03:00',
-                        skipHours4: dayStart[index] == '04:00',
-                        skipHours5: dayStart[index] == '05:00',
-                        skipHours6: dayStart[index] == '06:00',
-                        skipHours7: dayStart[index] == '07:00',
-                        skipHours8: dayStart[index] == '08:00',
-                        skipHours9: dayStart[index] == '09:00',
-                        skipHours10: dayStart[index] == '10:00',
-                        skipHours11: dayStart[index] == '11:00',
-                        skipHours12: dayStart[index] == '12:00',
-                        skipHours13: dayStart[index] == '13:00',
-                        skipHours14: dayStart[index] == '14:00',
-                        skipHours15: dayStart[index] == '15:00',
-                        skipHours16: dayStart[index] == '16:00',
-                        skipHours17: dayStart[index] == '17:00',
-                        skipHours18: dayStart[index] == '18:00',
-                        skipHours19: dayStart[index] == '19:00',
-                        skipHours20: dayStart[index] == '20:00',
-                        skipHours21: dayStart[index] == '21:00',
-                        skipHours22: dayStart[index] == '22:00',
-                        skipHours23: dayStart[index] == '23:00',
-                        skipHours24: dayStart[index] == '24:00',
+                        skipHours1: dayStart[index].match(/01:[0-5][0-9]/gm),
+                        skipHours2: dayStart[index].match(/02:[0-5][0-9]/gm),
+                        skipHours3: dayStart[index].match(/03:[0-5][0-9]/gm),
+                        skipHours4: dayStart[index].match(/04:[0-5][0-9]/gm),
+                        skipHours5: dayStart[index].match(/05:[0-5][0-9]/gm),
+                        skipHours6: dayStart[index].match(/06:[0-5][0-9]/gm),
+                        skipHours7: dayStart[index].match(/07:[0-5][0-9]/gm),
+                        skipHours8: dayStart[index].match(/08:[0-5][0-9]/gm),
+                        skipHours9: dayStart[index].match(/09:[0-5][0-9]/gm),
+                        skipHours10: dayStart[index].match(/10:[0-5][0-9]/gm),
+                        skipHours11: dayStart[index].match(/11:[0-5][0-9]/gm),
+                        skipHours12: dayStart[index].match(/12:[0-5][0-9]/gm),
+                        skipHours13: dayStart[index].match(/13:[0-5][0-9]/gm),
+                        skipHours14: dayStart[index].match(/14:[0-5][0-9]/gm),
+                        skipHours15: dayStart[index].match(/15:[0-5][0-9]/gm),
+                        skipHours16: dayStart[index].match(/16:[0-5][0-9]/gm),
+                        skipHours17: dayStart[index].match(/17:[0-5][0-9]/gm),
+                        skipHours18: dayStart[index].match(/18:[0-5][0-9]/gm),
+                        skipHours19: dayStart[index].match(/19:[0-5][0-9]/gm),
+                        skipHours20: dayStart[index].match(/20:[0-5][0-9]/gm),
+                        skipHours21: dayStart[index].match(/21:[0-5][0-9]/gm),
+                        skipHours22: dayStart[index].match(/22:[0-5][0-9]/gm),
+                        skipHours23: dayStart[index].match(/23:[0-5][0-9]/gm),
                       }
                     ">
-                      <span>{{ dayStart[index] }}</span> <br>
+                      <span class="startDate" v-if="dayStart[index] != '00:00'">{{ dayStart[index] }} <br></span>
                       <template v-if="durations[index] > 1">
                         {{ title }} <br>
                         <template v-if="durations[index] > 2">
-                          <span>{{ dayEnd[index] }}</span>
+                          <span class="endDate" v-if="dayEnd[index] != '23:59'">{{ dayEnd[index] }}</span>
                         </template>
                       </template>
-                      <div v-if="durations[index] < 3">
+                      <div class="missingInfo" v-if="durations[index] < 3" :class="{
+                        overflowFix: dayEnd[index].match(/23:[0-5][0-9]/gm)
+                      }">
+                        <span v-if="dayEnd[index].match(/23:[0-5][0-9]/gm)">{{ dayStart[index] }}</span>
                         <template v-if="durations[index] < 2">
                           <p>{{ title }}</p>
                         </template>
-                        <span>{{ dayEnd[index] }}</span>
+                        <span v-if="dayEnd[index] != '23:59'">{{ dayEnd[index] }}</span>
                       </div>
                     </div>
                   </template>
@@ -342,26 +344,33 @@ import { reactive } from 'vue'
           position: relative;
           min-height: 4.1666%;
           z-index: 124;
+          border: solid 1px #000;
           &:hover{
-            >div{
+            >.missingInfo{
               display: block;
             }
           }
           span{
             font-size: .9em;
             opacity: .8;
-            &:nth-of-type(2){
+          }
+          .endDate{
               position: absolute;
               bottom: 0;
             }
-          }
-          >div{
-            width: 100%;
+          >.missingInfo{
+            width: calc(100% + 2px);
             position: absolute;
             top: 100%;
-            left: 0;
+            left: -1px;
             display: none;
             background: #EEE;
+            border: solid 1px #000;
+            border-top: none;
+          }
+          >.overflowFix{
+            transform: translateY(-100%);
+            border: solid 1px #000;
           }
         }
         .skipHours1{
@@ -432,9 +441,6 @@ import { reactive } from 'vue'
         }
         .skipHours23{
           top: 95.8333% !important;
-        }
-        .skipHours24{
-          top: 100% !important;
         }
 
 
