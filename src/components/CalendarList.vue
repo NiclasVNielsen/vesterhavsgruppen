@@ -77,7 +77,7 @@
                 dagen
               -->
             <td class="calendarTime" v-for="(day, i) in theWeekDays" :key="day">
-              <template v-for="{ id, title, dates, durations, dayStart, dayEnd, group, location } in calendars" :key="id">
+              <template v-for="{ id, title, desc, dates, durations, dayStart, dayEnd, group, location } in calendars" :key="id">
                 <template v-for="({ date }, index) in dates" :key="date">
                   <template v-if="group == selection.group">
                     <template v-if="date == dayDate[i]">
@@ -169,6 +169,12 @@
                               Den {{ newDate.date.split('/')[2]}}/{{dates[0].date.split('/')[1]}}/{{dates[0].date.split('/')[0] }} fra kl {{dayStart[x]}} til {{dayEnd[x]}}<br>
                             </template>
                           </p>
+                          <p>
+                            {{ desc }}
+                          </p>
+                          <button @click="deleteCalendar(id)">
+                            Slet
+                          </button>
                         </div>
                       </div>
                     </template>
