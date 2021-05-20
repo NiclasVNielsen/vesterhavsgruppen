@@ -46,9 +46,7 @@ export const updateUser = (id, user) => {
     return usersCollection.doc(id).update(user)
 }
 export const updateCalendar = (id, calendar) => {
-    //return calendarCollection.doc(id).update(calendar)
-    calendarCollection.doc(id).delete()
-    return calendarCollection.add(calendar)
+    return calendarCollection.doc(id).update(calendar)
 }
 
 // Delete
