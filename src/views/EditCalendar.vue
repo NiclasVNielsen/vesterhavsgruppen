@@ -169,6 +169,9 @@
               subContainer.appendChild(to)
               subContainer.appendChild(end)
               subContainer.appendChild(timeSpan)
+
+              inputsStart.push(start)
+              inputsEnd.push(end)
             }
             return{
               x
