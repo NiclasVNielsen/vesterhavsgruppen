@@ -167,11 +167,11 @@
         }
 
         const getDynamicInputValues = () => {
+          form.durations = []
           if(inputsStart.length != 0){
             form.dayStart = []
             form.dayEnd = []
             form.dates = []
-            form.durations = []
             for(let i = 0; i < inputsStart.length; i++){
               form.dayStart.push(inputsStart[i].value)
               form.dayEnd.push(inputsEnd[i].value)
@@ -184,10 +184,15 @@
               form.dates.push(dateCalc(start + i))
             } 
           }else{
-            console.log(form.dayStart)
-            console.log(form.dayEnd)
-            console.log(form.dates)
-            console.log(form.durations)
+            for(let i = 0; i < form.dayStart.length; i++){
+              const x = form.dayEnd[i].split(':')[0] - form.dayStart[i].split(':')[0]
+              form.durations.push(x)
+  
+              //let start = form.start.split('-')
+              //start = yearCalc(start).amountOfDays;
+  
+              //form.dates.push(dateCalc(start + i))
+            } 
           }
         }
 
