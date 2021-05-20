@@ -93,8 +93,6 @@ import { reactive } from 'vue';
 
   export default {
     setup() {
-      console.log('2021-05-23'.split('-').join('') - 0)
-
       const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30];
       const monthLengthsLeap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30];
 
@@ -449,6 +447,13 @@ import { reactive } from 'vue';
         if(form.start.split('-').join('') - 0 > form.end.split('-').join('') - 0){
           errors.dates = 'Noget er galt med datoerne'
           return console.error('Noget er galt med datoerne');
+        }
+
+        for(let i = 0; i < inputsStart.length; i++){
+          if(inputsStart[i].value.split(':').join('') - 0 >= inputsEnd[i].value.split(':').join('') - 0){
+            errors.dates = 'Noget er galt med tidspunkterne'
+            return console.error('Noget er galt med tidspunkterne');
+          }
         }
         
         /* 
