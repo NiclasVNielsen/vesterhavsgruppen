@@ -187,11 +187,6 @@
             for(let i = 0; i < form.dayStart.length; i++){
               const x = form.dayEnd[i].split(':')[0] - form.dayStart[i].split(':')[0]
               form.durations.push(x)
-  
-              //let start = form.start.split('-')
-              //start = yearCalc(start).amountOfDays;
-  
-              //form.dates.push(dateCalc(start + i))
             } 
           }
         }

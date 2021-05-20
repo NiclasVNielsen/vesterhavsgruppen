@@ -172,6 +172,11 @@
                           <p>
                             {{ desc }}
                           </p>
+                          <router-link :to="`/editCalendar/${id}`">
+                            <button>
+                              Rediger
+                            </button>
+                          </router-link>
                           <button @click="popupToggle(); deleteCalendar(id)">
                             Slet
                           </button>
