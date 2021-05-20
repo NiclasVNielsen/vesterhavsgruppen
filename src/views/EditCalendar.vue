@@ -76,9 +76,9 @@
       <div id="spawnDayAttachments">
         <div v-for="({ day }, index) in form.dayStart" :key="day">
           <span>fra</span>
-          <input :name="`day${index}start`" type="time" :value="`${form.dayStart[index]}`" required>
+          <input :name="`day${index + 1}start`" type="time" :value="`${form.dayStart[index]}`" required>
           <span>til</span>
-          <input :name="`day${index}end`" type="time" :value="`${form.dayEnd[index]}`" required>
+          <input :name="`day${index + 1}end`" type="time" :value="`${form.dayEnd[index]}`" required>
         </div>
       </div>
 
@@ -167,17 +167,28 @@
         }
 
         const getDynamicInputValues = () => {
-          for(let i = 0; i < inputsStart.length; i++){
-            form.dayStart.push(inputsStart[i].value)
-            form.dayEnd.push(inputsEnd[i].value)
-            const x = inputsEnd[i].value.split(':')[0] - inputsStart[i].value.split(':')[0]
-            form.durations.push(x)
-
-            let start = form.start.split('-')
-            start = yearCalc(start).amountOfDays;
-
-            form.dates.push(dateCalc(start + i))
-          } 
+          if(inputsStart.length != 0){
+            form.dayStart = []
+            form.dayEnd = []
+            form.dates = []
+            form.durations = []
+            for(let i = 0; i < inputsStart.length; i++){
+              form.dayStart.push(inputsStart[i].value)
+              form.dayEnd.push(inputsEnd[i].value)
+              const x = inputsEnd[i].value.split(':')[0] - inputsStart[i].value.split(':')[0]
+              form.durations.push(x)
+  
+              let start = form.start.split('-')
+              start = yearCalc(start).amountOfDays;
+  
+              form.dates.push(dateCalc(start + i))
+            } 
+          }else{
+            console.log(form.dayStart)
+            console.log(form.dayEnd)
+            console.log(form.dates)
+            console.log(form.durations)
+          }
         }
 
         const yearCalc = (time) => {
