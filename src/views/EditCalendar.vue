@@ -336,14 +336,18 @@
           if(form.start.split('-').join('') - 0 > form.end.split('-').join('') - 0){
             errors.dates = 'Noget er galt med datoerne'
             return console.error('Noget er galt med datoerne');
+          }else{
+            errors.dates = ''
           }
           
           for(let i = 0; i < inputsStart.length; i++){
             if(inputsStart[i].value.split(':').join('') - 0 >= inputsEnd[i].value.split(':').join('') - 0){
               errors.dates = 'Noget er galt med tidspunkterne'
               return console.error('Noget er galt med tidspunkterne');
+            }else{
+              errors.dates = ''
             }
-          } /* THIS NO WORKING */
+          }
 
           getDynamicInputValues()
           await updateCalendar(calendarId.value, {...form})
