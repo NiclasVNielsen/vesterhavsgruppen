@@ -349,6 +349,22 @@
             }
           }
 
+          console.log(form.dayStart)
+          console.log(form.dayStart[0])
+          console.log(form.dayStart.length)
+          console.log(form.dayEnd)
+          console.log(form.dayEnd[0])
+          console.log(form.dayEnd.length)
+          for(let i = 0; i < form.dayStart.length; i++){
+            if(form.dayStart[i].split(':').join('') - 0 >= form.dayEnd[i].split(':').join('') - 0){
+              errors.dates = 'Noget er galt med tidspunkterne'
+              return console.error('Noget er galt med tidspunkterne');
+            }else{
+              errors.dates = ''
+            }
+          }
+
+
           getDynamicInputValues()
           await updateCalendar(calendarId.value, {...form})
           router.push('/calendar')
