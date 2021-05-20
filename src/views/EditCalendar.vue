@@ -79,6 +79,7 @@
           <input :name="`day${index + 1}start`"  type="time" v-model="form.dayStart[index]" required>
           <span>til</span>
           <input :name="`day${index + 1}end`"  type="time" v-model="form.dayEnd[index]" required>
+          <span>{{ `${new Date(new Date(form.start).setDate(new Date(form.start).getDate() + 1 + index))}`.split(' ')[0] }} {{ `${new Date(new Date(form.start).setDate(new Date(form.start).getDate() + 1 + index))}`.split(' ')[2] }} {{ `${new Date(new Date(form.start).setDate(new Date(form.start).getDate() + 1 + index))}`.split(' ')[1] }}</span>
         </div>
       </div>
 
@@ -135,7 +136,10 @@
             const container = document.getElementById('spawnDayAttachments')
             container.innerHTML=''
 
+            const startDate = new Date(form.start)
             for(let i = 0; i < x; i++){
+              const time = `${new Date(startDate.setDate(startDate.getDate() + 1))}`.split(' ')
+
               const subContainer = document.createElement('div')
               container.appendChild(subContainer)
               const start = document.createElement('input')
@@ -144,6 +148,8 @@
               from.appendChild(document.createTextNode('fra'))
               const to = document.createElement('span')
               to.appendChild(document.createTextNode('til'))
+              const timeSpan = document.createElement('span')
+              timeSpan.appendChild(document.createTextNode(`${time[0]} ${time[2]} ${time[1]}`))
               start.setAttribute('name', `day${i+1}start`)
               start.setAttribute('placeholder', '9:00')
               start.setAttribute('type', 'time')
@@ -156,9 +162,7 @@
               subContainer.appendChild(start)
               subContainer.appendChild(to)
               subContainer.appendChild(end)
-
-              inputsStart.push(start)
-              inputsEnd.push(end)
+              subContainer.appendChild(timeSpan)
             }
             return{
               x

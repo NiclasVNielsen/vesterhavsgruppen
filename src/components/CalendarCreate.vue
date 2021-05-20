@@ -135,7 +135,7 @@ import { createCalendar } from '@/main.js'
             optimalt men hey det er bedre
             end ikke at have en kalender
           */
-
+          const startDate = new Date(form.start)
           for(let i = 0; i < x; i++){
             /* 
               jeg opretter 2 input felter
@@ -144,6 +144,8 @@ import { createCalendar } from '@/main.js'
               for vær dag der i mellem
               de 2 valgte datoer (+1)
             */
+            const time = `${new Date(startDate.setDate(startDate.getDate() + 1))}`.split(' ')
+
             const subContainer = document.createElement('div')
             container.appendChild(subContainer)
             const start = document.createElement('input')
@@ -152,6 +154,8 @@ import { createCalendar } from '@/main.js'
             from.appendChild(document.createTextNode('fra'))
             const to = document.createElement('span')
             to.appendChild(document.createTextNode('til'))
+            const timeSpan = document.createElement('span')
+            timeSpan.appendChild(document.createTextNode(`${time[0]} ${time[2]} ${time[1]}`))
             start.setAttribute('name', `day${i+1}start`)
             start.setAttribute('placeholder', '9:00')
             start.setAttribute('type', 'time')
@@ -164,6 +168,7 @@ import { createCalendar } from '@/main.js'
             subContainer.appendChild(start)
             subContainer.appendChild(to)
             subContainer.appendChild(end)
+            subContainer.appendChild(timeSpan)
 
             /* 
               jeg pusher de 2 inputs

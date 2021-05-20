@@ -1,37 +1,8 @@
 <template>
-  <div class="card mt-4">
+  <div>
     <i>Delete all events more then a month old button</i><br>
     <i>Denne funktion er baseret på din egen computers ur så vær sikker på at det er stillet rigtigt</i>
-    <table class="table m-0">
-      <thead>
-        <tr>
-          <th scope="col">Titel</th>
-          <th scope="col">Beskrivelse</th>
-          <th scope="col">Den/Fra</th>
-          <th scope="col">Til</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="{ id, title, desc, start, end } in calendars" :key="id">
-          <td>{{ title }}</td>
-          <td>{{ desc }}</td>
-          <td>{{ start }}</td>
-          <td v-if="start != end">{{ end }}</td>
-          <td v-else></td>
-          <td>
-            <router-link :to="`/editCalendar/${id}`">
-              <button class="btn btn-primary btn-sm me-2">
-                Edit
-              </button>
-            </router-link>
-            <button class="btn btn-danger btn-sm" @click="deleteCalendar(id)">
-              Delete
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    
     <div id="calendar">
       <select id="calendar" v-model="selection.group">
         <option value="1" selected>Mini</option>
