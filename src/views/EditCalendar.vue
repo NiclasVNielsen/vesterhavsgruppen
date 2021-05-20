@@ -76,9 +76,9 @@
       <div id="spawnDayAttachments">
         <div v-for="({ day }, index) in form.dayStart" :key="day">
           <span>fra</span>
-          <input :name="`day${index + 1}start`" type="time" :value="`${form.dayStart[index]}`" required>
+          <input :name="`day${index + 1}start`"  type="time" v-model="form.dayStart[index]" required>
           <span>til</span>
-          <input :name="`day${index + 1}end`" type="time" :value="`${form.dayEnd[index]}`" required>
+          <input :name="`day${index + 1}end`"  type="time" v-model="form.dayEnd[index]" required>
         </div>
       </div>
 
