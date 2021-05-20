@@ -48,6 +48,10 @@
         />
       </div>
 
+      <span style="color: #F00">
+        {{ errors.dates }}
+      </span>
+
       <div>
         <label for="start">Dato</label>
         <input 
@@ -69,7 +73,6 @@
         />
       </div>
 
-      <hr>
 
       <div id="spawnDayAttachments">
         
@@ -78,6 +81,7 @@
       <button type="submit">
         Create calendar
       </button>
+      <hr>
     </form>
   </div>
 </template>
@@ -85,9 +89,12 @@
 <script>
 //import { reactive } from 'vue'
 import { createCalendar } from '@/main.js'
+import { reactive } from 'vue';
 
   export default {
     setup() {
+      console.log('2021-05-23'.split('-').join('') - 0)
+
       const monthLengths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30];
       const monthLengthsLeap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30];
 
@@ -417,6 +424,10 @@ import { createCalendar } from '@/main.js'
         dayStart: [],
         dayEnd: []
       }
+
+      let errors = reactive({
+        dates: ''
+      })
       
 
       const onSubmit = async () => {
@@ -433,6 +444,11 @@ import { createCalendar } from '@/main.js'
         */
         if(form.end == ''){
           form.end = form.start
+        }
+        
+        if(form.start.split('-').join('') - 0 > form.end.split('-').join('') - 0){
+          errors.dates = 'Noget er galt med datoerne'
+          return console.error('Noget er galt med datoerne');
         }
         
         /* 
@@ -478,7 +494,7 @@ import { createCalendar } from '@/main.js'
         clearForm()
       }
 
-      return { form, onSubmit, spawnDayAttachments }
+      return { form, errors, onSubmit, spawnDayAttachments }
     } 
   }
 </script>

@@ -50,6 +50,10 @@
         />
       </div>
 
+      <span style="color: #F00">
+        {{ errors.dates }}
+      </span>
+
       <div>
         <label for="start">Dato</label>
         <input 
@@ -71,7 +75,6 @@
         />
       </div>
 
-      <hr>
 
       <div id="spawnDayAttachments">
         <div v-for="({ day }, index) in form.dayStart" :key="day">
@@ -86,6 +89,9 @@
       <button type="submit">
         Update
       </button>
+
+      <hr>
+
     </form>
   </div>
 </template>
@@ -313,6 +319,10 @@
           dayStart: [],
           dayEnd: []
         })
+
+        let errors = reactive({
+          dates: ''
+        })
         
 
         const onSubmit = async () => {
@@ -320,12 +330,17 @@
             form.end = form.start
           }
 
+          if(form.start.split('-').join('') - 0 > form.end.split('-').join('') - 0){
+            errors.dates = 'Noget er galt med datoerne'
+            return console.error('Noget er galt med datoerne');
+          }
+
           getDynamicInputValues()
           await updateCalendar(calendarId.value, {...form})
           router.push('/calendar')
         }
 
-        return { form, onSubmit, spawnDayAttachments }
+        return { form, errors, onSubmit, spawnDayAttachments }
       } 
     }
 </script>

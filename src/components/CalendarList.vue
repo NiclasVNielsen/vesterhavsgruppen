@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <i>Delete all events more then a month old button</i><br>
-    <i>Denne funktion er baseret på din egen computers ur så vær sikker på at det er stillet rigtigt</i>
-    
+  <div>    
     <div id="calendar">
       <select id="calendar" v-model="selection.group">
         <option value="1" selected>Mini</option>
