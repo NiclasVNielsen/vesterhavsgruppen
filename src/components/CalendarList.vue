@@ -314,6 +314,7 @@ import { reactive } from 'vue'
   }
   #calendar{
     width: 800px;
+    margin: 5vh auto 20vh;
     max-width: 100%;
     border: solid 1px #000;
     > select{
