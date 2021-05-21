@@ -39,7 +39,7 @@
       </div>
 
       <div>
-        <label for="desc">Beskrivelse</label>
+        <label for="desc">Beskrivelse</label> <br>
         <textarea 
           type="text"
           v-model="form.desc"
@@ -83,6 +83,9 @@
       </button>
       <hr>
     </form>
+    <div class="cutething">
+
+    </div>
   </div>
 </template>
 
@@ -141,6 +144,7 @@ import { reactive } from 'vue';
             end ikke at have en kalender
           */
           const startDate = new Date(form.start)
+          startDate.setDate(startDate.getDate() - 1)
           for(let i = 0; i < x; i++){
             /* 
               jeg opretter 2 input felter
@@ -509,5 +513,8 @@ import { reactive } from 'vue';
 </script>
 
 <style lang="scss" scoped>
-
+  .cutething{
+    height: 5vh;
+    background: repeating-linear-gradient(-45deg, green 0vh, green 2vh, cornflowerblue 2vh, cornflowerblue 5.5vh);
+  }
 </style>
