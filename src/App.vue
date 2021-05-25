@@ -14,8 +14,8 @@ export default {
 
     onBeforeMount(() => {
       firebase.auth()
-       firebase.auth().onAuthStateChanged((user) => {
-        if(!user) {
+      firebase.auth().onAuthStateChanged((user) => {
+        if(!user && router.currentRoute.value.fullPath.split('/')[1]) {
           router.replace('/admin/login')
         } else if (route.path == '/admin/login'){
           router.replace('/admin/calendar')

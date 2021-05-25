@@ -140,7 +140,7 @@
                           <p>
                             {{ desc }}
                           </p>
-                          <router-link :to="`/editCalendar/${id}`">
+                          <router-link :to="`/admin/editCalendar/${id}`">
                             <button>
                               Rediger
                             </button>
