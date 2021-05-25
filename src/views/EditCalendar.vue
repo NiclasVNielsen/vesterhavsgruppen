@@ -361,7 +361,7 @@
 
           getDynamicInputValues()
           await updateCalendar(calendarId.value, {...form})
-          router.push('/calendar')
+          router.push('/admin/calendar')
         }
 
         return { form, errors, onSubmit, spawnDayAttachments }

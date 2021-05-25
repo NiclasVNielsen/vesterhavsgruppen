@@ -12,24 +12,24 @@ const routes = [
     component: () => import ('../views/About.vue')
   },
   {
-    path: '/calendar',
+    path: '/admin/calendar',
     name: 'Calendar',
     component: () => import ('../views/Calendar.vue')
   },
   /* Login Auth */
   {
-    path: '/login',
+    path: '/admin/login',
     name: 'Login',
     component: () => import ('../views/Login.vue')
   },
   /* CRUD Functions */
   {
-    path: '/edit/:id',
+    path: '/admin/edit/:id',
     name: 'Edit',
     component: () => import ('../views/Edit.vue')
   },
   {
-    path: '/editCalendar/:id',
+    path: '/admin/editCalendar/:id',
     name: 'EditCalendar',
     component: () => import ('../views/EditCalendar.vue')
   }

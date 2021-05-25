@@ -16,9 +16,9 @@ export default {
       firebase.auth()
        firebase.auth().onAuthStateChanged((user) => {
         if(!user) {
-          router.replace('/login')
-        } else if (route.path == '/login'){
-          router.replace('/')
+          router.replace('/admin/login')
+        } else if (route.path == '/admin/login'){
+          router.replace('/admin/calendar')
         }
       })
     })
