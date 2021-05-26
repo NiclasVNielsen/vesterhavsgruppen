@@ -6,6 +6,16 @@
         </h3>
         <form @submit.prevent="update">
             <div>
+                <label for="title">
+                    Titel
+                </label>
+                <textarea v-model="form.title" type="text" required />
+                <label for="one">
+                    Tekst
+                </label>
+                <textarea v-model="form.text" type="text" required />
+            </div>
+            <div>
                 <label for="onetitle">
                     One titel
                 </label>
@@ -63,6 +73,8 @@ export default {
 
         onMounted(async () => {
             const frontpage = await getFrontpage()
+            form.title = frontpage.title
+            form.text = frontpage.text
             form.onetitle = frontpage.onetitle
             form.one = frontpage.one
             form.twotitle = frontpage.twotitle
