@@ -74,11 +74,6 @@ const routes = [
   },
   /* CRUD Functions */
   {
-    path: '/admin/edit/:id',
-    name: 'Edit',
-    component: () => import ('../views/Edit.vue')
-  },
-  {
     path: '/admin/editCalendar/:id',
     name: 'EditCalendar',
     component: () => import ('../views/EditCalendar.vue')
