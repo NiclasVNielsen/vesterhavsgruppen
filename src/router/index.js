@@ -7,9 +7,34 @@ const routes = [
     component: () => import ('../views/Home.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import ('../views/About.vue')
+    path: '/afdelinger',
+    name: 'Afdelinger',
+    component: () => import ('../views/Afdelinger.vue')
+  },
+  {
+    path: '/omos',
+    name: 'Omos',
+    component: () => import ('../views/Omos.vue')
+  },
+  {
+    path: '/praktisk',
+    name: 'Praktisk',
+    component: () => import ('../views/Praktisk.vue')
+  },
+  {
+    path: '/kalender',
+    name: 'Kalender',
+    component: () => import ('../views/Kalender.vue')
+  },
+  {
+    path: '/galleri',
+    name: 'Galleri',
+    component: () => import ('../views/Galleri.vue')
+  },
+  {
+    path: '/tilmelding',
+    name: 'Tilmelding',
+    component: () => import ('../views/Tilmelding.vue')
   },
   {
     path: '/admin/calendar',

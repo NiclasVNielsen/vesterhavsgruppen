@@ -1,6 +1,6 @@
 <template>
-    <router-link to='/'>Forside</router-link>
-    <router-link to='/calendar'>Kalender</router-link>
+    <router-link to='/admin/'>Forside</router-link>
+    <router-link to='/admin/calendar'>Kalender</router-link>
     <button class="logout" @click="Logout">Logout</button>
 </template>
 

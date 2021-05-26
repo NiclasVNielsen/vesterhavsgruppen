@@ -1,24 +1,21 @@
 <template>
   <topping/>
-  <div class="home">
-    home
-  </div>
-  <bottom/>
+  <div class="galleri">
+    Galleri
+  </div>    
+  <bottom msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
+// @ is an alias to /src
 import bottom from '@/components/bottom.vue'
 import topping from '@/components/front-end-topping.vue'
 
-
 export default {
-  name: 'Home',
+  name: 'Galleri',
   components: {
     topping,
     bottom
-  },
-  methods: {
-
   }
 }
 </script>
