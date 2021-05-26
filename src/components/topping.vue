@@ -4,6 +4,7 @@
     <router-link to='/admin/departments'>Afdelinger</router-link>
     <router-link to='/admin/about'>Om os</router-link>
     <router-link to='/admin/practical'>Praktisk</router-link>
+    <router-link to='/admin/signup'>Tilmelding</router-link>
     <button class="logout" @click="Logout">Logout</button>
 </template>
 

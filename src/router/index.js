@@ -57,6 +57,11 @@ const routes = [
     component: () => import ('../views/AdminPractical.vue')
   },
   {
+    path: '/admin/signup',
+    name: 'AdminSignup',
+    component: () => import ('../views/AdminSignup.vue')
+  },
+  {
     path: '/admin/calendar',
     name: 'Calendar',
     component: () => import ('../views/Calendar.vue')
