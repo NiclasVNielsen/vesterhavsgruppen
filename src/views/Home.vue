@@ -73,7 +73,16 @@
         </svg>
 
     </div>
+    <section class="bgcolor">
+        <section class="fb col8 pushcol2">
+            <h4>
+                Følg med på hvad der sker i gruppen
+            </h4>
+            <div>
 
+            </div>
+        </section>
+    </section>
   </div>
   <bottom/>
 </template>
@@ -182,6 +191,29 @@ export default {
             &:last-of-type{
                 top: 68px;
                 left: calc(50% + (100% / 26));
+            }
+        }
+    }
+    .bgcolor{
+        background: var(--whiteshade3);
+        padding-top: 87.6px;
+        .fb{
+            height: 643px;
+            background: var(--whiteshade1);
+            h4{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 83px;
+                background: var(--prim);
+                color: var(--whiteshade1);
+                font-size: 32px;
+                font-family: AlfaSlabOne, sans-serif;
+                font-weight: 400;
+            }
+            > div{
+                min-height: calc(100% - 83px);
+                border: solid 1px var(--black);
             }
         }
     }

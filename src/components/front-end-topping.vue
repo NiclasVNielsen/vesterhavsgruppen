@@ -26,6 +26,7 @@
     }
     header{
         position: fixed;
+        z-index: 1000;
         top: 0;
         left: 0;
         font-size: 13px;
