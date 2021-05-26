@@ -22,6 +22,8 @@ const db = firebaseApp.firestore()
 // Lav en af dem her efter vær collection!
 const calendarCollection = db.collection('calendar')
 const frontpageCollection = db.collection('frontpage')
+const departmentspageCollection = db.collection('departmentpage')
+const aboutpageCollection = db.collection('aboutpage')
 
 
 
@@ -38,12 +40,26 @@ export const getFrontpage = async () => {
     const frontpage = await frontpageCollection.doc('Gad3FkZnIqGBDm3vCONl').get()
     return frontpage.exists ? frontpage.data() : null
 }
+export const getDepartmentspage = async () => {
+    const departmentspage = await departmentspageCollection.doc('Xd7wZzlIR48QChsFOwFX').get()
+    return departmentspage.exists ? departmentspage.data() : null
+}
+export const getAboutpage = async () => {
+    const aboutpage = await aboutpageCollection.doc('EDZdHWicRm8BsBqqmbNV').get()
+    return aboutpage.exists ? aboutpage.data() : null
+}
 // Update
 export const updateCalendar = (id, calendar) => {
     return calendarCollection.doc(id).update(calendar)
 }
 export const updateFrontpage = (frontpage) => {
     return frontpageCollection.doc('Gad3FkZnIqGBDm3vCONl').update(frontpage)
+}
+export const updateDepartmentspage = (departmentspage) => {
+    return departmentspageCollection.doc('Xd7wZzlIR48QChsFOwFX').update(departmentspage)
+}
+export const updateAboutpage = (aboutpage) => {
+    return aboutpageCollection.doc('EDZdHWicRm8BsBqqmbNV').update(aboutpage)
 }
 
 // Delete

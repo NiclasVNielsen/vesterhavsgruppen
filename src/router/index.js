@@ -42,6 +42,16 @@ const routes = [
     component: () => import ('../views/AdminFrontpage.vue')
   },
   {
+    path: '/admin/departments',
+    name: 'AdminDepartments',
+    component: () => import ('../views/AdminDepartments.vue')
+  },
+  {
+    path: '/admin/about',
+    name: 'AdminAbout',
+    component: () => import ('../views/AdminAbout.vue')
+  },
+  {
     path: '/admin/calendar',
     name: 'Calendar',
     component: () => import ('../views/Calendar.vue')
