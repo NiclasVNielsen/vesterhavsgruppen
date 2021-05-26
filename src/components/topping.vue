@@ -3,6 +3,7 @@
     <router-link to='/admin/calendar'>Kalender</router-link>
     <router-link to='/admin/departments'>Afdelinger</router-link>
     <router-link to='/admin/about'>Om os</router-link>
+    <router-link to='/admin/practical'>Praktisk</router-link>
     <button class="logout" @click="Logout">Logout</button>
 </template>
 

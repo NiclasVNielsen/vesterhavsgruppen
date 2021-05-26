@@ -133,23 +133,7 @@ export default {
         })
 
         const form = reactive({ 
-            title: '', 
-            titletext: '', 
-            kontakt: '',
-            boxone: '', 
-            boxonenavn: '', 
-            boxonetlf: '', 
-            boxoneemail: '',
-            boxtwo: '', 
-            boxtwonavn: '', 
-            boxtwotlf: '', 
-            boxtwoemail: '',
-            boxthree: '', 
-            boxthreenavn: '', 
-            boxthreetlf: '', 
-            boxthreeemail: '',
-            sponsor: '',
-            sponsortext: ''
+            
         })
 
         const update = async () => {

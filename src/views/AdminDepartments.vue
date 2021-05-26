@@ -151,9 +151,7 @@ export default {
         })
 
         const form = reactive({ 
-          one: '', 
-          two: '', 
-          three: '' 
+            
         })
 
         const update = async () => {

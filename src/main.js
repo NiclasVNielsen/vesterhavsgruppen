@@ -24,6 +24,7 @@ const calendarCollection = db.collection('calendar')
 const frontpageCollection = db.collection('frontpage')
 const departmentspageCollection = db.collection('departmentpage')
 const aboutpageCollection = db.collection('aboutpage')
+const practicalpageCollection = db.collection('practicalpage')
 
 
 
@@ -48,6 +49,10 @@ export const getAboutpage = async () => {
     const aboutpage = await aboutpageCollection.doc('EDZdHWicRm8BsBqqmbNV').get()
     return aboutpage.exists ? aboutpage.data() : null
 }
+export const getPracticalpage = async () => {
+    const practicalpage = await practicalpageCollection.doc('O75kcvB9YDvkFb3QLCay').get()
+    return practicalpage.exists ? practicalpage.data() : null
+}
 // Update
 export const updateCalendar = (id, calendar) => {
     return calendarCollection.doc(id).update(calendar)
@@ -60,6 +65,9 @@ export const updateDepartmentspage = (departmentspage) => {
 }
 export const updateAboutpage = (aboutpage) => {
     return aboutpageCollection.doc('EDZdHWicRm8BsBqqmbNV').update(aboutpage)
+}
+export const updatePracticalpage = (practicalpage) => {
+    return practicalpageCollection.doc('O75kcvB9YDvkFb3QLCay').update(practicalpage)
 }
 
 // Delete
