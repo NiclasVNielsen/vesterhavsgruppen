@@ -23,6 +23,14 @@
                     Text
                 </label>
                 <textarea v-model="form.one" type="text" required />
+                <label for="oneleder">
+                    Leder
+                </label>
+                <textarea v-model="form.oneleder" type="text" required />
+                <label for="oneemail">
+                    Email
+                </label>
+                <textarea v-model="form.oneemail" type="text" required />
             </div>
             <div>
                 Mini
@@ -42,6 +50,14 @@
                     Text
                 </label>
                 <textarea v-model="form.two" type="text" required />
+                <label for="twoleder">
+                    Leder
+                </label>
+                <textarea v-model="form.twoleder" type="text" required />
+                <label for="twoemail">
+                    Email
+                </label>
+                <textarea v-model="form.twoemail" type="text" required />
             </div>
             <div>
                 Junior
@@ -61,6 +77,14 @@
                     Text
                 </label>
                 <textarea v-model="form.three" type="text" required />
+                <label for="threeleder">
+                    Leder
+                </label>
+                <textarea v-model="form.threeleder" type="text" required />
+                <label for="threeemail">
+                    Email
+                </label>
+                <textarea v-model="form.threeemail" type="text" required />
             </div>
             <div>
                 Trop
@@ -80,6 +104,14 @@
                     Text
                 </label>
                 <textarea v-model="form.four" type="text" required />
+                <label for="fourleder">
+                    Leder
+                </label>
+                <textarea v-model="form.fourleder" type="text" required />
+                <label for="fouremail">
+                    Email
+                </label>
+                <textarea v-model="form.fouremail" type="text" required />
             </div>
             <div>
                 Klan
@@ -99,6 +131,14 @@
                     Text
                 </label>
                 <textarea v-model="form.five" type="text" required />
+                <label for="fiveleder">
+                    Leder
+                </label>
+                <textarea v-model="form.fiveleder" type="text" required />
+                <label for="fiveemail">
+                    Email
+                </label>
+                <textarea v-model="form.fiveemail" type="text" required />
             </div>
             <button type="submit">
                 Update
@@ -148,6 +188,18 @@ export default {
             form.threetid = departmentspage.threetid
             form.fourtid = departmentspage.fourtid
             form.fivetid = departmentspage.fivetid
+
+            form.oneleder = departmentspage.oneleder
+            form.twoleder = departmentspage.twoleder
+            form.threeleder = departmentspage.threeleder
+            form.fourleder = departmentspage.fourleder
+            form.fiveleder = departmentspage.fiveleder
+
+            form.oneemail = departmentspage.oneemail
+            form.twoemail = departmentspage.twoemail
+            form.threeemail = departmentspage.threeemail
+            form.fouremail = departmentspage.fouremail
+            form.fiveemail = departmentspage.fiveemail
         })
 
         const form = reactive({ 
