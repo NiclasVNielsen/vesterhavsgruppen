@@ -53,7 +53,6 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
   }
 
   .col1{
@@ -117,7 +116,6 @@ export default {
   }
 
   .stripes{
-    position: absolute;
     width: 100%;
     height: 10px;
     background: repeating-linear-gradient(-30deg,
@@ -126,5 +124,10 @@ export default {
       var(--prim) 10px,
       var(--prim) 25px
     );
+  }
+
+  @font-face {
+    font-family: AlfaSlabOne;
+    src: url('./assets/fonts/AlfaSlabOne-Regular.ttf');
   }
 </style>

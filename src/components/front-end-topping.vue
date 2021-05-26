@@ -15,7 +15,7 @@
                 <router-link to='/tilmelding'>Bliv Spejder</router-link>
             </div>
         </nav>
-        <div class="stripes bot"/>
+        <div class="stripes"/>
     </header>
 </template>
 
