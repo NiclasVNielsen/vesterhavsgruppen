@@ -10,7 +10,7 @@
                 <router-link to='/omos'>Om os</router-link>
                 <router-link to='/praktisk'>Praktisk</router-link>
                 <router-link to='/kalender'>Kalender</router-link>
-                <router-link to='/galleri'>Galleri</router-link>
+                <a href="https://www.facebook.com/Vesterhavsgruppen-DDS-908378059235877/photos/?tab=albums&ref=page_internal" target="_blanc">Galleri</a>
             </div>
             <div class="pushcol8 col1 signup">
                 <router-link to='/tilmelding'>Bliv Spejder</router-link>

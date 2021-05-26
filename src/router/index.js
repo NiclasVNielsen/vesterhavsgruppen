@@ -27,11 +27,6 @@ const routes = [
     component: () => import ('../views/Kalender.vue')
   },
   {
-    path: '/galleri',
-    name: 'Galleri',
-    component: () => import ('../views/Galleri.vue')
-  },
-  {
     path: '/tilmelding',
     name: 'Tilmelding',
     component: () => import ('../views/Tilmelding.vue')
