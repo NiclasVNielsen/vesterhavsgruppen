@@ -37,6 +37,11 @@ const routes = [
     component: () => import ('../views/Tilmelding.vue')
   },
   {
+    path: '/admin/frontpage',
+    name: 'AdminFrontpage',
+    component: () => import ('../views/AdminFrontpage.vue')
+  },
+  {
     path: '/admin/calendar',
     name: 'Calendar',
     component: () => import ('../views/Calendar.vue')

@@ -5,7 +5,7 @@
     </div>
     <calendarCreate/>
     <calendarList/>
-    <bottom msg="Welcome to Your Vue.js App"/>
+    <bottom/>
 </template>
 
 <script>

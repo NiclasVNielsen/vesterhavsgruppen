@@ -1,5 +1,5 @@
 <template>
-    <router-link to='/admin/'>Forside</router-link>
+    <router-link to='/admin/frontpage'>Forside</router-link>
     <router-link to='/admin/calendar'>Kalender</router-link>
     <button class="logout" @click="Logout">Logout</button>
 </template>

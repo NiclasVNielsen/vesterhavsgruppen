@@ -3,7 +3,7 @@
   <div class="tilmelding">
     Tilmelding
   </div>    
-  <bottom msg="Welcome to Your Vue.js App"/>
+  <bottom/>
 </template>
 
 <script>

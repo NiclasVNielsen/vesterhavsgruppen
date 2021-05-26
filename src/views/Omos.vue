@@ -3,7 +3,7 @@
   <div class="omos">
     Om os
   </div>    
-  <bottom msg="Welcome to Your Vue.js App"/>
+  <bottom/>
 </template>
 
 <script>

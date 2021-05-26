@@ -20,56 +20,38 @@ const firebaseApp = firebase.initializeApp(config);
 
 const db = firebaseApp.firestore()
 // Lav en af dem her efter vær collection!
-const usersCollection = db.collection('users')
 const calendarCollection = db.collection('calendar')
+const frontpageCollection = db.collection('frontpage')
 
 
 
 // Create
-export const createUser = user => {
-    return usersCollection.add(user)
-}
 export const createCalendar = calendar => {
     return calendarCollection.add(calendar)
 }
 // select single Read
-export const getUser = async id => {
-    const user = await usersCollection.doc(id).get()
-    return user.exists ? user.data() : null
-}
 export const getCalendar = async id => {
     const calendar = await calendarCollection.doc(id).get()
     return calendar.exists ? calendar.data() : null
 }
-// Update
-export const updateUser = (id, user) => {
-    return usersCollection.doc(id).update(user)
+export const getFrontpage = async () => {
+    const frontpage = await frontpageCollection.doc('Gad3FkZnIqGBDm3vCONl').get()
+    return frontpage.exists ? frontpage.data() : null
 }
+// Update
 export const updateCalendar = (id, calendar) => {
     return calendarCollection.doc(id).update(calendar)
 }
+export const updateFrontpage = (frontpage) => {
+    return frontpageCollection.doc('Gad3FkZnIqGBDm3vCONl').update(frontpage)
+}
 
 // Delete
-export const deleteUser = id => {
-    return usersCollection.doc(id).delete()
-}
 export const deleteCalendar = id => {
     return calendarCollection.doc(id).delete()
 }
 
 // mass Read
-export const useLoadUsers = () => {
-    const Users = ref([])
-
-    const close = usersCollection.onSnapshot(snapshot => {
-        Users.value = snapshot.docs.map(doc => ({
-            id: doc.id,
-            ...doc.data()
-        }))
-    })
-    onUnmounted(close)
-    return Users
-}
 export const useLoadCalendars = () => {
     const Calendars = ref([])
 

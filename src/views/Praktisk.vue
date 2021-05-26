@@ -3,7 +3,7 @@
   <div class="praktisk">
     Praktisk
   </div>    
-  <bottom msg="Welcome to Your Vue.js App"/>
+  <bottom/>
 </template>
 
 <script>
