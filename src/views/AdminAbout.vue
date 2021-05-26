@@ -113,9 +113,23 @@ export default {
 
         onMounted(async () => {
             const aboutpage = await getAboutpage()
-            form.one = aboutpage.one
-            form.two = aboutpage.two
-            form.three = aboutpage.three
+            form.title = aboutpage.title
+            form.titletext = aboutpage.titletext
+            form.kontakt = aboutpage.kontakt
+            form.boxone = aboutpage.boxone
+            form.boxonenavn = aboutpage.boxonenavn
+            form.boxonetlf = aboutpage.boxonetlf
+            form.boxoneemail = aboutpage.boxoneemail
+            form.boxtwo = aboutpage.boxtwo
+            form.boxtwonavn = aboutpage.boxtwonavn
+            form.boxtwotlf = aboutpage.boxtwotlf
+            form.boxtwoemail = aboutpage.boxtwoemail
+            form.boxthree = aboutpage.boxthree
+            form.boxthreenavn = aboutpage.boxthreenavn
+            form.boxthreetlf = aboutpage.boxthreetlf
+            form.boxthreeemail = aboutpage.boxthreeemail
+            form.sponsor = aboutpage.sponsor
+            form.sponsortext = aboutpage.sponsortext
         })
 
         const form = reactive({ 
@@ -124,8 +138,18 @@ export default {
             kontakt: '',
             boxone: '', 
             boxonenavn: '', 
+            boxonetlf: '', 
+            boxoneemail: '',
+            boxtwo: '', 
+            boxtwonavn: '', 
             boxtwotlf: '', 
-            boxoneemail: '' /* DO MORE */
+            boxtwoemail: '',
+            boxthree: '', 
+            boxthreenavn: '', 
+            boxthreetlf: '', 
+            boxthreeemail: '',
+            sponsor: '',
+            sponsortext: ''
         })
 
         const update = async () => {
