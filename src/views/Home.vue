@@ -82,6 +82,22 @@
 
             </div>
         </section>
+        <section class="signup">
+            <div class="col4 pushcol2">
+                <h4>
+                    Kom ind i fællesskabet
+                </h4>
+                <p>
+                    Tilmeld dig eller kom og prøv at være spejder
+                </p>
+                <div>
+                    <router-link to='/tilmelding'>Bliv Spejder</router-link>
+                </div>
+            </div>
+            <div class="col4">
+                <img src="../assets/images/frontimage.jpg" alt="ehhhm IMG">
+            </div>
+        </section>
     </section>
   </div>
   <bottom/>
@@ -197,9 +213,11 @@ export default {
     .bgcolor{
         background: var(--whiteshade3);
         padding-top: 87.6px;
+        padding-bottom: 75px;
         .fb{
             height: 643px;
             background: var(--whiteshade1);
+            margin-bottom: 56px;
             h4{
                 display: flex;
                 justify-content: center;
@@ -214,6 +232,47 @@ export default {
             > div{
                 min-height: calc(100% - 83px);
                 border: solid 1px var(--black);
+            }
+        }
+        .signup{
+            display: flex;
+            div{
+                &:first-of-type{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    > h4{
+                        font-size: 32px;
+                        font-family: AlfaSlabOne, sans-serif;
+                        font-weight: 400;
+                    }
+                    > p{
+                        font-family: proxima-nova,sans-serif;
+                        font-weight: 400;
+                        margin-bottom: 9px;
+                    }
+                    > div{
+                        a{
+                            width: 336px;
+                            height: 36px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background: var(--prim);
+                            color: var(--whiteshade1);
+                            border-radius: 10px;
+                            font-family: proxima-nova,sans-serif;
+                            font-weight: 700;
+                            text-decoration: none;
+                        }
+                    }
+                }
+                &:last-of-type{
+                    img{
+                        display: block;
+                    }
+                }
             }
         }
     }
