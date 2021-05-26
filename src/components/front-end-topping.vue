@@ -1,4 +1,5 @@
 <template>
+    <div class="header-fill"/>
     <header>
         <nav class="wrapper">
             <div class="pushcol1 col1">
@@ -20,12 +21,20 @@
 </template>
 
 <style lang="scss" scoped>
+    .header-fill{
+        height: 80px;
+    }
     header{
+        position: fixed;
+        top: 0;
+        left: 0;
         font-size: 13px;
         font-family: proxima-nova, sans-serif;
         font-weight: 700;
         font-style: normal;
+        width: 100%;
         height: 80px;
+        background: var(--whiteshade1);
         > nav{
             display: flex;
             position: relative;
