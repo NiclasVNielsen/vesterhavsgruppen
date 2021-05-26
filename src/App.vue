@@ -124,15 +124,7 @@ export default {
       var(--second),
       var(--second) 10px,
       var(--prim) 10px,
-      var(--prim) 25px);
-    
-    &.top{
-      top: 0;
-      transform: translateY(-50%);
-    }
-    &.bot{
-      bottom: 0;
-      transform: translateY(50%);
-    }
+      var(--prim) 25px
+    );
   }
 </style>

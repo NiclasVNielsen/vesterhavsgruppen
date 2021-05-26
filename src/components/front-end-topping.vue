@@ -14,8 +14,8 @@
             <div class="pushcol8 col1 signup">
                 <router-link to='/tilmelding'>Bliv Spejder</router-link>
             </div>
-            <div class="stripes bot"/>
         </nav>
+        <div class="stripes bot"/>
     </header>
 </template>
 
@@ -25,10 +25,11 @@
         font-family: proxima-nova, sans-serif;
         font-weight: 700;
         font-style: normal;
+        height: 80px;
         > nav{
             display: flex;
             position: relative;
-            height: 74px;
+            height: 70px;
             align-items: center;
             a{
                 text-decoration: none;
