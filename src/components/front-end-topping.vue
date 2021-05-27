@@ -2,7 +2,7 @@
     <div class="header-fill"/>
     <header>
         <nav class="wrapper">
-            <div class="pushcol1 col1">
+            <div class="pushcol1 col1 icon">
                 <router-link to='/'>Forside</router-link>
             </div>
             <div class="menuItems">
@@ -11,9 +11,9 @@
                 <router-link to='/praktisk'>Praktisk</router-link>
                 <router-link to='/kalender'>Kalender</router-link>
                 <a href="https://www.facebook.com/Vesterhavsgruppen-DDS-908378059235877/photos/?tab=albums&ref=page_internal" target="_blanc">Galleri</a>
-            </div>
-            <div class="pushcol8 col1 signup">
-                <router-link to='/tilmelding'>Bliv Spejder</router-link>
+                <div class="signup">
+                    <router-link to='/tilmelding'>Bliv Spejder</router-link>
+                </div>
             </div>
         </nav>
         <div class="stripes"/>
@@ -49,29 +49,34 @@
                 font-style: normal;
                 font-size: 13px;
             }
+            > .icon{
+                display: flex;
+                align-items: center;
+            }
             > .menuItems{
                 position: absolute;
-                right: calc(15.333%);
+                right: calc(8.333%);
                 display: flex;
+                align-items: center;
                 > a {
                     display: block;
                     width: 67px;
                     text-align: center;
                     margin-right: 6px;
                 }
-            }
-            > .signup{
-                display: flex;
-                justify-content: right;
-                > a{
-                    width: 120px;
-                    height: 30px;
+                > .signup{
                     display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background: var(--prim);
-                    color: var(--whiteshade1);
-                    border-radius: 10px;
+                    justify-content: right;
+                    > a{
+                        width: 120px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background: var(--prim);
+                        color: var(--whiteshade1);
+                        border-radius: 10px;
+                    }
                 }
             }
         }
