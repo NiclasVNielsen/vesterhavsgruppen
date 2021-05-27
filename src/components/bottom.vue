@@ -10,11 +10,19 @@
           </g>
         </svg>
         <p>
-          Støt os økonomisk hvergang du tanker med OK-kortet
+          Støt os økonomisk hvergang <br> du tanker med OK-kortet
         </p>
       </div>
       <div class="col3 fb">
-        fb
+        <svg xmlns="http://www.w3.org/2000/svg" width="87.473" height="87.473" viewBox="0 0 87.473 87.473">
+          <g id="Group_4" data-name="Group 4" transform="translate(-649 -1979.653)">
+            <path id="iconmonstr-facebook-6" d="M82.643,0H4.829A4.828,4.828,0,0,0,0,4.829V82.647a4.827,4.827,0,0,0,4.829,4.826h41.9V53.6h-11.4V40.4h11.4V30.663c0-11.3,6.9-17.451,16.981-17.451a93.511,93.511,0,0,1,10.187.521V25.542l-6.991,0c-5.482,0-6.542,2.606-6.542,6.426V40.4H73.433l-1.7,13.2H60.36v33.87H82.651a4.827,4.827,0,0,0,4.822-4.829V4.829A4.828,4.828,0,0,0,82.643,0Z" transform="translate(649 1979.653)" fill="#fff"/>
+          </g>
+        </svg>
+        <p>
+          Find os på
+          <span>Facebook</span>
+        </p>
       </div>
       <div class="col2 kontakt">
         <h6>
@@ -52,16 +60,28 @@
         &.ok{
           display: flex;
           align-items: center;
-          justify-content: space-around;
+          justify-content: left;
           > svg{
             margin-left: 13px;
-            width: 213px;
+            width: 180px;
             display: block;
           }
           > p{
             max-width: 318px;
             margin: 0 8px;
+            font-size: 20px;
+          }
+        }
+        &.fb{
+          display: flex;
+          align-items: flex-end;
+          > p{
+            margin-left: 17px;
             font-size: 24px;
+            > span{
+              font-size: 36px;
+              display: block;
+            }
           }
         }
         &.kontakt{
