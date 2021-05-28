@@ -29,6 +29,8 @@ export default {
 <style lang="scss">
   :root{
     --prim: #003366;
+    --primshade2: #0D3F72;
+    --primshade3: #082D53;
     --second: #008700;
     --whiteshade1: #FFFFFF;
     --whiteshade2: #E8E8E8;
