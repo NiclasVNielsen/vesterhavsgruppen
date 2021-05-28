@@ -121,13 +121,14 @@
       width: 100%;
       .wave1, .wave2{
         position: absolute;
-        left: 50%;
         transform: translateX(-50%);
       }
       .wave1{
+        left: 50%;
       }
       .wave2{
         top: 60px;
+        left: calc(50% + (100% / 26));
       }
     }
   }
