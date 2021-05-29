@@ -7,7 +7,7 @@
         </h3>
         <div class="miniIcons wrapper">
             <div>
-                <a href="">
+                <a href="#micro">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1030 430">
                         <g id="Artboard_1" data-name="Artboard 1" transform="translate(-7 -4.5)">
                             <path id="Path_667" data-name="Path 667" d="M72,427a57.46,57.46,0,0,1-57.5-57.5V69.5A57.56,57.56,0,0,1,72,12H972a57.56,57.56,0,0,1,57.5,57.5v300A57.47,57.47,0,0,1,972,427Z" fill="#036"/>
@@ -23,7 +23,7 @@
                 </a>
             </div>
             <div>
-                <a href="">
+                <a href="#mini">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1030 430">
                         <g id="Artboard_3" data-name="Artboard 3" transform="translate(-7 -4.5)" style="isolation: isolate">
                             <g id="Layer_1" data-name="Layer 1">
@@ -47,7 +47,7 @@
                 </a>
             </div>
             <div>
-                <a href="">
+                <a href="#junior">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1030 430">
                         <g id="Artboard_4" data-name="Artboard 4" transform="translate(-7 -4.5)" style="isolation: isolate">
                             <g id="Layer_1" data-name="Layer 1">
@@ -71,7 +71,7 @@
                 </a>
             </div>
             <div>
-                <a href="">
+                <a href="#trop">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1030 430">
                         <g id="Artboard_5" data-name="Artboard 5" transform="translate(-6.93 -4.5)" style="isolation: isolate">
                             <g id="Layer_1" data-name="Layer 1">
@@ -93,7 +93,7 @@
                 </a>
             </div>
             <div>
-                <a href="">
+                <a href="#klan">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1030 430">
                         <g id="Artboard_6" data-name="Artboard 6" transform="translate(-6.92 -4.5)" style="isolation: isolate">
                             <g id="Layer_1" data-name="Layer 1">
@@ -129,7 +129,7 @@
         </div>
 
         <section class="infoContainer">
-            <section class="left col8 pushcol2">
+            <section class="left col8 pushcol2" id="micro">
                 <div class="departmentImg">
                     <img src="../assets/images/micro.jpg" alt="Micro">
                 </div>
@@ -176,27 +176,27 @@
                     </div>
                 </div>
             </section>
-            <section class="right col8 pushcol2">
+            <section class="right col8 pushcol2" id="mini">
                 <div>
                     <div class="topInfo">
                         <h5>
-                            Micro
+                            Mini
                         </h5>
                         <p>
-                            {{ form.oneklasse }}
+                            {{ form.twoklasse }}
                         </p>
                         <p>
-                            {{ form.onedag }}
+                            {{ form.twodag }}
                         </p>
                         <p>
                             <span class="material-icons">
                                 schedule
                             </span>
-                            {{ form.onetid }}
+                            {{ form.twotid }}
                         </p>
                     </div>
                     <p class="info">
-                        {{ form.one }}
+                        {{ form.two }}
                     </p>
                     <div class="bottomInfo">
                         <table>
@@ -205,7 +205,7 @@
                                     <strong>Leder:</strong>
                                 </td>
                                 <td>
-                                    {{ form.oneleder }}
+                                    {{ form.twoleder }}
                                 </td>
                             </tr>
                             <tr>
@@ -213,7 +213,7 @@
                                     <strong>Kontakt:&nbsp;&nbsp;&nbsp;</strong> <!-- Jeg er træt ok --> 
                                 </td>
                                 <td>
-                                    {{ form.oneemail }}
+                                    {{ form.twoemail }}
                                 </td>
                             </tr>
                         </table>
@@ -223,30 +223,30 @@
                     <img src="../assets/images/micro.jpg" alt="Micro">
                 </div>
             </section>
-            <section class="left col8 pushcol2">
+            <section class="left col8 pushcol2" id="junior">
                 <div class="departmentImg">
                     <img src="../assets/images/micro.jpg" alt="Micro">
                 </div>
                 <div>
                     <div class="topInfo">
                         <h5>
-                            Micro
+                            Junior
                         </h5>
                         <p>
-                            {{ form.oneklasse }}
+                            {{ form.threeklasse }}
                         </p>
                         <p>
-                            {{ form.onedag }}
+                            {{ form.threedag }}
                         </p>
                         <p>
                             <span class="material-icons">
                                 schedule
                             </span>
-                            {{ form.onetid }}
+                            {{ form.threetid }}
                         </p>
                     </div>
                     <p class="info">
-                        {{ form.one }}
+                        {{ form.three }}
                     </p>
                     <div class="bottomInfo">
                         <table>
@@ -255,7 +255,7 @@
                                     <strong>Leder:</strong>
                                 </td>
                                 <td>
-                                    {{ form.oneleder }}
+                                    {{ form.threeleder }}
                                 </td>
                             </tr>
                             <tr>
@@ -263,34 +263,34 @@
                                     <strong>Kontakt:&nbsp;&nbsp;&nbsp;</strong> <!-- Jeg er træt ok --> 
                                 </td>
                                 <td>
-                                    {{ form.oneemail }}
+                                    {{ form.threeemail }}
                                 </td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </section>
-            <section class="right col8 pushcol2">
+            <section class="right col8 pushcol2" id="trop">
                 <div>
                     <div class="topInfo">
                         <h5>
-                            Micro
+                            Trop
                         </h5>
                         <p>
-                            {{ form.oneklasse }}
+                            {{ form.fourklasse }}
                         </p>
                         <p>
-                            {{ form.onedag }}
+                            {{ form.fourdag }}
                         </p>
                         <p>
                             <span class="material-icons">
                                 schedule
                             </span>
-                            {{ form.onetid }}
+                            {{ form.fourtid }}
                         </p>
                     </div>
                     <p class="info">
-                        {{ form.one }}
+                        {{ form.four }}
                     </p>
                     <div class="bottomInfo">
                         <table>
@@ -299,7 +299,7 @@
                                     <strong>Leder:</strong>
                                 </td>
                                 <td>
-                                    {{ form.oneleder }}
+                                    {{ form.fourleder }}
                                 </td>
                             </tr>
                             <tr>
@@ -307,7 +307,7 @@
                                     <strong>Kontakt:&nbsp;&nbsp;&nbsp;</strong> <!-- Jeg er træt ok --> 
                                 </td>
                                 <td>
-                                    {{ form.oneemail }}
+                                    {{ form.fouremail }}
                                 </td>
                             </tr>
                         </table>
@@ -317,30 +317,30 @@
                     <img src="../assets/images/micro.jpg" alt="Micro">
                 </div>
             </section>
-            <section class="left col8 pushcol2">
+            <section class="left col8 pushcol2" id="klan">
                 <div class="departmentImg">
                     <img src="../assets/images/micro.jpg" alt="Micro">
                 </div>
                 <div>
                     <div class="topInfo">
                         <h5>
-                            Micro
+                            Klan
                         </h5>
                         <p>
-                            {{ form.oneklasse }}
+                            {{ form.fiveklasse }}
                         </p>
                         <p>
-                            {{ form.onedag }}
+                            {{ form.fivedag }}
                         </p>
                         <p>
                             <span class="material-icons">
                                 schedule
                             </span>
-                            {{ form.onetid }}
+                            {{ form.fivetid }}
                         </p>
                     </div>
                     <p class="info">
-                        {{ form.one }}
+                        {{ form.five }}
                     </p>
                     <div class="bottomInfo">
                         <table>
@@ -349,7 +349,7 @@
                                     <strong>Leder:</strong>
                                 </td>
                                 <td>
-                                    {{ form.oneleder }}
+                                    {{ form.fiveleder }}
                                 </td>
                             </tr>
                             <tr>
@@ -357,7 +357,7 @@
                                     <strong>Kontakt:&nbsp;&nbsp;&nbsp;</strong> <!-- Jeg er træt ok --> 
                                 </td>
                                 <td>
-                                    {{ form.oneemail }}
+                                    {{ form.fiveemail }}
                                 </td>
                             </tr>
                         </table>
@@ -470,6 +470,14 @@ export default {
             display: flex;
             font-family: proxima-nova,sans-serif;
             font-weight: 400;
+            margin-bottom: 100px;
+            &:first-of-type{
+                padding-top: 100px;
+            }
+            &:last-of-type{
+                padding-bottom: 100px;
+                margin-bottom: 0;
+            }
             > div{
                 position: relative;
             }

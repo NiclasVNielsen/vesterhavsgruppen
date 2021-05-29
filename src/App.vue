@@ -36,6 +36,8 @@ export default {
     --whiteshade2: #E8E8E8;
     --whiteshade3: #F5F5F5;
     --black: #000;
+
+    scroll-behavior: smooth;
   }
 
   /* 
