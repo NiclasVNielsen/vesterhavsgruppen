@@ -177,16 +177,192 @@
                 </div>
             </section>
             <section class="right col8 pushcol2">
-
+                <div>
+                    <div class="topInfo">
+                        <h5>
+                            Micro
+                        </h5>
+                        <p>
+                            {{ form.oneklasse }}
+                        </p>
+                        <p>
+                            {{ form.onedag }}
+                        </p>
+                        <p>
+                            <span class="material-icons">
+                                schedule
+                            </span>
+                            {{ form.onetid }}
+                        </p>
+                    </div>
+                    <p class="info">
+                        {{ form.one }}
+                    </p>
+                    <div class="bottomInfo">
+                        <table>
+                            <tr>
+                                <td>
+                                    <strong>Leder:</strong>
+                                </td>
+                                <td>
+                                    {{ form.oneleder }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Kontakt:&nbsp;&nbsp;&nbsp;</strong> <!-- Jeg er træt ok --> 
+                                </td>
+                                <td>
+                                    {{ form.oneemail }}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="departmentImg">
+                    <img src="../assets/images/micro.jpg" alt="Micro">
+                </div>
             </section>
             <section class="left col8 pushcol2">
-
+                <div class="departmentImg">
+                    <img src="../assets/images/micro.jpg" alt="Micro">
+                </div>
+                <div>
+                    <div class="topInfo">
+                        <h5>
+                            Micro
+                        </h5>
+                        <p>
+                            {{ form.oneklasse }}
+                        </p>
+                        <p>
+                            {{ form.onedag }}
+                        </p>
+                        <p>
+                            <span class="material-icons">
+                                schedule
+                            </span>
+                            {{ form.onetid }}
+                        </p>
+                    </div>
+                    <p class="info">
+                        {{ form.one }}
+                    </p>
+                    <div class="bottomInfo">
+                        <table>
+                            <tr>
+                                <td>
+                                    <strong>Leder:</strong>
+                                </td>
+                                <td>
+                                    {{ form.oneleder }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Kontakt:&nbsp;&nbsp;&nbsp;</strong> <!-- Jeg er træt ok --> 
+                                </td>
+                                <td>
+                                    {{ form.oneemail }}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </section>
             <section class="right col8 pushcol2">
-
+                <div>
+                    <div class="topInfo">
+                        <h5>
+                            Micro
+                        </h5>
+                        <p>
+                            {{ form.oneklasse }}
+                        </p>
+                        <p>
+                            {{ form.onedag }}
+                        </p>
+                        <p>
+                            <span class="material-icons">
+                                schedule
+                            </span>
+                            {{ form.onetid }}
+                        </p>
+                    </div>
+                    <p class="info">
+                        {{ form.one }}
+                    </p>
+                    <div class="bottomInfo">
+                        <table>
+                            <tr>
+                                <td>
+                                    <strong>Leder:</strong>
+                                </td>
+                                <td>
+                                    {{ form.oneleder }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Kontakt:&nbsp;&nbsp;&nbsp;</strong> <!-- Jeg er træt ok --> 
+                                </td>
+                                <td>
+                                    {{ form.oneemail }}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="departmentImg">
+                    <img src="../assets/images/micro.jpg" alt="Micro">
+                </div>
             </section>
             <section class="left col8 pushcol2">
-
+                <div class="departmentImg">
+                    <img src="../assets/images/micro.jpg" alt="Micro">
+                </div>
+                <div>
+                    <div class="topInfo">
+                        <h5>
+                            Micro
+                        </h5>
+                        <p>
+                            {{ form.oneklasse }}
+                        </p>
+                        <p>
+                            {{ form.onedag }}
+                        </p>
+                        <p>
+                            <span class="material-icons">
+                                schedule
+                            </span>
+                            {{ form.onetid }}
+                        </p>
+                    </div>
+                    <p class="info">
+                        {{ form.one }}
+                    </p>
+                    <div class="bottomInfo">
+                        <table>
+                            <tr>
+                                <td>
+                                    <strong>Leder:</strong>
+                                </td>
+                                <td>
+                                    {{ form.oneleder }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Kontakt:&nbsp;&nbsp;&nbsp;</strong> <!-- Jeg er træt ok --> 
+                                </td>
+                                <td>
+                                    {{ form.oneemail }}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </section>
         </section>
     </div>
@@ -294,7 +470,9 @@ export default {
             display: flex;
             font-family: proxima-nova,sans-serif;
             font-weight: 400;
-            position: relative;
+            > div{
+                position: relative;
+            }
             .departmentImg{
                 display: block;
                 img{
@@ -307,7 +485,6 @@ export default {
                 align-items: flex-end;
                 padding-bottom: 9px;
                 position: relative;
-                float: left; /* Ja ja i know i know */
                 margin-bottom: 1.8em;
                 &::after{
                     content: '';
@@ -367,9 +544,23 @@ export default {
             .departmentImg{
                 margin-right: 14px;
             }
+            .topInfo{
+                float: left; /* Ja ja i know i know */
+            }
+            .bottomInfo{
+                left: 0;
+            }
         }
         .right{
-            
+            .departmentImg{
+                margin-left: 14px;
+            }
+            .topInfo{
+                float: right;
+            }
+            .bottomInfo{
+                right: 0;
+            }
         }
     }
 </style>
