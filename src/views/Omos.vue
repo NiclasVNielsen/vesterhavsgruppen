@@ -7,11 +7,10 @@
         </div>
         <div class="col5">
             <h3>
-                Hvem er vi?
+                {{ form.title }}
             </h3>
             <p>
-                Vesterhavsgruppen er en del af DDS og Horns Rev Division. Værd at vide om os er at vi ikke er tilknyttet nogen religion og vi rummer derfor alle trosretninger. 
-                Vi handler og udvikler spejderne til at være imod mobning og turde sige fra. Vi ønsker at gøre vores spejdere opmærksom på natur og miljø, sund mad og krop, samt hvordan man bliver integreret i samfundet. For os handler det om at spejderne kan udvikle sig gennem træning og uddannelse, som de kan bruge i deres dagligdag, såvel som i arbejdslivet.
+                {{ form.titletext }}
             </p>
         </div>
     </section>
@@ -22,44 +21,44 @@
         <div class="container">
             <div>
                 <h5>
-                    Formand
+                    {{ form.boxone }}
                 </h5>
                 <p>
-                    Ricka Stenger
+                    {{ form.boxonenavn }}
                 </p>
                 <p>
-                    Telefon: {60 27 86 92}
+                    Telefon: {{ form.boxonetlf }}
                 </p>
                 <p>
-                    E-mail: {formand@vesterhavsgruppen.dk}
+                    E-mail: {{ form.boxoneemail }}
                 </p>
             </div>
             <div>
                 <h5>
-                    Kasserer
+                    {{ form.boxtwo }}
                 </h5>
                 <p>
-                    Helén Buch Dubery
+                    {{ form.boxtwonavn }}
                 </p>
                 <p>
-                    Telefon: {21 67 73 57}
+                    Telefon: {{ form.boxtwotlf }}
                 </p>
                 <p>
-                    E-mail: {kasserer@vesterhavsgruppen.dk}
+                    E-mail: {{ form.boxtwoemail }}
                 </p>
             </div>
             <div>
                 <h5>
-                    Gruppeleder
+                    {{ form.boxthree }}
                 </h5>
                 <p>
-                    Steffen Sørensen
+                    {{ form.boxthreenavn }}
                 </p>
                 <p>
-                    Telefon: {40 29 26 71}
+                    Telefon: {{ form.boxthreetlf }}
                 </p>
                 <p>
-                    E-mail: {gruppeleder@vesterhavsgruppen.dk}
+                    E-mail: {{ form.boxthreeemail }}
                 </p>
             </div>
         </div>
@@ -75,16 +74,14 @@
         </div>
         <div class="col5">
             <h3>
-                Hvem er vi?
+                {{ form.sponsor }}
             </h3>
             <p>
-                Vesterhavsgruppen er en del af DDS og Horns Rev Division. Værd at vide om os er at vi ikke er tilknyttet nogen religion og vi rummer derfor alle trosretninger. 
-                Vi handler og udvikler spejderne til at være imod mobning og turde sige fra. Vi ønsker at gøre vores spejdere opmærksom på natur og miljø, sund mad og krop, samt hvordan man bliver integreret i samfundet. For os handler det om at spejderne kan udvikle sig gennem træning og uddannelse, som de kan bruge i deres dagligdag, såvel som i arbejdslivet.
+                {{ form.sponsortext }}
             </p>
         </div>
     </section>
   </div>
-  {{ form.title }}
   <bottom/>
 </template>
 

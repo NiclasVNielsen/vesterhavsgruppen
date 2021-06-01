@@ -4,13 +4,10 @@
     <section class="wrapper container">
         <div class="col5 pushcol2">
             <h5>
-                Hytte
+                {{ form.hyttetitle }}
             </h5>
             <p>
-                På Bakkevej 14 ligger vores møde-hytte og her deler vi grund med andre spejderforeninger. 
-                Fra vejen kan du ikke se Vesterhavsgruppens hytte da det er dækket af krat, men hytten ligger helt til højre når du træder ind på grunden. 
-                I hytterne er der både fællesrum og moderne køkken, udenfor er der plads til bål og aktiviteter. 
-                Vesterhavsgruppen er også så heldig at have en hytte i Markbæk Plantage der bruges hovedsageligt til weekendture og patruljeture.
+                {{ form.hyttetext }}
             </p>
         </div>
         <div class="col3">
@@ -295,13 +292,10 @@
         </div>
         <div class="col4">
             <h5>
-                Hytte
+                {{ form.uniformtitle }}
             </h5>
             <p>
-                På Bakkevej 14 ligger vores møde-hytte og her deler vi grund med andre spejderforeninger. 
-                Fra vejen kan du ikke se Vesterhavsgruppens hytte da det er dækket af krat, men hytten ligger helt til højre når du træder ind på grunden. 
-                I hytterne er der både fællesrum og moderne køkken, udenfor er der plads til bål og aktiviteter. 
-                Vesterhavsgruppen er også så heldig at have en hytte i Markbæk Plantage der bruges hovedsageligt til weekendture og patruljeture.
+                {{ form.uniformtext }}
             </p>
         </div>
     </section>
