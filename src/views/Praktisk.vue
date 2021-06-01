@@ -339,6 +339,10 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+    .praktisk{
+        background: var(--whiteshade3);
+    }
+
     .container{
         display: flex;
     }
@@ -361,6 +365,6 @@ export default {
             font-size: 32px;
             margin-bottom: 10px;
         }
-        margin-bottom: 50px;
+        padding-bottom: 50px;
     }
 </style>

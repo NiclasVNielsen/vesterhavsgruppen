@@ -1,7 +1,7 @@
 <template>
   <div>    
-    <div id="calendar"> <!-- Ehhmmm yeah just noticed the double id thing but dont have time to fix and it works -->
-      <select id="calendar" v-model="selection.group">
+    <div id="calendar">
+      <select class="calendar" v-model="selection.group">
         <option value="1" selected>Micro</option>
         <option value="2">Mini</option>
         <option value="3">Junior</option>

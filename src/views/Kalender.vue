@@ -1,8 +1,8 @@
 <template>
   <topping/>
-  <div>    
-    <div id="calendar"> <!-- Ehhmmm yeah just noticed the double id thing but dont have time to fix and it works -->
-      <select id="calendar" v-model="selection.group">
+  <div class="kalender">    
+    <div id="calendar">
+      <select class="calendar" v-model="selection.group">
         <option value="1" selected>Micro</option>
         <option value="2">Mini</option>
         <option value="3">Junior</option>
@@ -314,9 +314,16 @@ import topping from '@/components/front-end-topping.vue'
     padding: 0;
     box-sizing: border-box;
   }
+
+  .kalender{
+    background: var(--whiteshade3);
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
   #calendar{
     width: 800px;
-    margin: 5vh auto 20vh;
+    margin: 0 auto;
     max-width: 100%;
     border: solid 1px #000;
     > select{

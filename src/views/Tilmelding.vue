@@ -120,9 +120,10 @@ export default {
 
     .tilmelding{
         padding-top: 50px;
+        background: var(--whiteshade3);
         section{
             &:last-of-type{
-                margin-bottom: 100px;
+                padding-bottom: 100px;
             }
         }
     }
