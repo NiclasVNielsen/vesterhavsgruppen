@@ -7,21 +7,34 @@
                 {{ form.onetitle }}
             </h2>
             <p>
-                {{ form.onetekst }}
+                {{ form.onetekst }} <br>
+                &nbsp;
             </p>
-            <div>
-                <div class="col6">
-                    {{ form.onestaff }} <br>
-                    {{ form.onetlf }}
-                </div>
-                <div class="col6">
-                    {{ form.twostaff }} <br>
-                    {{ form.twotlf }}
+            <div class="kontakt">
+                <div class="container">
+                    <div>
+                        {{ form.onestaff }} <br>
+                        {{ form.onetlf }}
+                    </div>
+                    <div>
+                        {{ form.twostaff }} <br>
+                        {{ form.twotlf }}
+                    </div>
                 </div>
                 <p>
-                    E-mail: {{ form.email }}
+                    E-mail: <span>{{ form.email }}</span>
                 </p>
             </div>
+        </div>
+        <div class="col4">
+            <div>
+                <img src="../assets/images/emblems.jpg" alt="">
+            </div>
+            
+        </div>
+    </section>
+    <section class="container">
+        <div class="col4 pushcol2">
             <h2>
                 {{ form.twotitle }}
             </h2>
@@ -30,20 +43,16 @@
             </p>
         </div>
         <div class="col4">
-            <div>
-                <img src="../assets/images/emblems.jpg" alt="">
-            </div>
-            <div>
-                <h2>
-                    {{ form.threetitle }}
-                </h2>
-                <p>
-                    {{ form.threetekst }}
-                </p>
-                <a href="">
-                    Bliv Spejder
-                </a>
-            </div>
+            <h2>
+                {{ form.threetitle }}
+            </h2>
+            <p>
+                {{ form.threetekst }} <br>
+                &nbsp;
+            </p>
+            <a class="signupButton" href="">
+                Bliv Spejder
+            </a>
         </div>
     </section>
   </div>
@@ -92,7 +101,58 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+    span{
+        text-decoration: underline;
+        color: var(--second);
+    }
+
+    h2{
+        font-size: 32px;
+    }
+
+    p{
+        padding-right: 1em;
+    }
+
     .container{
         display: flex;
+    }
+
+    .tilmelding{
+        padding-top: 50px;
+        section{
+            &:last-of-type{
+                margin-bottom: 100px;
+            }
+        }
+    }
+
+    .kontakt{
+        div, p{
+            text-align: center;
+        }
+        > .container{
+            justify-content: center;
+            > div{
+                &:last-of-type{
+                    margin-left: 20px;
+                    margin-bottom: 11px;
+                }
+            }
+        }
+    }
+
+    .signupButton{
+        max-width: 300px;
+        height: 32px;
+        display: flex;
+        margin: 21px auto 0;
+        justify-content: center;
+        align-items: center;
+        background: var(--whiteshade2);
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--black);
+        font-weight: 700;
     }
 </style>

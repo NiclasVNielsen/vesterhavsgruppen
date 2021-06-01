@@ -1,7 +1,7 @@
 <template>
   <topping/>
   <div class="praktisk">
-    <section class="wrapper container">
+    <section class="wrapper container hytte">
         <div class="col5 pushcol2">
             <h5>
                 {{ form.hyttetitle }}
@@ -14,12 +14,12 @@
             <img src="../assets/images/praktisk.jpg" alt="">
         </div>
     </section>
-    <section class="wrapper">
+    <section class="wrapper map">
         <div class="col8 pushcol2">
             <img src="../assets/images/map.jpg" alt="">
         </div>
     </section>
-    <section class="wrapper container">
+    <section class="wrapper container uniform">
         <div class="col4 pushcol2">
             <svg id="UNIFORMSVEJLEDNING_FLAT_ART" data-name="UNIFORMSVEJLEDNING FLAT ART" xmlns="http://www.w3.org/2000/svg" width="605.5" height="432.856" viewBox="0 0 605.5 432.856">
                 <g id="Rectangle_13" data-name="Rectangle 13">
@@ -341,5 +341,26 @@ export default {
 <style lang="scss" scoped>
     .container{
         display: flex;
+    }
+
+    .hytte{
+        padding-top: 50px;
+        margin-bottom: 50px;
+        h5{
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .map{
+        margin-bottom: 50px;
+    }
+
+    .uniform{
+        h5{
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        margin-bottom: 50px;
     }
 </style>
