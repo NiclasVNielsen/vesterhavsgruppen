@@ -2,24 +2,29 @@
   <topping/>
   <div class="kalender">    
     <div id="calendar">
-      <select class="calendar" v-model="selection.group">
-        <option value="1" selected>Micro</option>
-        <option value="2">Mini</option>
-        <option value="3">Junior</option>
-        <option value="4">Trop</option>
-        <option value="5">Klan</option>
-        <option value="6">Leder</option>
-      </select>
-      <div class="controls">
-        <span @click="weekBackward">
-          &lt;
-        </span>
-        <span @click="weekForward">
-          &gt;
-        </span>
-        <span>
-          {{year.year}}
-        </span>
+      <div class="container">
+        <div>
+          <label for="group">Vælg afdeling</label>
+          <select id="group" v-model="selection.group">
+            <option value="1" selected>Micro</option>
+            <option value="2">Mini</option>
+            <option value="3">Junior</option>
+            <option value="4">Trop</option>
+            <option value="5">Klan</option>
+            <option value="6">Leder</option>
+          </select>
+        </div>
+        <div class="controls">
+          <span @click="weekBackward">
+            &lt;
+          </span>
+          <span @click="weekForward">
+            &gt;
+          </span>
+          <span>
+            {{year.year}}
+          </span>
+        </div>
       </div>
       <table>
         <thead>
@@ -315,6 +320,35 @@ import topping from '@/components/front-end-topping.vue'
     box-sizing: border-box;
   }
 
+  .container{
+    display: flex;
+    justify-content: space-between;
+    > div{
+      &:first-of-type{
+        display: flex;
+        flex-direction: column;
+        > label, select{
+          display: block;
+        }
+        >label{
+          padding-left: .2em;
+          font-weight: 700;
+        }
+        > select{
+          border: none;
+          background: transparent;
+        }
+      }
+      &:last-of-type{
+        align-items: center;
+        > span{
+          font-size: 32px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
   .kalender{
     background: var(--whiteshade3);
     padding-top: 50px;
@@ -325,7 +359,6 @@ import topping from '@/components/front-end-topping.vue'
     width: 800px;
     margin: 0 auto;
     max-width: 100%;
-    border: solid 1px #000;
     > select{
       height: 1.2em;
       width: 5em;
@@ -351,6 +384,9 @@ import topping from '@/components/front-end-topping.vue'
         width: 100%;
         .calendarDate{
           width: 14.2857%;
+          background: var(--prim);
+          color: var(--whiteshade1);
+          padding: 4px;
         }
       }
       >tbody{
@@ -375,16 +411,19 @@ import topping from '@/components/front-end-topping.vue'
           left: 0;
           min-height: 4.1666%;
           z-index: 124;
-          border: solid 1px #000;
-          background: #EEE;
+          background: var(--whiteshade2);
           width: 100%;
           cursor: pointer;
+          padding: 2px;
           p, span{
             pointer-events: none;
           }
           span{
             font-size: .9em;
             opacity: .8;
+          }
+          .startDate, .endDate{
+            font-weight: 700;
           }
           .endDate{
               position: absolute;
