@@ -1,12 +1,13 @@
 <template>
   <div>    
-    <div id="calendar">
+    <div id="calendar"> <!-- Ehhmmm yeah just noticed the double id thing but dont have time to fix and it works -->
       <select id="calendar" v-model="selection.group">
-        <option value="1" selected>Mini</option>
-        <option value="2">Jr</option>
-        <option value="3">Trop</option>
-        <option value="4">Klan</option>
-        <option value="5">Admin</option>
+        <option value="1" selected>Micro</option>
+        <option value="2">Mini</option>
+        <option value="3">Junior</option>
+        <option value="4">Trop</option>
+        <option value="5">Klan</option>
+        <option value="6">Leder</option>
       </select>
       <div class="controls">
         <span @click="weekBackward">
