@@ -38,6 +38,7 @@ export default {
     --black: #000;
 
     scroll-behavior: smooth;
+    font-family: proxima-nova,sans-serif;
   }
 
   /* 

@@ -1,7 +1,7 @@
 <template>
   <topping/>
   <div class="omos">
-    <section class="wrapper container">
+    <main class="wrapper container">
         <div class="col3 pushcol2">
             <img src="../assets/images/omos.jpg" alt="">
         </div>
@@ -13,7 +13,7 @@
                 {{ form.titletext }}
             </p>
         </div>
-    </section>
+    </main>
     <section class="contactBar">
         <h4>
             Kom i kontakt med vores ledelse
@@ -27,10 +27,11 @@
                     {{ form.boxonenavn }}
                 </p>
                 <p>
-                    Telefon: {{ form.boxonetlf }}
+                    <strong>Telefon:</strong> {{ form.boxonetlf }}
                 </p>
                 <p>
-                    E-mail: {{ form.boxoneemail }}
+                    <strong>E-mail:</strong> <span>{{ form.boxoneemail }}</span> <br>
+                    &nbsp;
                 </p>
             </div>
             <div>
@@ -41,10 +42,11 @@
                     {{ form.boxtwonavn }}
                 </p>
                 <p>
-                    Telefon: {{ form.boxtwotlf }}
+                    <strong>Telefon:</strong> {{ form.boxtwotlf }}
                 </p>
                 <p>
-                    E-mail: {{ form.boxtwoemail }}
+                    <strong>E-mail:</strong> <span>{{ form.boxtwoemail }}</span> <br>
+                    &nbsp;
                 </p>
             </div>
             <div>
@@ -55,15 +57,16 @@
                     {{ form.boxthreenavn }}
                 </p>
                 <p>
-                    Telefon: {{ form.boxthreetlf }}
+                    <strong>Telefon:</strong> {{ form.boxthreetlf }}
                 </p>
                 <p>
-                    E-mail: {{ form.boxthreeemail }}
+                    <strong>E-mail:</strong> <span>{{ form.boxthreeemail }}</span> <br>
+                    &nbsp;
                 </p>
             </div>
         </div>
     </section>
-    <section class="wrapper container">
+    <section class="wrapper container sponsor">
         <div class="col3 pushcol2">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 463 191.122">
             <g id="ok-logo" transform="translate(-1 -1)">
@@ -134,16 +137,57 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+    .omos{
+        background: var(--whiteshade3);
+        padding-top: 50px;
+    }
+
     .container{
         display: flex;
     }
 
+    main{
+        > div{
+            padding: 7px;
+        }
+        h3{
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+    }
+
     .contactBar{
+        margin: 50px 0;
         > h4{
             text-align: center;
+            margin-bottom: 24px;
+            font-size: 32px;
         }
         > .container{
             justify-content: center;
+            > div{
+                background: var(--whiteshade2);
+                margin: 0 7px;
+                padding: 19px 60px;
+                h5{
+                    font-size: 32px;
+                }
+                span{
+                    text-decoration: underline;
+                    color: var(--second);
+                }
+            }
+        }
+    }
+
+    .sponsor{
+        padding-bottom: 50px;
+        > div{
+            padding: 7px;
+        }
+        h3{
+            font-size: 32px;
+            margin-bottom: 10px;
         }
     }
 </style>
