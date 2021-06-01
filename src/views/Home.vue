@@ -80,7 +80,12 @@
             <div>
                 <div class="post-container">
                     <!-- Ehhmm jeg fandt den her linje kode her: https://stackoverflow.com/questions/19348278/automaticall-embed-newest-facebook-post-on-my-website -->
-                    <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2F908378059235877&width=500&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=560" scrolling="yes" style="border:none; overflow:hidden; width:500px; height:560px; background: white; float:left; " allowtransparency="true" frameborder="0"></iframe>
+                    <iframe 
+                    src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2F908378059235877&width=500&colorscheme=light&show_faces=true&border_color&stream=true&header=true&height=560" 
+                    scrolling="yes" 
+                    style="border:none; overflow:hidden; width:500px; height:560px; background: white; float:left; " 
+                    allowtransparency="true" 
+                    frameborder="0"></iframe>
                 </div>
             </div>
         </section>
