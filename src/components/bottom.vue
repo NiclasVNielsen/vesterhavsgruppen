@@ -74,6 +74,7 @@
       align-items: flex-start;
       font-family: proxima-nova,sans-serif;
       font-weight: 700;
+      width: 100%;
       div{
         &.ok{
           display: flex;
