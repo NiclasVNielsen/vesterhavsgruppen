@@ -295,4 +295,31 @@ export default {
             }
         }
     }
+
+    @media screen and (max-width: 800px) {
+       .infoboxes{
+           > div{
+               flex-direction: column;
+               .infobox{
+                   margin: 0 auto 50px;
+               }
+           }
+       }
+       .fb{
+           height: auto !important;
+           padding: 0 !important;
+           margin: 0 0.5em;
+           width: calc(100% - 1em);
+           h4{
+               padding: .3em;
+               height: auto !important;
+           }
+       }
+    }
+    .signup{
+        flex-direction: column;
+        > div{
+            margin-top: 50px;
+        }
+    }
 </style>

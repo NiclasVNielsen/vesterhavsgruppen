@@ -110,6 +110,17 @@ export default {
     margin-left: 91.666%;
   }
 
+  @media screen and (max-width: 800px) {
+    .col1,.col2,.col3,.col4,.col5,.col6,.col7,.col8,.col9,.col10,.col11,.col12{
+      width: 100%;
+      padding: 0 .5em;
+    }
+
+    .pushcol1,.pushcol2,.pushcol3,.pushcol4,.pushcol5,.pushcol6,.pushcol7,.pushcol8,.pushcol9,.pushcol10,.pushcol11{
+      margin-left: 0%;
+    }
+  }
+
   img{
     width: 100%;
     height: auto;
