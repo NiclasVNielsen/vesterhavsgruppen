@@ -354,6 +354,9 @@ export default {
             font-size: 32px;
             margin-bottom: 10px;
         }
+        p{
+            padding-right: 1em;
+        }
     }
 
     .map{
