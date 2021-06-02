@@ -21,7 +21,7 @@
     </section>
     <section class="wrapper container uniform">
         <div class="col4 pushcol2">
-            <svg id="UNIFORMSVEJLEDNING_FLAT_ART" data-name="UNIFORMSVEJLEDNING FLAT ART" xmlns="http://www.w3.org/2000/svg" width="605.5" height="432.856" viewBox="0 0 605.5 432.856">
+            <svg id="UNIFORMSVEJLEDNING_FLAT_ART" data-name="UNIFORMSVEJLEDNING FLAT ART" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 605.5 432.856">
                 <g id="Rectangle_13" data-name="Rectangle 13">
                     <rect id="Rectangle_122" data-name="Rectangle 122" width="605.5" height="432.5" fill="#036"/>
                 </g>
@@ -364,6 +364,9 @@ export default {
         h5{
             font-size: 32px;
             margin-bottom: 10px;
+        }
+        div{
+            padding-right: 1em;
         }
         padding-bottom: 50px;
     }
