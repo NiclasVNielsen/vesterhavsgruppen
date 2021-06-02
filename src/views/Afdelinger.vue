@@ -571,4 +571,39 @@ export default {
             }
         }
     }
+
+    @media screen and (max-width: 800px) {
+        .miniIcons{
+            flex-direction: column;
+            a{
+                margin: 0 auto 50px;
+            }
+        }
+        .departmentImg{
+            margin: 0 0 50px !important;
+            img{
+                width: 100% !important;
+            }
+        }
+        .infoContainer{
+            section{
+                flex-direction: column;
+                &:nth-of-type(even){
+                    flex-direction: column-reverse;
+                }
+            }
+            .bottomInfo{
+                position: static !important;
+            }
+        }
+        .right{
+            .departmentImg{
+                margin-left: 0;
+                margin-right: 0;
+            }
+            .topInfo{
+                float: left !important;
+            }
+        }
+    }
 </style>
