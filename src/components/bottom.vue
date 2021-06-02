@@ -133,4 +133,29 @@
       }
     }
   }
+
+  @media screen and (max-width: 800px) {
+    footer{
+      min-height: auto;
+    }
+    .wrapper{
+      position: static !important;
+      flex-direction: column;
+      div{
+        margin-bottom: 50px;
+        &:last-of-type{
+          margin-bottom: 0;
+        }
+        &.ok, &.fb{
+          justify-content: center !important;
+        }
+        &.kontakt{
+          text-align: center;
+        }
+      }
+    }
+    .waves{
+      position: relative !important;
+    }
+  }
 </style>

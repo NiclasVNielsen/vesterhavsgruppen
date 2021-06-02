@@ -156,4 +156,29 @@ export default {
         color: var(--black);
         font-weight: 700;
     }
+
+    @media screen and (max-width: 800px) {
+        .container{
+            flex-direction: column;
+        }
+        
+        .kontakt{
+            margin-bottom: 50px;
+            > .container{
+                > div{
+                    &:last-of-type{
+                        margin-left: 0px;
+                        margin-bottom: 11px;
+                    }
+                }
+            }
+        }
+        section{
+            &:last-of-type{
+                .col4{
+                    margin-top: 50px;
+                }
+            }
+        }
+    }
 </style>
