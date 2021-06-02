@@ -373,4 +373,17 @@ export default {
         }
         padding-bottom: 50px;
     }
+
+    @media screen and (max-width: 800px) {
+        .container{
+            flex-direction: column-reverse;
+        }
+
+        h5{
+            margin-top: 50px;
+        }
+        p{
+            margin-bottom: 50px;
+        }
+    }
 </style>
