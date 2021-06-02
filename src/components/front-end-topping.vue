@@ -81,4 +81,32 @@
             }
         }
     }
+
+    @media screen and (max-width: 800px) {
+        header, .header-fill, nav{
+            height: auto !important;
+            position: static;
+        }
+        .wrapper{
+            display: block !important;
+        }
+        a{
+            display: block;
+            margin: 20px auto !important;
+            font-size: 32px !important;
+            width: auto !important;
+        }
+        .menuItems{
+            position: static !important;
+            display: block !important;
+        }
+
+        .signup{
+            justify-content: center !important;
+            a{
+                height: auto !important;
+                padding: 4px 20px;
+            }
+        }
+    }
 </style>
