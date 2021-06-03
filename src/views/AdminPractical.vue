@@ -1,28 +1,22 @@
 <template>
     <topping/>
     <div class="practicalpage">
-        <h3>
-            Praktisk
-        </h3>
         <form @submit.prevent="update">
+            <h3>
+                Praktisk
+            </h3>
             <div>
-                <label for="hyttetitle">
-                    Hytte titel
+                <label for="hyttetitle" class="title">
+                    Hytte
                 </label>
-                <textarea v-model="form.hyttetitle" type="text" required />
-                <label for="hyttetext">
-                    Hytte tekst
-                </label>
+                <input v-model="form.hyttetitle" type="text" required />
                 <textarea v-model="form.hyttetext" type="text" required />
             </div>
             <div>
                 <label for="uniformtitle">
-                    Uniform titel
+                    Uniform
                 </label>
-                <textarea v-model="form.uniformtitle" type="text" required />
-                <label for="uniformtext">
-                    Uniform tekst
-                </label>
+                <input v-model="form.uniformtitle" type="text" required />
                 <textarea v-model="form.uniformtext" type="text" required />
             </div>
             <button type="submit">
@@ -81,3 +75,57 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+    form{
+        width: 1000px;
+        margin: 50px auto;
+    }
+
+    h3{
+        margin-top: 50px;
+    }
+
+    .title{
+        margin-top: 20px !important;
+    }
+
+    label{
+        display: block;
+        margin-top: 50px;
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    input, textarea{
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    input{
+        width: 30em;
+    }
+
+    textarea{
+        resize: vertical;
+        width: 100%;
+        margin-bottom: 50px;
+        height: 12em;
+        &:last-of-type{
+            margin-bottom: 20px;
+        }
+    }
+    button{
+      display: flex;
+      justify-content: right;
+      width: 120px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--prim);
+      color: var(--whiteshade1);
+      border-radius: 10px;
+      border: none;
+      font-size: .9em;
+    }
+</style>
