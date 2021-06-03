@@ -45,6 +45,9 @@ export default{
         display: flex;
         justify-content: center;
         align-items: center;
+        h1{
+            font-size: 32px;
+        }
         >div{
             border: solid 1px var(--whiteshade3);
             box-shadow: 0 0 20px 10px var(--whiteshade3);
