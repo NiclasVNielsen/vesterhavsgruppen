@@ -1,8 +1,5 @@
 <template>
     <topping/>
-    <div class="calendar">
-        Kalender
-    </div>
     <calendarCreate/>
     <calendarList/>
     <bottom/>

@@ -1,5 +1,5 @@
 <template>
-  <div>    
+  <div class="bgcolor">    
     <div id="calendar">
       <select class="calendar" v-model="selection.group">
         <option value="1" selected>Micro</option>
@@ -313,10 +313,15 @@ import { reactive } from 'vue'
     padding: 0;
     box-sizing: border-box;
   }
+  .bgcolor{
+    background: var(--whiteshade3);
+    padding: 5vh 0 20vh;
+  }
   #calendar{
+    background: var(--whiteshade1);
     width: 800px;
-    margin: 5vh auto 20vh;
     max-width: 100%;
+    margin: 0 auto;
     border: solid 1px #000;
     > select{
       height: 1.2em;

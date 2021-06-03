@@ -1,7 +1,10 @@
 <template>
   <div>
     <!-- using @submit as a click function - add prevent to stop from refreshing page -->
-    <form @submit.prevent="onSubmit">    
+    <form @submit.prevent="onSubmit">
+      <h2>
+        Opret event
+      </h2>
       <div>
         <label for="group">Hold</label>
         <select 
@@ -70,7 +73,7 @@
           type="date"
           v-model="form.end"
           id="end"
-        />
+        /> <span><i>Valgfri</i></span>
       </div>
 
 
@@ -79,14 +82,11 @@
       </div>
 
       <button type="submit">
-        Create calendar
+        Opret event
       </button>
-      <hr>
     </form>
-    <div class="cutething">
-
-    </div>
   </div>
+  <div class="stripes"/>
 </template>
 
 <script>
@@ -513,8 +513,29 @@ import { reactive } from 'vue';
 </script>
 
 <style lang="scss" scoped>
-  .cutething{
-    height: 5vh;
-    background: repeating-linear-gradient(-45deg, green 0vh, green 2vh, cornflowerblue 2vh, cornflowerblue 5.5vh);
+  form{
+    max-width: 500px;
+    margin: 50px auto;
+    input[type=text], textarea{
+      display: block;
+      width: 100%;
+    }
+    input, textarea, select, h2{
+      margin-bottom: 1em;
+    }
+    button{
+      display: flex;
+      justify-content: right;
+      width: 120px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--prim);
+      color: var(--whiteshade1);
+      border-radius: 10px;
+      border: none;
+      font-size: .9em;
+    }
   }
 </style>
