@@ -1,52 +1,28 @@
 <template>
     <topping/>
     <div class="frontpage">
-        <h3>
-            Forsiden
-        </h3>
         <form @submit.prevent="update">
+            <h3>
+                Forsiden
+            </h3>
             <div>
-                <label for="title">
-                    Titel
-                </label>
-                <textarea v-model="form.title" type="text" required />
-                <label for="one">
-                    Tekst
-                </label>
+                <input v-model="form.title" type="text" required />
                 <textarea v-model="form.text" type="text" required />
             </div>
             <div>
-                <label for="onetitle">
-                    One titel
-                </label>
-                <textarea v-model="form.onetitle" type="text" required />
-                <label for="one">
-                    One
-                </label>
+                <input v-model="form.onetitle" type="text" required />
                 <textarea v-model="form.one" type="text" required />
             </div>
             <div>
-                <label for="twotitle">
-                    Two titel
-                </label>
-                <textarea v-model="form.twotitle" type="text" required />
-                <label for="two">
-                    Two
-                </label>
+                <input v-model="form.twotitle" type="text" required />
                 <textarea v-model="form.two" type="text" required />
             </div>
             <div>
-                <label for="threetitle">
-                    Three titel
-                </label>
-                <textarea v-model="form.threetitle" type="text" required />
-                <label for="three">
-                    Three
-                </label>
+                <input v-model="form.threetitle" type="text" required />
                 <textarea v-model="form.three" type="text" required />
             </div>
             <button type="submit">
-                Update
+                Updater
             </button>
         </form>
     </div>
@@ -103,3 +79,42 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+    form{
+        width: 1000px;
+        margin: 50px auto;
+    }
+
+    h3{
+        margin-bottom: 20px;
+    }
+
+    input, textarea{
+        display: block;
+    }
+
+    input{
+        width: 15em;
+    }
+
+    textarea{
+        resize: vertical;
+        width: 100%;
+        margin-bottom: 50px;
+        height: 6em;
+    }
+    button{
+      display: flex;
+      justify-content: right;
+      width: 120px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--prim);
+      color: var(--whiteshade1);
+      border-radius: 10px;
+      border: none;
+      font-size: .9em;
+    }
+</style>
