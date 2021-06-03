@@ -159,5 +159,6 @@ export default {
       border-radius: 10px;
       border: none;
       font-size: .9em;
+      cursor: pointer;
     }
 </style>
