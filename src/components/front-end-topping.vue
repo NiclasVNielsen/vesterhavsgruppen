@@ -4,7 +4,7 @@
         <nav class="wrapper">
             <div class="pushcol1 col1 icon">
                 <router-link to='/'>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="183.81" height="50.21" viewBox="0 0 183.81 50.21">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 183.81 50.21">
                         <g id="Group_53" data-name="Group 53" transform="translate(2604.49 2058.7)">
                             <path id="Path_720" data-name="Path 720" d="M-2540.764-1901.625q-.166.823-.39,1.622c-.064.23-.131.458-.2.684-.064.208-.132.414-.2.618a23.11,23.11,0,0,1-21.848,15.577,23.111,23.111,0,0,1-21.656-15.04c-.06-.159-.117-.319-.173-.48s-.115-.337-.17-.506a22.894,22.894,0,0,1-.644-2.476,24.8,24.8,0,0,1,3.883-3.818c.114-.091.227-.179.342-.267s.237-.179.356-.267a30.417,30.417,0,0,1,18.061-5.722,30.493,30.493,0,0,1,17.7,5.459c.116.083.232.166.346.251s.226.167.336.251A24.921,24.921,0,0,1-2540.764-1901.625Z" transform="translate(-15.978 -127.37)" fill="#469ed0"/>
                             <g id="Group_49" data-name="Group 49" transform="translate(-2602.479 -2034.69)">
@@ -111,6 +111,8 @@
             > .icon{
                 display: flex;
                 align-items: center;
+                padding-right: .2em;
+                display: block;
             }
             > .menuItems{
                 position: absolute;

@@ -50,7 +50,7 @@
                 {{ form.threetekst }} <br>
                 &nbsp;
             </p>
-            <a class="signupButton" href="">
+            <a class="signupButton" target="_blanc" href="https://medlem.dds.dk/member/signup/5412">
                 Bliv Spejder
             </a>
         </div>
