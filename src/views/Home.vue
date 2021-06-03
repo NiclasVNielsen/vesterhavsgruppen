@@ -103,7 +103,7 @@
                 </div>
             </div>
             <div class="col4">
-                <img src="../assets/images/frontimage.jpg" alt="ehhhm IMG">
+                <img src="../assets/images/flag.jpg" alt="Spejder Flag">
             </div>
         </section>
     </section>
