@@ -37,7 +37,7 @@
           <br>
           kontakt@vesterhavsgruppen.dk
         </p>
-        <h6>
+        <h6 class="adminTitle">
           Admin Panel
         </h6>
         <p>
@@ -138,6 +138,10 @@
         left: calc(50% + (100% / 26));
       }
     }
+  }
+
+  .adminTitle{
+    margin-top: .5em;
   }
 
   a{
