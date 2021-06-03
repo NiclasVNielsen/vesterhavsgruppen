@@ -2,7 +2,7 @@
     <topping/>
     <div class="signuppage">
         <form @submit.prevent="update">
-            <h3>
+            <h3 style="font-size: 18px">
                 Tilmelding
             </h3>
             <div>

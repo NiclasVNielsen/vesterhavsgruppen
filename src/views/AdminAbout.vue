@@ -2,7 +2,7 @@
     <topping/>
     <div class="aboutpage">
         <form @submit.prevent="update">
-            <h3>
+            <h3 style="font-size: 18px">
                 Om os
             </h3>
             <div>

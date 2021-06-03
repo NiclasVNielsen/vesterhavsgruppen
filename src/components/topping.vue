@@ -67,6 +67,7 @@ export default {
         font-size: .9em;
         position: absolute;
         right: 5em;
+        cursor: pointer;
       }
     }
   }
