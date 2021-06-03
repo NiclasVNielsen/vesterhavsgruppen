@@ -102,6 +102,9 @@ export default {
         width: 100%;
         margin-bottom: 50px;
         height: 6em;
+        &:last-of-type{
+            margin-bottom: 20px;
+        }
     }
     button{
       display: flex;

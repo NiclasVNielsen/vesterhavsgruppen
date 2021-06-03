@@ -1,24 +1,26 @@
 <template>
     <topping/>
     <div class="afdelinger">
-        <h3>
-            Afdelinger
-        </h3>
         <form @submit.prevent="update">
             <div>
-                Micro
+                <h3 class="title">
+                    Afdelinger
+                </h3>
+                <h3>
+                    Micro
+                </h3>
                 <label for="oneklasse">
                     Klasse
                 </label>
-                <textarea v-model="form.oneklasse" type="text" required />
+                <input v-model="form.oneklasse" type="text" required />
                 <label for="onedag">
                     Dag
                 </label>
-                <textarea v-model="form.onedag" type="text" required />
+                <input v-model="form.onedag" type="text" required />
                 <label for="onetid">
                     Tid
                 </label>
-                <textarea v-model="form.onetid" type="text" required />
+                <input v-model="form.onetid" type="text" required />
                 <label for="one">
                     Text
                 </label>
@@ -26,26 +28,28 @@
                 <label for="oneleder">
                     Leder
                 </label>
-                <textarea v-model="form.oneleder" type="text" required />
+                <input v-model="form.oneleder" type="text" required />
                 <label for="oneemail">
                     Email
                 </label>
-                <textarea v-model="form.oneemail" type="text" required />
+                <input v-model="form.oneemail" type="text" required />
             </div>
             <div>
-                Mini
+                <h3>
+                    Mini
+                </h3>
                 <label for="twoklasse">
                     Klasse
                 </label>
-                <textarea v-model="form.twoklasse" type="text" required />
+                <input v-model="form.twoklasse" type="text" required />
                 <label for="twodag">
                     Dag
                 </label>
-                <textarea v-model="form.twodag" type="text" required />
+                <input v-model="form.twodag" type="text" required />
                 <label for="twotid">
                     Tid
                 </label>
-                <textarea v-model="form.twotid" type="text" required />
+                <input v-model="form.twotid" type="text" required />
                 <label for="two">
                     Text
                 </label>
@@ -53,26 +57,28 @@
                 <label for="twoleder">
                     Leder
                 </label>
-                <textarea v-model="form.twoleder" type="text" required />
+                <input v-model="form.twoleder" type="text" required />
                 <label for="twoemail">
                     Email
                 </label>
-                <textarea v-model="form.twoemail" type="text" required />
+                <input v-model="form.twoemail" type="text" required />
             </div>
             <div>
-                Junior
+                <h3>
+                    Junior
+                </h3>
                 <label for="threeklasse">
                     Klasse
                 </label>
-                <textarea v-model="form.threeklasse" type="text" required />
+                <input v-model="form.threeklasse" type="text" required />
                 <label for="threedag">
                     Dag
                 </label>
-                <textarea v-model="form.threedag" type="text" required />
+                <input v-model="form.threedag" type="text" required />
                 <label for="threetid">
                     Tid
                 </label>
-                <textarea v-model="form.threetid" type="text" required />
+                <input v-model="form.threetid" type="text" required />
                 <label for="three">
                     Text
                 </label>
@@ -80,26 +86,28 @@
                 <label for="threeleder">
                     Leder
                 </label>
-                <textarea v-model="form.threeleder" type="text" required />
+                <input v-model="form.threeleder" type="text" required />
                 <label for="threeemail">
                     Email
                 </label>
-                <textarea v-model="form.threeemail" type="text" required />
+                <input v-model="form.threeemail" type="text" required />
             </div>
             <div>
-                Trop
+                <h3>
+                    Trop
+                </h3>
                 <label for="fourklasse">
                     Klasse
                 </label>
-                <textarea v-model="form.fourklasse" type="text" required />
+                <input v-model="form.fourklasse" type="text" required />
                 <label for="fourdag">
                     Dag
                 </label>
-                <textarea v-model="form.fourdag" type="text" required />
+                <input v-model="form.fourdag" type="text" required />
                 <label for="fourtid">
                     Tid
                 </label>
-                <textarea v-model="form.fourtid" type="text" required />
+                <input v-model="form.fourtid" type="text" required />
                 <label for="four">
                     Text
                 </label>
@@ -107,26 +115,28 @@
                 <label for="fourleder">
                     Leder
                 </label>
-                <textarea v-model="form.fourleder" type="text" required />
+                <input v-model="form.fourleder" type="text" required />
                 <label for="fouremail">
                     Email
                 </label>
-                <textarea v-model="form.fouremail" type="text" required />
+                <input v-model="form.fouremail" type="text" required />
             </div>
             <div>
-                Klan
+                <h3>
+                    Klan
+                </h3>
                 <label for="fiveklasse">
                     Klasse
                 </label>
-                <textarea v-model="form.fiveklasse" type="text" required />
+                <input v-model="form.fiveklasse" type="text" required />
                 <label for="fivedag">
                     Dag
                 </label>
-                <textarea v-model="form.fivedag" type="text" required />
+                <input v-model="form.fivedag" type="text" required />
                 <label for="fivetid">
                     Tid
                 </label>
-                <textarea v-model="form.fivetid" type="text" required />
+                <input v-model="form.fivetid" type="text" required />
                 <label for="five">
                     Text
                 </label>
@@ -134,11 +144,11 @@
                 <label for="fiveleder">
                     Leder
                 </label>
-                <textarea v-model="form.fiveleder" type="text" required />
+                <input v-model="form.fiveleder" type="text" required />
                 <label for="fiveemail">
                     Email
                 </label>
-                <textarea v-model="form.fiveemail" type="text" required />
+                <input v-model="form.fiveemail" type="text" required />
             </div>
             <button type="submit">
                 Update
@@ -224,3 +234,55 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    form{
+        width: 1000px;
+        margin: 50px auto;
+    }
+
+    h3{
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-size: 32px;
+        &.title{
+            font-size: 18px;
+        }
+        &:nth-of-type(2){
+            margin-top: 20px;
+        }
+    }
+
+    input, textarea{
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    input{
+        width: 15em;
+    }
+
+    textarea{
+        resize: vertical;
+        width: 100%;
+        margin-bottom: 50px;
+        height: 8em;
+        &:last-of-type{
+            margin-bottom: 20px;
+        }
+    }
+    button{
+      display: flex;
+      justify-content: right;
+      width: 120px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--prim);
+      color: var(--whiteshade1);
+      border-radius: 10px;
+      border: none;
+      font-size: .9em;
+    }
+</style>
