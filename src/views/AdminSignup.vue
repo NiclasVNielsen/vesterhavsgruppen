@@ -1,62 +1,46 @@
 <template>
     <topping/>
     <div class="signuppage">
-        <h3>
-            Tilmelding
-        </h3>
         <form @submit.prevent="update">
+            <h3>
+                Tilmelding
+            </h3>
             <div>
-                <label for="onetitle">
-                    Titel 1
-                </label>
-                <textarea v-model="form.onetitle" type="text" required />
-                <label for="onetekst">
-                    Tekst 1
-                </label>
-                <textarea v-model="form.onetekst" type="text" required />
                 <label for="onestaff">
                     Leder 1
                 </label>
-                <textarea v-model="form.onestaff" type="text" required />
+                <input v-model="form.onestaff" type="text" required />
                 <label for="onetlf">
                     Leder 1 tlf
                 </label>
-                <textarea v-model="form.onetlf" type="text" required />
+                <input v-model="form.onetlf" type="text" required />
                 <label for="twostaff">
                     Leder 2
                 </label>
-                <textarea v-model="form.twostaff" type="text" required />
+                <input v-model="form.twostaff" type="text" required />
                 <label for="twotlf">
                     Leder 2 tlf
                 </label>
-                <textarea v-model="form.twotlf" type="text" required />
+                <input v-model="form.twotlf" type="text" required />
                 <label for="twotlf">
                     Kontakt email
                 </label>
-                <textarea v-model="form.email" type="text" required />
+                <input v-model="form.email" type="text" required />
             </div>
             <div>
-                <label for="twotitle">
-                    Titel 2
-                </label>
-                <textarea v-model="form.twotitle" type="text" required />
-                <label for="twotekst">
-                    Tekst 2
-                </label>
+                <input v-model="form.onetitle" type="text" required />
+                <textarea v-model="form.onetekst" type="text" required />
+            </div>
+            <div>
+                <input v-model="form.twotitle" type="text" required />
                 <textarea v-model="form.twotekst" type="text" required />
             </div>
             <div>
-                <label for="threetitle">
-                    Titel 3
-                </label>
-                <textarea v-model="form.threetitle" type="text" required />
-                <label for="threetekst">
-                    Tekst 3
-                </label>
+                <input v-model="form.threetitle" type="text" required />
                 <textarea v-model="form.threetekst" type="text" required />
             </div>
             <button type="submit">
-                Update
+                Updater
             </button>
         </form>
     </div>
@@ -118,3 +102,62 @@ export default {
     }
 }
 </script>
+<style lang="scss" scoped>
+    form{
+        width: 1000px;
+        margin: 50px auto;
+    }
+
+    h3{
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-size: 32px;
+        &.title{
+            font-size: 18px;
+        }
+        &:nth-of-type(2){
+            margin-top: 20px;
+        }
+    }
+
+    div{
+        margin-bottom: 50px;
+    }
+
+    label{
+        display: block;
+    }
+
+    input, textarea{
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    input{
+        width: 30em;
+    }
+
+    textarea{
+        resize: vertical;
+        width: 100%;
+        margin-bottom: 50px;
+        height: 9em;
+        &:last-of-type{
+            margin-bottom: 20px;
+        }
+    }
+    button{
+      display: flex;
+      justify-content: right;
+      width: 120px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--prim);
+      color: var(--whiteshade1);
+      border-radius: 10px;
+      border: none;
+      font-size: .9em;
+    }
+</style>
