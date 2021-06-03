@@ -37,6 +37,12 @@
           <br>
           kontakt@vesterhavsgruppen.dk
         </p>
+        <h6>
+          Admin Panel
+        </h6>
+        <p>
+          <router-link to='/admin/login'>Admin Panel Login</router-link>
+        </p>
       </div>
       <div class="col3 mother">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 463 136">
@@ -132,6 +138,11 @@
         left: calc(50% + (100% / 26));
       }
     }
+  }
+
+  a{
+    color: var(--whiteshade1);
+    text-decoration: none;
   }
 
   @media screen and (max-width: 800px) {
